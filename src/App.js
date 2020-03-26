@@ -15,7 +15,7 @@ function App () {
       <div className="preloader-it">
         <div className="la-anim-1"></div>
       </div>
-      <div className="wrapper theme-1-active pimary-color-green">
+      <div className="wrapper theme-1-active box-layout pimary-color-green">
         <Navbar />
         <div className="page-wrapper">
           <div className="container-fluid">

@@ -8,16 +8,23 @@ export class Navbar extends Component {
   componentDidMount () {
     const $wrapper = $(".wrapper");
     $(document).on('click', '#toggle_nav_btn,#open_right_sidebar,#setting_panel_btn', function (e) {
-      console.log('click', $(".dropdown.open > .dropdown-toggle"))
       $(".dropdown.open > .dropdown-toggle").dropdown("toggle");
-      // return false;
+      return false;
     });
     $(document).on('click', '#toggle_nav_btn', function (e) {
-      console.log('click2', $wrapper.removeClass('open-right-sidebar open-setting-panel'))
       $wrapper.removeClass('open-right-sidebar open-setting-panel').toggleClass('slide-nav-toggle');
-      // return false;
+      return false;
+    });
+    $(document).on('click', 'body', function (e) {
+      console.log('clicked 5')
+      if ($(e.target).closest('.fixed-sidebar-right,.setting-panel').length > 0) {
+        return;
+      }
+      $('body > .wrapper').removeClass('open-right-sidebar open-setting-panel');
+      return;
     });
   }
+
   render () {
     return (
       <React.Fragment>
