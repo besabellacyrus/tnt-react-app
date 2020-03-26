@@ -1,12 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import Products from "./routes/Products";
+import FeaturedProducts from './routes/FeaturedProducts';
+import SpecialDeals from "./routes/SpecialDeals";
+import Dashboard from "./routes/Dashboard";
+
+// const Products = lazy(() => import('./routes/Product'));
 
 function App () {
   return (
-    <div className="App">
-      <h1 className="heading-style"> Heading Style</h1>
-    </div>
+    <Router>
+      <div className="preloader-it">
+        <div className="la-anim-1"></div>
+      </div>
+      <div className="wrapper theme-1-active pimary-color-green">
+        <Navbar />
+        <div className="page-wrapper">
+          <div className="container-fluid">
+            <Route path="/" exact strict component={Dashboard} />
+            <Route path="/products" component={Products} />
+            <Route path="/featured-products" component={FeaturedProducts} />
+            <Route path="/special-deals" component={SpecialDeals} />
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 

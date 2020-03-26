@@ -1,0 +1,9 @@
+@import 'vendors/bower_components/morris.js/morris.css';
+@import 'vendors/bower_components/datatables/media/css/jquery.dataTables.min.css';
+@import 'vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css';
+@import 'vendors/bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css';
+@import 'styles/fixed-width-light/css/style.css';
+
+.brand-img {
+  height: 2.2rem;
+}
