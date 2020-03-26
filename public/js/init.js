@@ -11,13 +11,11 @@
  ** ***************************************/
 
 "use strict";
-
 /*****Ready function start*****/
 $(document).ready(function () {
 	philbert();
 	var $preloader = $(".preloader-it > .la-anim-1");
 	$preloader.addClass('la-animate');
-	console.log('init loaded');
 });
 /*****Ready function end*****/
 
@@ -138,29 +136,24 @@ var philbert = function () {
 
 	/*Sidebar Navigation*/
 	// $(document).on('click', '#toggle_nav_btn,#open_right_sidebar,#setting_panel_btn', function (e) {
-	// 	console.log('click', $(".dropdown.open > .dropdown-toggle"))
 	// 	$(".dropdown.open > .dropdown-toggle").dropdown("toggle");
 	// 	return false;
 	// });
 	// $(document).on('click', '#toggle_nav_btn', function (e) {
-	// 	console.log('click2', $wrapper.removeClass('open-right-sidebar open-setting-panel'))
 	// 	$wrapper.removeClass('open-right-sidebar open-setting-panel').toggleClass('slide-nav-toggle');
 	// 	return false;
 	// });
 
 	$(document).on('click', '#open_right_sidebar', function (e) {
-		console.log('clicked 3')
 		$wrapper.toggleClass('open-right-sidebar').removeClass('open-setting-panel');
 		return false;
 	});
 
 	$(document).on('click', '.product-carousel .owl-nav', function (e) {
-		console.log('clicked 4')
 		return false;
 	});
 
 	// $(document).on('click', 'body', function (e) {
-	// 	console.log('clicked 5')
 	// 	if ($(e.target).closest('.fixed-sidebar-right,.setting-panel').length > 0) {
 	// 		return;
 	// 	}
@@ -169,28 +162,21 @@ var philbert = function () {
 	// });
 
 	$(document).on('show.bs.dropdown', '.nav.navbar-right.top-nav .dropdown', function (e) {
-		console.log('clicked 6')
-
 		$wrapper.removeClass('open-right-sidebar open-setting-panel');
 		return;
 	});
 
 	$(document).on('click', '#setting_panel_btn', function (e) {
-		console.log('clicked 7')
-
 		$wrapper.toggleClass('open-setting-panel').removeClass('open-right-sidebar');
 		return false;
 	});
 	$(document).on('click', '#toggle_mobile_nav', function (e) {
-		console.log('clicked 8')
 		$wrapper.toggleClass('mobile-nav-open').removeClass('open-right-sidebar');
 		return;
 	});
 
 
 	$(document).on("mouseenter mouseleave", ".wrapper > .fixed-sidebar-left", function (e) {
-		console.log('clicked 9')
-
 		if (e.type == "mouseenter") {
 			$wrapper.addClass("sidebar-hover");
 		}
@@ -201,8 +187,6 @@ var philbert = function () {
 	});
 
 	$(document).on("mouseenter mouseleave", ".wrapper > .setting-panel", function (e) {
-		console.log('clicked 10')
-
 		if (e.type == "mouseenter") {
 			$wrapper.addClass("no-transition");
 		}

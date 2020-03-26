@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
 import Navbar from './components/Navbar';
 import Products from "./routes/Products";
 import FeaturedProducts from './routes/FeaturedProducts';
@@ -15,16 +14,16 @@ function App () {
       <div className="preloader-it">
         <div className="la-anim-1"></div>
       </div>
-      <div className="wrapper theme-1-active box-layout pimary-color-green">
+      <div className="wrapper theme-1-active pimary-color-green">
         <Navbar />
-        <div className="page-wrapper">
+        {/* <div className="page-wrapper">
           <div className="container-fluid">
             <Route path="/" exact strict component={Dashboard} />
             <Route path="/products" component={Products} />
             <Route path="/featured-products" component={FeaturedProducts} />
             <Route path="/special-deals" component={SpecialDeals} />
           </div>
-        </div>
+        </div> */}
       </div>
     </Router>
   );

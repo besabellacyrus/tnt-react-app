@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import LeftSidebar from '../components/LeftSidebar'
+import LeftSidebar from "./LeftSidebar";
 import { Link } from 'react-router-dom'
 import $ from 'jquery';
 
@@ -32,15 +32,15 @@ export class Navbar extends Component {
           <div className="mobile-only-brand pull-left">
             <div className="nav-header pull-left">
               <div className="logo-wrap">
-                <Link to="/">
-                  <img className="brand-img" src="/img/simplifycool-icon.svg" alt="brand" />
+                <a href="index.html">
+                  <img className="brand-img" src="img/simplifycool-icon.svg" alt="brand" />
                   <span className="brand-text">simplify.cool</span>
-                </Link>
+                </a>
               </div>
             </div>
-            <a id="toggle_nav_btn" className="toggle-left-nav-btn inline-block ml-20 pull-left" ><i className="zmdi zmdi-menu"></i></a>
-            <a href="" id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" className="mobile-only-view"><i className="zmdi zmdi-search"></i></a>
-            <a href="" id="toggle_mobile_nav" className="mobile-only-view"  ><i className="zmdi zmdi-more"></i></a>
+            <a id="toggle_nav_btn" className="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i className="zmdi zmdi-menu"></i></a>
+            <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" className="mobile-only-view" href="javascript:void(0);"><i className="zmdi zmdi-search"></i></a>
+            <a id="toggle_mobile_nav" className="mobile-only-view" href="javascript:void(0);"><i className="zmdi zmdi-more"></i></a>
             <form id="search_form" role="search" className="top-nav-search collapse pull-left">
               <div className="input-group">
                 <input type="text" name="example-input1-group2" className="form-control" placeholder="Search" />
@@ -50,72 +50,73 @@ export class Navbar extends Component {
               </div>
             </form>
           </div>
+          {/* Mobile nav */}
           <div id="mobile_only_nav" className="mobile-only-nav pull-right">
-            <ul className="nav navbar-right top-nav pull-right">
+            <ul class="nav navbar-right top-nav pull-right">
               <li>
-                <a id="open_right_sidebar" href="#"><i className="zmdi zmdi-settings top-nav-icon"></i></a>
+                <a id="open_right_sidebar" href="#"><i class="zmdi zmdi-settings top-nav-icon"></i></a>
               </li>
-              <li className="dropdown app-drp">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="zmdi zmdi-apps top-nav-icon"></i></a>
-                <ul className="dropdown-menu app-dropdown" data-dropdown-in="slideInRight" data-dropdown-out="flipOutX">
+              <li class="dropdown app-drp">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-apps top-nav-icon"></i></a>
+                <ul class="dropdown-menu app-dropdown" data-dropdown-in="slideInRight" data-dropdown-out="flipOutX">
                   <li>
-                    <div className="app-nicescroll-bar">
-                      <ul className="app-icon-wrap pa-10">
+                    <div class="app-nicescroll-bar">
+                      <ul class="app-icon-wrap pa-10">
                         <li>
-                          <a href="weather.html" className="connection-item">
-                            <i className="zmdi zmdi-cloud-outline txt-info"></i>
-                            <span className="block">weather</span>
+                          <a href="weather.html" class="connection-item">
+                            <i class="zmdi zmdi-cloud-outline txt-info"></i>
+                            <span class="block">weather</span>
                           </a>
                         </li>
                         <li>
-                          <a href="inbox.html" className="connection-item">
-                            <i className="zmdi zmdi-email-open txt-success"></i>
-                            <span className="block">e-mail</span>
+                          <a href="inbox.html" class="connection-item">
+                            <i class="zmdi zmdi-email-open txt-success"></i>
+                            <span class="block">e-mail</span>
                           </a>
                         </li>
                         <li>
-                          <a href="calendar.html" className="connection-item">
-                            <i className="zmdi zmdi-calendar-check txt-primary"></i>
-                            <span className="block">calendar</span>
+                          <a href="calendar.html" class="connection-item">
+                            <i class="zmdi zmdi-calendar-check txt-primary"></i>
+                            <span class="block">calendar</span>
                           </a>
                         </li>
                         <li>
-                          <a href="vector-map.html" className="connection-item">
-                            <i className="zmdi zmdi-map txt-danger"></i>
-                            <span className="block">map</span>
+                          <a href="vector-map.html" class="connection-item">
+                            <i class="zmdi zmdi-map txt-danger"></i>
+                            <span class="block">map</span>
                           </a>
                         </li>
                         <li>
-                          <a href="chats.html" className="connection-item">
-                            <i className="zmdi zmdi-comment-outline txt-warning"></i>
-                            <span className="block">chat</span>
+                          <a href="chats.html" class="connection-item">
+                            <i class="zmdi zmdi-comment-outline txt-warning"></i>
+                            <span class="block">chat</span>
                           </a>
                         </li>
                         <li>
-                          <a href="contact-card.html" className="connection-item">
-                            <i className="zmdi zmdi-assignment-account"></i>
-                            <span className="block">contact</span>
+                          <a href="contact-card.html" class="connection-item">
+                            <i class="zmdi zmdi-assignment-account"></i>
+                            <span class="block">contact</span>
                           </a>
                         </li>
                       </ul>
                     </div>
                   </li>
                   <li>
-                    <div className="app-box-bottom-wrap">
-                      <hr className="light-grey-hr ma-0" />
-                      <a className="block text-center read-all" href="javascript:void(0)"> more </a>
+                    <div class="app-box-bottom-wrap">
+                      <hr class="light-grey-hr ma-0" />
+                      <a class="block text-center read-all" href="javascript:void(0)"> more </a>
                     </div>
                   </li>
                 </ul>
               </li>
-              <li className="dropdown full-width-drp">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="zmdi zmdi-more-vert top-nav-icon"></i></a>
-                <ul className="dropdown-menu mega-menu pa-0" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                  <li className="product-nicescroll-bar row">
-                    <ul className="pa-20">
-                      <li className="col-md-3 col-xs-6 col-menu-list">
-                        <a href="javascript:void(0)"><div className="pull-left"><i className="zmdi zmdi-landscape mr-20"></i><span className="right-nav-text">Dashboard</span></div><div className="pull-right"><i className="zmdi zmdi-caret-down"></i></div><div className="clearfix"></div></a>
-                        <hr className="light-grey-hr ma-0" />
+              <li class="dropdown full-width-drp">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-more-vert top-nav-icon"></i></a>
+                <ul class="dropdown-menu mega-menu pa-0" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                  <li class="product-nicescroll-bar row">
+                    <ul class="pa-20">
+                      <li class="col-md-3 col-xs-6 col-menu-list">
+                        <a href="javascript:void(0);"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+                        <hr class="light-grey-hr ma-0" />
                         <ul>
                           <li>
                             <a href="index.html">Analytical</a>
@@ -140,16 +141,16 @@ export class Navbar extends Component {
                           </li>
                         </ul>
                       </li>
-                      <li className="col-md-3 col-xs-6 col-menu-list">
-                        <a href="tru;">
-                          <div className="pull-left">
-                            <i className="zmdi zmdi-shopping-basket mr-20"></i><span className="right-nav-text">E-Commerce</span>
+                      <li class="col-md-3 col-xs-6 col-menu-list">
+                        <a href="javascript:void(0);">
+                          <div class="pull-left">
+                            <i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">E-Commerce</span>
                           </div>
-                          <div className="pull-right"><span className="label label-success">hot</span>
+                          <div class="pull-right"><span class="label label-success">hot</span>
                           </div>
-                          <div className="clearfix"></div>
+                          <div class="clearfix"></div>
                         </a>
-                        <hr className="light-grey-hr ma-0" />
+                        <hr class="light-grey-hr ma-0" />
                         <ul>
                           <li>
                             <a href="e-commerce.html">Dashboard</a>
@@ -174,169 +175,169 @@ export class Navbar extends Component {
                           </li>
                         </ul>
                       </li>
-                      <li className="col-md-6 col-xs-12 preview-carousel">
-                        <a href="tru;"><div className="pull-left"><span className="right-nav-text">latest products</span></div><div className="clearfix"></div></a>
-                        <hr className="light-grey-hr ma-0" />
-                        <div className="product-carousel owl-carousel owl-theme text-center">
-                          <Link to="/">
-                            <img src="dist/img/chair.jpg" alt="chair" />
+                      <li class="col-md-6 col-xs-12 preview-carousel">
+                        <a href="javascript:void(0);"><div class="pull-left"><span class="right-nav-text">latest products</span></div><div class="clearfix"></div></a>
+                        <hr class="light-grey-hr ma-0" />
+                        <div class="product-carousel owl-carousel owl-theme text-center">
+                          <a href="#">
+                            <img src="img/chair.jpg" alt="chair" />
                             <span>Circle chair</span>
-                          </Link>
-                          <Link to="/">
-                            <img src="dist/img/chair.jpg" alt="chair" />
+                          </a>
+                          <a href="#">
+                            <img src="img/chair2.jpg" alt="chair" />
                             <span>square chair</span>
-                          </Link>
-                          <Link to="/">
-                            <img src="dist/img/chair.jpg" alt="chair" />
+                          </a>
+                          <a href="#">
+                            <img src="img/chair3.jpg" alt="chair" />
                             <span>semi circle chair</span>
-                          </Link>
-                          <Link to="/">
-                            <img src="dist/img/chair.jpg" alt="chair" />
+                          </a>
+                          <a href="#">
+                            <img src="img/chair4.jpg" alt="chair" />
                             <span>wooden chair</span>
-                          </Link>
-                          <Link to="/">
-                            <img src="dist/img/chair.jpg" alt="chair" />
+                          </a>
+                          <a href="#">
+                            <img src="img/chair2.jpg" alt="chair" />
                             <span>square chair</span>
-                          </Link>
+                          </a>
                         </div>
                       </li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li className="dropdown alert-drp">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown"><i className="zmdi zmdi-notifications top-nav-icon"></i><span className="top-nav-icon-badge">5</span></a>
-                <ul className="dropdown-menu alert-dropdown" data-dropdown-in="bounceIn" data-dropdown-out="bounceOut">
+              <li class="dropdown alert-drp">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="zmdi zmdi-notifications top-nav-icon"></i><span class="top-nav-icon-badge">5</span></a>
+                <ul class="dropdown-menu alert-dropdown" data-dropdown-in="bounceIn" data-dropdown-out="bounceOut">
                   <li>
-                    <div className="notification-box-head-wrap">
-                      <span className="notification-box-head pull-left inline-block">notifications</span>
-                      <a className="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
-                      <div className="clearfix"></div>
-                      <hr className="light-grey-hr ma-0" />
+                    <div class="notification-box-head-wrap">
+                      <span class="notification-box-head pull-left inline-block">notifications</span>
+                      <a class="txt-danger pull-right clear-notifications inline-block" href="javascript:void(0)"> clear all </a>
+                      <div class="clearfix"></div>
+                      <hr class="light-grey-hr ma-0" />
                     </div>
                   </li>
                   <li>
-                    <div className="streamline message-nicescroll-bar">
-                      <div className="sl-item">
+                    <div class="streamline message-nicescroll-bar">
+                      <div class="sl-item">
                         <a href="javascript:void(0)">
-                          <div className="icon bg-green">
-                            <i className="zmdi zmdi-flag"></i>
+                          <div class="icon bg-green">
+                            <i class="zmdi zmdi-flag"></i>
                           </div>
-                          <div className="sl-content">
-                            <span className="inline-block capitalize-font  pull-left truncate head-notifications">
+                          <div class="sl-content">
+                            <span class="inline-block capitalize-font  pull-left truncate head-notifications">
                               New subscription created</span>
-                            <span className="inline-block font-11  pull-right notifications-time">2pm</span>
-                            <div className="clearfix"></div>
-                            <p className="truncate">Your customer subscribed for the basic plan. The customer will pay $25 per month.</p>
+                            <span class="inline-block font-11  pull-right notifications-time">2pm</span>
+                            <div class="clearfix"></div>
+                            <p class="truncate">Your customer subscribed for the basic plan. The customer will pay $25 per month.</p>
                           </div>
                         </a>
                       </div>
-                      <hr className="light-grey-hr ma-0" />
-                      <div className="sl-item">
+                      <hr class="light-grey-hr ma-0" />
+                      <div class="sl-item">
                         <a href="javascript:void(0)">
-                          <div className="icon bg-yellow">
-                            <i className="zmdi zmdi-trending-down"></i>
+                          <div class="icon bg-yellow">
+                            <i class="zmdi zmdi-trending-down"></i>
                           </div>
-                          <div className="sl-content">
-                            <span className="inline-block capitalize-font  pull-left truncate head-notifications txt-warning">Server #2 not responding</span>
-                            <span className="inline-block font-11 pull-right notifications-time">1pm</span>
-                            <div className="clearfix"></div>
-                            <p className="truncate">Some technical error occurred needs to be resolved.</p>
+                          <div class="sl-content">
+                            <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-warning">Server #2 not responding</span>
+                            <span class="inline-block font-11 pull-right notifications-time">1pm</span>
+                            <div class="clearfix"></div>
+                            <p class="truncate">Some technical error occurred needs to be resolved.</p>
                           </div>
                         </a>
                       </div>
-                      <hr className="light-grey-hr ma-0" />
-                      <div className="sl-item">
+                      <hr class="light-grey-hr ma-0" />
+                      <div class="sl-item">
                         <a href="javascript:void(0)">
-                          <div className="icon bg-blue">
-                            <i className="zmdi zmdi-email"></i>
+                          <div class="icon bg-blue">
+                            <i class="zmdi zmdi-email"></i>
                           </div>
-                          <div className="sl-content">
-                            <span className="inline-block capitalize-font  pull-left truncate head-notifications">2 new messages</span>
-                            <span className="inline-block font-11  pull-right notifications-time">4pm</span>
-                            <div className="clearfix"></div>
-                            <p className="truncate"> The last payment for your G Suite Basic subscription failed.</p>
+                          <div class="sl-content">
+                            <span class="inline-block capitalize-font  pull-left truncate head-notifications">2 new messages</span>
+                            <span class="inline-block font-11  pull-right notifications-time">4pm</span>
+                            <div class="clearfix"></div>
+                            <p class="truncate"> The last payment for your G Suite Basic subscription failed.</p>
                           </div>
                         </a>
                       </div>
-                      <hr className="light-grey-hr ma-0" />
-                      <div className="sl-item">
+                      <hr class="light-grey-hr ma-0" />
+                      <div class="sl-item">
                         <a href="javascript:void(0)">
-                          <div className="sl-avatar">
-                            <img className="img-responsive" src="dist/img/avatar.jpg" alt="avatar" />
+                          <div class="sl-avatar">
+                            <img class="img-responsive" src="img/avatar.jpg" alt="avatar" />
                           </div>
-                          <div className="sl-content">
-                            <span className="inline-block capitalize-font  pull-left truncate head-notifications">Sandy Doe</span>
-                            <span className="inline-block font-11  pull-right notifications-time">1pm</span>
-                            <div className="clearfix"></div>
-                            <p className="truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                          <div class="sl-content">
+                            <span class="inline-block capitalize-font  pull-left truncate head-notifications">Sandy Doe</span>
+                            <span class="inline-block font-11  pull-right notifications-time">1pm</span>
+                            <div class="clearfix"></div>
+                            <p class="truncate">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                           </div>
                         </a>
                       </div>
-                      <hr className="light-grey-hr ma-0" />
-                      <div className="sl-item">
+                      <hr class="light-grey-hr ma-0" />
+                      <div class="sl-item">
                         <a href="javascript:void(0)">
-                          <div className="icon bg-red">
-                            <i className="zmdi zmdi-storage"></i>
+                          <div class="icon bg-red">
+                            <i class="zmdi zmdi-storage"></i>
                           </div>
-                          <div className="sl-content">
-                            <span className="inline-block capitalize-font  pull-left truncate head-notifications txt-danger">99% server space occupied.</span>
-                            <span className="inline-block font-11  pull-right notifications-time">1pm</span>
-                            <div className="clearfix"></div>
-                            <p className="truncate">consectetur, adipisci velit.</p>
+                          <div class="sl-content">
+                            <span class="inline-block capitalize-font  pull-left truncate head-notifications txt-danger">99% server space occupied.</span>
+                            <span class="inline-block font-11  pull-right notifications-time">1pm</span>
+                            <div class="clearfix"></div>
+                            <p class="truncate">consectetur, adipisci velit.</p>
                           </div>
                         </a>
                       </div>
                     </div>
                   </li>
                   <li>
-                    <div className="notification-box-bottom-wrap">
-                      <hr className="light-grey-hr ma-0" />
-                      <a className="block text-center read-all" href="javascript:void(0)"> read all </a>
-                      <div className="clearfix"></div>
+                    <div class="notification-box-bottom-wrap">
+                      <hr class="light-grey-hr ma-0" />
+                      <a class="block text-center read-all" href="javascript:void(0)"> read all </a>
+                      <div class="clearfix"></div>
                     </div>
                   </li>
                 </ul>
               </li>
-              <li className="dropdown auth-drp">
-                <a href="#" className="dropdown-toggle pr-0" data-toggle="dropdown"><img src="img/user1.png" alt="user_auth" className="user-auth-img img-circle" /><span className="user-online-status"></span></a>
-                <ul className="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+              <li class="dropdown auth-drp">
+                <a href="#" class="dropdown-toggle pr-0" data-toggle="dropdown"><img src="img/user1.png" alt="user_auth" class="user-auth-img img-circle" /><span class="user-online-status"></span></a>
+                <ul class="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                   <li>
-                    <a href="profile.html"><i className="zmdi zmdi-account"></i><span>Profile</span></a>
+                    <a href="profile.html"><i class="zmdi zmdi-account"></i><span>Profile</span></a>
                   </li>
                   <li>
-                    <a href="#"><i className="zmdi zmdi-card"></i><span>my balance</span></a>
+                    <a href="#"><i class="zmdi zmdi-card"></i><span>my balance</span></a>
                   </li>
                   <li>
-                    <a href="inbox.html"><i className="zmdi zmdi-email"></i><span>Inbox</span></a>
+                    <a href="inbox.html"><i class="zmdi zmdi-email"></i><span>Inbox</span></a>
                   </li>
                   <li>
-                    <a href="#"><i className="zmdi zmdi-settings"></i><span>Settings</span></a>
+                    <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings</span></a>
                   </li>
-                  <li className="divider"></li>
-                  <li className="sub-menu show-on-hover">
-                    <a href="#" className="dropdown-toggle pr-0 level-2-drp"><i className="zmdi zmdi-check text-success"></i> available</a>
-                    <ul className="dropdown-menu open-left-side">
+                  <li class="divider"></li>
+                  <li class="sub-menu show-on-hover">
+                    <a href="#" class="dropdown-toggle pr-0 level-2-drp"><i class="zmdi zmdi-check text-success"></i> available</a>
+                    <ul class="dropdown-menu open-left-side">
                       <li>
-                        <a href="#"><i className="zmdi zmdi-check text-success"></i><span>available</span></a>
+                        <a href="#"><i class="zmdi zmdi-check text-success"></i><span>available</span></a>
                       </li>
                       <li>
-                        <a href="#"><i className="zmdi zmdi-circle-o text-warning"></i><span>busy</span></a>
+                        <a href="#"><i class="zmdi zmdi-circle-o text-warning"></i><span>busy</span></a>
                       </li>
                       <li>
-                        <a href="#"><i className="zmdi zmdi-minus-circle-outline text-danger"></i><span>offline</span></a>
+                        <a href="#"><i class="zmdi zmdi-minus-circle-outline text-danger"></i><span>offline</span></a>
                       </li>
                     </ul>
                   </li>
-                  <li className="divider"></li>
+                  <li class="divider"></li>
                   <li>
-                    <a href="#"><i className="zmdi zmdi-power"></i><span>Log Out</span></a>
+                    <a href="#"><i class="zmdi zmdi-power"></i><span>Log Out</span></a>
                   </li>
                 </ul>
               </li>
             </ul>
           </div>
-
+          {/* /Mobile nav */}
         </nav>
         <LeftSidebar />
       </React.Fragment>
