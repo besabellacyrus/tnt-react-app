@@ -4,7 +4,31 @@
 @import 'vendors/bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css';
 @import 'styles/fixed-width-light/css/style.css';
 
+body {
+  color: #878787;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1.5;
+  background: #acb0b1;
+  overflow-x: hidden;
+}
 .brand-img {
   height: 2.2rem;
   margin-top: -1rem;
+}
+
+.wrapper.theme-1-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-2-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-3-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-4-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-5-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-6-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active {
+  color: #fc8300;
+}
+
+.card-view {
+  background: #fff;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 15px 15px 0;
+  margin-left: -5px;
+  margin-right: -5px;
 }
