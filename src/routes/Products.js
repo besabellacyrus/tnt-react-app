@@ -3,6 +3,9 @@ import React, { PureComponent } from 'react'
 
 export default class Products extends PureComponent {
   componentDidMount () {
+    var s = document.createElement('script');
+    s.setAttribute('src', 'js/dataTables-data.js');
+    document.body.appendChild(s);
   }
   render () {
     return (

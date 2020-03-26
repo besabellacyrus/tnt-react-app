@@ -16,6 +16,7 @@ function App () {
       </div>
       <div className="wrapper theme-3-active pimary-color-green">
         <Navbar />
+        <div className="right-sidebar-backdrop"></div>
         <div className="page-wrapper">
           <div className="container-fluid">
             <Route path="/" exact strict component={Dashboard} />
