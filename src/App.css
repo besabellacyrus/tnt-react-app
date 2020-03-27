@@ -1,7 +1,9 @@
 @import 'vendors/bower_components/morris.js/morris.css';
 @import 'vendors/bower_components/datatables/media/css/jquery.dataTables.min.css';
 @import 'vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css';
-@import 'vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css';
+@import 'vendors/bower_components/datatables.net-responsive/css/responsive.dataTables.min.css';
+/* @import 'vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css'; */
+@import 'https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css';
 @import 'vendors/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css';
 @import 'vendors/bower_components/switchery/dist/switchery.min.css';
 @import 'vendors/bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css';
@@ -10,11 +12,11 @@
 @import 'vendors/bower_components/owl.carousel/dist/assets/owl.carousel.min.css';
 @import 'vendors/bower_components/owl.carousel/dist/assets/owl.theme.default.min.css';
 @import 'vendors/bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css';
-@import 'vendors/vectormap/jquery-jvectormap-2.0.2.css';
+@import 'vendors/bower_components/FooTable/compiled/footable.bootstrap.min.css';
+/* @import 'vendors/vectormap/jquery-jvectormap-2.0.2.css'; */
 /* @import 'vendors/bower_components/filament-tablesaw/dist/tablesaw.css'; */
-@import '../node_modules/tablesaw/dist/tablesaw.css';
+/* @import '../node_modules/tablesaw/dist/tablesaw.css'; */
 @import 'styles/fixed-width-light/css/style.css';
-@import 'https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css';
 
 .brand-img {
   height: 1.5rem;
@@ -103,4 +105,29 @@
   .app-search input {
     width: 12rem;
   }
+}
+
+.btn.btn-primary, .wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active, .wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active, .dt-buttons .dt-button, .tablesaw-sortable th.tablesaw-sortable-head button.btn-primary, .tablesaw-sortable th.tablesaw-sortable-head .dt-buttons button.dt-button, .dt-buttons .tablesaw-sortable th.tablesaw-sortable-head button.dt-button, .sweet-alert button.btn-primary, .owl-theme .owl-nav .btn-primary[class*="owl-"], .owl-theme .owl-nav .wizard > .actions a[class*="owl-"], .wizard > .actions .owl-theme .owl-nav a[class*="owl-"], .owl-theme .owl-nav .dt-buttons [class*="owl-"].dt-button, .dt-buttons .owl-theme .owl-nav [class*="owl-"].dt-button, button.btn-primary.fc-agendaDay-button.fc-state-default.fc-corner-right, .dt-buttons button.fc-agendaDay-button.fc-state-default.fc-corner-right.dt-button, button.btn-primary.fc-month-button.fc-state-default.fc-corner-left, .dt-buttons button.fc-month-button.fc-state-default.fc-corner-left.dt-button, button.btn-primary.fc-agendaWeek-button, .btn-primary.fc-prev-button, .btn-primary.fc-next-button, .btn-primary.fc-today-button {
+  background: #fc8300 !important;
+  border: solid 1px #fc8300 !important;
+}
+
+#app-table-header-btns button {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  color: #FFF !important;
+}
+
+#app-table-header-btns .btn-default {
+  background: #8496a4 !important;
+  border: solid 1px #8496a4 !important;
+}
+#app-table-header-btns .btn-darkblue {
+  background: #2c3e4c  !important;
+  border: solid 1px #2c3e4c  !important;
+}
+
+#app-table-header-btns .btn-warning {
+  background: #fcb800   !important;
+  border: solid 1px #fcb800   !important;
 }

@@ -1,54 +1,37 @@
 import React, { PureComponent } from 'react'
 import $ from 'jquery';
-import 'tablesaw/dist/tablesaw.jquery';
-import Tablesaw from 'tablesaw/dist/tablesaw.jquery';
-const $DataTable = require('datatables.net')
+import Search from '../components/Search';
+// import 'tablesaw/dist/tablesaw.jquery';
+// import Tablesaw from 'tablesaw/dist/tablesaw.jquery';
+// require('datatables.net-buttons')(window, $);
 
-
-// $.DataTable = require('datatables.net');
-
-// const data = [
-//   {
-//     profile: 'img',
-//     product_title: 'Legacy of Cybertron Thundercracker',
-//     product_code: 'IA44113',
-//     price_a: '139.00',
-//     price_b: '1,000.00',
-//     price_c: '1,000.00',
-//     retail_price: '1,000.00',
-//     product_cost: '10,000.00',
-//   },
-//   {
-//     profile: 'img',
-//     product_title: 'Ironman Mark 43 1:4 Scale',
-//     product_code: 'IA68575',
-//     price_a: '139.00',
-//     price_b: '1,000.00',
-//     price_c: '1,000.00',
-//     retail_price: '1,000.00',
-//     product_cost: '10,000.00',
-//   },
-//   {
-//     profile: 'img',
-//     product_title: 'Megadeth',
-//     product_code: 'NEC33670',
-//     price_a: '139.00',
-//     price_b: '1,000.00',
-//     price_c: '1,000.00',
-//     retail_price: '1,000.00',
-//     product_cost: '10,000.00',
-//   },
-// ]
+const $DataTable = require('datatables.net-responsive');
 
 let scripts = []
 export default class Products extends PureComponent {
   componentDidMount () {
-    Tablesaw.init();
-    $('#example').$DataTable({
-      dom: 'Bfrtip',
-      buttons: [
-        'copy', 'csv', 'excel', 'pdf', 'print'
-      ]
+    // Tablesaw.init();
+    // var thisTablesaw = Tablesaw;
+    $(this.refs.main).DataTable({
+      "fnDrawCallback": function (oSettings) {
+        // alert('DataTables has redrawn the table');
+        // console.log('run', thisTablesaw)
+        // thisTablesaw.init();
+        // Tablesaw.init();
+      },
+      bFilter: false,
+      bInfo: false,
+      responsive: true,
+      columnDefs: [{
+        orderable: false,
+        className: 'select-checkbox',
+        targets: 0
+      }],
+      select: {
+        style: 'os',
+        selector: 'td:first-child'
+      },
+      order: [[1, 'asc']]
     });
   }
 
@@ -96,11 +79,7 @@ export default class Products extends PureComponent {
                   <label>Search:</label>
                   <input type="text" />
                 </div> */}
-                <div className="app-product-action-btns">
-                  <button className="btn btn-primary">Add New</button>
-                  <button className="btn btn-danger">Delete</button>
-                </div>
-                <br />
+
                 {/* <div className="app-product-special-action-btns">
                   <button className="btn">Copy</button>
                   <button className="btn">CSV</button>
@@ -112,23 +91,81 @@ export default class Products extends PureComponent {
               <div className="panel-wrapper collapse in">
                 <div className="panel-body">
                   <div className="table-wrap tablesaw-overflow">
-                    <table id="example" className="tablesaw table-striped table-hover table-bordered table"
-                      data-tablesaw-sortable data-tablesaw-mode="columntoggle">
+                    <div id="app-table-header-btns">
+                      <div className="pull-right">
+                        <button className="btn btn-primary">Add New</button>
+                        <button className="btn btn-warning">Duplicate</button>
+                        <button className="btn btn-darkblue">Delete</button>
+                      </div>
+                      <div className="clearfix"></div>
+                      <div className="pull-right">
+                        <button className="btn btn-default">Copy</button>
+                        <button className="btn btn-default">CSV</button>
+                        <button className="btn btn-default">Excel</button>
+                        <button className="btn btn-default">PDF</button>
+                        <button className="btn btn-default">Print</button>
+                      </div>
+                    </div>
+                    <Search />
+                    <table ref="main" id="example" className="table table-hover display  pb-30">
                       <thead>
                         <tr>
-                          <th data-tablesaw-priority="6">Profile</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="1">Product Code</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="1">Product Title</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="3">Price A</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="3">Price B</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="3">Price C</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="4">Retail Price</th>
-                          <th data-tablesaw-sortable-col data-tablesaw-priority="5">Product Cost</th>
+                          <th>Profile</th>
+                          <th>Product Code</th>
+                          <th>Product Title</th>
+                          <th>Price A</th>
+                          <th>Price B</th>
+                          <th>Price C</th>
+                          <th>Retail Price</th>
+                          <th>Product Cost</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>img</td>
+                          <td><img src="img/user1.png" /></td>
+                          <td>IA68576</td>
+                          <td>Ironman Mark 43 1:4 Scale</td>
+                          <td>1,800.00</td>
+                          <td>0.00</td>
+                          <td>0.00</td>
+                          <td>2,480.00</td>
+                          <td>10,000.00</td>
+                        </tr>
+                        <tr>
+
+                          <td><img src="img/user1.png" /></td>
+                          <td>IA68576</td>
+                          <td>Ironman Mark 43 1:4 Scale</td>
+                          <td>1,800.00</td>
+                          <td>0.00</td>
+                          <td>0.00</td>
+                          <td>2,480.00</td>
+                          <td>10,000.00</td>
+                        </tr>
+                        <tr>
+
+                          <td><img src="img/user1.png" /></td>
+                          <td>IA68576</td>
+                          <td>Ironman Mark 43 1:4 Scale</td>
+                          <td>1,800.00</td>
+                          <td>0.00</td>
+                          <td>0.00</td>
+                          <td>2,480.00</td>
+                          <td>10,000.00</td>
+                        </tr>
+                        <tr>
+                          <td><img src="img/user1.png" /></td>
+                          <td>IA68576</td>
+                          <td>Ironman Mark 43 1:4 Scale</td>
+                          <td>1,800.00</td>
+                          <td>0.00</td>
+                          <td>0.00</td>
+                          <td>2,480.00</td>
+                          <td>10,000.00</td>
+                        </tr>
+                        <tr>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -138,7 +175,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -148,7 +186,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -158,7 +197,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -168,7 +208,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -178,7 +219,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -188,7 +230,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>
@@ -198,47 +241,8 @@ export default class Products extends PureComponent {
                           <td>10,000.00</td>
                         </tr>
                         <tr>
-                          <td>img</td>
-                          <td>IA44113</td>
-                          <td>Legacy of Cybertron Thundercracker</td>
-                          <td>1,800.00</td>
-                          <td>0.00</td>
-                          <td>0.00</td>
-                          <td>2,480.00</td>
-                          <td>10,000.00</td>
-                        </tr>
-                        <tr>
-                          <td>img</td>
-                          <td>IA44113</td>
-                          <td>Legacy of Cybertron Thundercracker</td>
-                          <td>1,800.00</td>
-                          <td>0.00</td>
-                          <td>0.00</td>
-                          <td>2,480.00</td>
-                          <td>10,000.00</td>
-                        </tr>
-                        <tr>
-                          <td>img</td>
-                          <td>IA44113</td>
-                          <td>Legacy of Cybertron Thundercracker</td>
-                          <td>1,800.00</td>
-                          <td>0.00</td>
-                          <td>0.00</td>
-                          <td>2,480.00</td>
-                          <td>10,000.00</td>
-                        </tr>
-                        <tr>
-                          <td>img</td>
-                          <td>IA44113</td>
-                          <td>Legacy of Cybertron Thundercracker</td>
-                          <td>1,800.00</td>
-                          <td>0.00</td>
-                          <td>0.00</td>
-                          <td>2,480.00</td>
-                          <td>10,000.00</td>
-                        </tr>
-                        <tr>
-                          <td>img</td>
+
+                          <td><img src="img/user1.png" /></td>
                           <td>IA44113</td>
                           <td>Legacy of Cybertron Thundercracker</td>
                           <td>1,800.00</td>

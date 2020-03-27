@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './vendors/bower_components/jquery/dist/jquery';
 import 'popper.js/dist/popper.js';
 import 'bootstrap/dist/js/bootstrap.js';
-// import './vendors/filament-tablesaw/dist/tablesaw-init';
-// import './vendors/filament-tablesaw/dist/tablesaw';
-// import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
