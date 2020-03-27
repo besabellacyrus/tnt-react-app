@@ -1,12 +1,13 @@
 /*Export Table Init*/
 
-"use strict"; 
+"use strict";
 
-$(document).ready(function() {
-	$('#example').DataTable( {
+$(document).ready(function () {
+	console.log('running')
+	$('#example').DataTable({
 		dom: 'Bfrtip',
 		buttons: [
 			'copy', 'csv', 'excel', 'pdf', 'print'
 		]
-	} );
-} );
+	});
+});

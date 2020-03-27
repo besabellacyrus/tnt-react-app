@@ -1,25 +1,27 @@
 @import 'vendors/bower_components/morris.js/morris.css';
 @import 'vendors/bower_components/datatables/media/css/jquery.dataTables.min.css';
 @import 'vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css';
+@import 'vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css';
+@import 'vendors/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css';
+@import 'vendors/bower_components/switchery/dist/switchery.min.css';
 @import 'vendors/bower_components/bootstrap3-wysihtml5-bower/dist/bootstrap3-wysihtml5.css';
+@import 'vendors/bower_components/bootstrap/dist/css/bootstrap.min.css';
+@import 'vendors/bower_components/switchery/dist/switchery.min.css';
+@import 'vendors/bower_components/owl.carousel/dist/assets/owl.carousel.min.css';
+@import 'vendors/bower_components/owl.carousel/dist/assets/owl.theme.default.min.css';
+@import 'vendors/bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css';
 @import 'styles/fixed-width-light/css/style.css';
-
-body {
-  color: #878787;
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 1.5;
-  background: #acb0b1;
-  overflow-x: hidden;
-}
+@import 'https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css';
 .brand-img {
-  height: 2.2rem;
-  margin-top: -1rem;
+  height: 1.5rem;
 }
 
 .wrapper.theme-1-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-2-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-3-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-4-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-5-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-6-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active {
   color: #fc8300;
+}
+
+.page-wrapper {
+  min-height: 763px;
 }
 
 .card-view {
@@ -31,4 +33,70 @@ body {
   padding: 15px 15px 0;
   margin-left: -5px;
   margin-right: -5px;
+}
+
+/* App */
+.app-module-title {
+  padding: 1rem 0;
+}
+
+
+.app-product-action-btns {
+  position: absolute;
+  right: 0;
+  width: 15.5rem;
+}
+.app-product-special-action-btns {
+  position: absolute;
+  right: 2%;
+  top: 18%;
+}
+
+.app-product-special-action-btns button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.app-product-action-btns button {
+  margin-right: 10px;
+}
+
+.app-product-table {
+  margin-top: 5rem;
+}
+
+.app-product-table .kwRiGp {
+  /* min-height: initial; */
+}
+
+.app-search {
+  position: absolute;
+  top: 21%;
+}
+
+.app-search input {
+  margin-left: 0.3rem;
+  width: 24rem;
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 425px) {
+
+  .app-product-special-action-btns {
+    width: 23.5rem;
+  }
+  .app-product-special-action-btns button{
+    margin-bottom: 1rem;
+  }
+  .app-product-table {
+    margin-top: 16rem;
+  }
+  .app-search {
+    top: 41%;
+  }
+  .app-search input {
+    width: 12rem;
+  }
 }

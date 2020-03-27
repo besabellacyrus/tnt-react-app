@@ -24,6 +24,13 @@ function App () {
             <Route path="/featured-products" component={FeaturedProducts} />
             <Route path="/special-deals" component={SpecialDeals} />
           </div>
+          <footer className="footer container-fluid pl-30 pr-30">
+            <div className="row">
+              <div className="col-sm-12">
+                <p>2020 &copy; Simplify.Cool. Powered by ToyNToys</p>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     </Router>
