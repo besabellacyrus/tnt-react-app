@@ -115,7 +115,7 @@ var philbert = function () {
 	$(document).on("click", sidebarNavAnchor, function (e) {
 		if ($(this).attr('aria-expanded') === "false")
 			$(this).blur();
-		$(sidebarNavCollapse).not($(this).parent().parent()).collapse('hide');
+		// $(sidebarNavCollapse).not($(this).parent().parent()).collapse('hide');
 	});
 
 	/*Panel Remove*/

@@ -10,8 +10,8 @@ export default function LeftSidebar () {
           <i className="zmdi zmdi-more"></i>
         </li>
         <li>
-          <a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="fa fa-sitemap mr-20"></i><span class="right-nav-text">Items and Inventory</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
-          <ul id="dashboard_dr" class="collapse collapse-level-1">
+          <a className="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div className="pull-left"><i className="fa fa-sitemap mr-20"></i><span className="right-nav-text">Items and Inventory</span></div><div className="pull-right"><i className="zmdi zmdi-caret-down"></i></div><div className="clearfix"></div></a>
+          <ul id="dashboard_dr" className="collapse collapse-level-1">
             <li>
               <Link to="/products">Products</Link>
             </li>
