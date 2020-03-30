@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Products from "./routes/Products";
+import Product from "./routes/Product";
 import FeaturedProducts from './routes/FeaturedProducts';
 import SpecialDeals from "./routes/SpecialDeals";
 import Dashboard from "./routes/Dashboard";
@@ -23,11 +24,12 @@ function App () {
             <Route path="/products" component={Products} />
             <Route path="/featured-products" component={FeaturedProducts} />
             <Route path="/special-deals" component={SpecialDeals} />
+            <Route path="/product/:id" component={Product} />
           </div>
           <footer className="footer container-fluid pl-30 pr-30">
             <div className="row">
               <div className="col-sm-12">
-                <p>2020 &copy; Simplify.Cool. Powered by ToyNToys</p>
+                <p>{new Date().getFullYear} &copy; Simplify.Cool. Powered by ToyNToys</p>
               </div>
             </div>
           </footer>
