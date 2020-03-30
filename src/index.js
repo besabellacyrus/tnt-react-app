@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'popper.js/dist/popper.js';
 import 'bootstrap/dist/js/bootstrap.js';
+import './styles/fixed-width-light/js/init.js';
 import './App.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';

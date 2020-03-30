@@ -1,17 +1,3 @@
-/** *************Init JS*********************
-
-    TABLE OF CONTENTS
-	---------------------------
-	1.Ready function
-	2.Load function
-	3.Full height function
-	4.philbert function
-	5.Chat App function
-	6.Resize function
- ** ***************************************/
-
-"use strict";
-/*****Ready function start*****/
 $(document).ready(function () {
 	philbert();
 	var $preloader = $(".preloader-it > .la-anim-1");
@@ -90,7 +76,6 @@ var setHeightWidth = function () {
 /***** philbert function start *****/
 var $wrapper = $(".wrapper");
 var philbert = function () {
-
 	/*Counter Animation*/
 	var counterAnim = $('.counter-anim');
 	if (counterAnim.length > 0) {

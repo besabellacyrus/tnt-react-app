@@ -1,23 +1,14 @@
 import React, { PureComponent } from 'react'
 import $ from 'jquery';
 import Search from '../components/Search';
-// import 'tablesaw/dist/tablesaw.jquery';
-// import Tablesaw from 'tablesaw/dist/tablesaw.jquery';
-// require('datatables.net-buttons')(window, $);
 
 const $DataTable = require('datatables.net-responsive');
 
 let scripts = []
 export default class Products extends PureComponent {
   componentDidMount () {
-    // Tablesaw.init();
-    // var thisTablesaw = Tablesaw;
     $(this.refs.main).DataTable({
       "fnDrawCallback": function (oSettings) {
-        // alert('DataTables has redrawn the table');
-        // console.log('run', thisTablesaw)
-        // thisTablesaw.init();
-        // Tablesaw.init();
       },
       bFilter: false,
       bInfo: false,
@@ -33,32 +24,6 @@ export default class Products extends PureComponent {
       },
       order: [[1, 'asc']]
     });
-  }
-
-  scriptLoaded () {
-    if (scripts.length < 2) {
-      const script = document.createElement("script");
-      script.src = "bower/filament-tablesaw/dist/tablesaw-init.js";
-      script.async = true;
-      document.body.appendChild(script);
-      scripts.push(script);
-    }
-    document.dispatchEvent(new Event("enhance.tablesaw"));
-
-  }
-  componentWillUnmount () {
-    // $('.table-responsive')
-    //   .find('table')
-    //   .DataTable()
-    //   .destroy(true);
-    // console.log(scripts)
-    // if (scripts) {
-    //   scripts.forEach(script => {
-    //     if (script.parentNode !== null) {
-    //       script.parentNode.removeChild(script);
-    //     }
-    //   })
-    // }
   }
 
   render () {
