@@ -4,6 +4,7 @@ import Search from '../components/Search';
 import Card from '../components/Card';
 import AppDataTable from '../components/AppDataTable';
 import products from '../test/products.json';
+import { useHistory } from "react-router-dom";
 const $DataTable = require('datatables.net-responsive');
 
 let scripts = []
@@ -22,55 +23,37 @@ const config = {
   data: products
 }
 
-export default class Products extends PureComponent {
-  componentDidMount () {
-    // $(this.refs.main).DataTable({
-    //   "fnDrawCallback": function (oSettings) {
-    //   },
-    //   bFilter: false,
-    //   bInfo: false,
-    //   responsive: true,
-    //   columnDefs: [{
-    //     orderable: false,
-    //     className: 'select-checkbox',
-    //     targets: 0
-    //   }],
-    //   select: {
-    //     style: 'os',
-    //     selector: 'td:first-child'
-    //   },
-    //   order: [[1, 'asc']]
-    // });
+const Products = () => {
+  const history = useHistory();
 
-    // $('#product-table tbody').on('click', 'tr', function () {
-    //   console.log('clicked')
-    // })
+  function handleAddNew () {
+    history.push('/product/222')
   }
 
-  render () {
-    return (
-      <Card title="Products" subTitle="Product List">
-        {/* will make this a component later */}
-        <div className="table-wrap tablesaw-overflow">
-          <div id="app-table-header-btns">
-            <div className="pull-right">
-              <button className="btn btn-primary">Add New</button>
-              <button className="btn btn-warning">Duplicate</button>
-              <button className="btn btn-darkblue">Delete</button>
-            </div>
-            <div className="clearfix"></div>
-            <div className="pull-right">
-              <button className="btn btn-default">Copy</button>
-              <button className="btn btn-default">CSV</button>
-              <button className="btn btn-default">Excel</button>
-              <button className="btn btn-default">PDF</button>
-              <button className="btn btn-default">Print</button>
-            </div>
+  return (
+    <Card title="Products" subTitle="Product List">
+      {/* will make this a component later */}
+      <div className="table-wrap tablesaw-overflow">
+        <div id="app-table-header-btns">
+          <div className="pull-right">
+            <button onClick={handleAddNew} className="btn btn-primary">Add New</button>
+            <button className="btn btn-warning">Duplicate</button>
+            <button className="btn btn-darkblue">Delete</button>
           </div>
-          <Search />
-          <AppDataTable config={config} />
+          <div className="clearfix"></div>
+          <div className="pull-right">
+            <button className="btn btn-default">Copy</button>
+            <button className="btn btn-default">CSV</button>
+            <button className="btn btn-default">Excel</button>
+            <button className="btn btn-default">PDF</button>
+            <button className="btn btn-default">Print</button>
+          </div>
         </div>
-      </Card >
-    )
-  }
+        <Search />
+        <AppDataTable config={config} />
+      </div>
+    </Card >
+  )
 }
+
+export default Products

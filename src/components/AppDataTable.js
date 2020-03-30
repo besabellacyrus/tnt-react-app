@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import $ from 'jquery';
-const $DataTable = require('datatables.net-responsive');
+import { useHistory } from "react-router-dom";
+// const $DataTable = require('datatables.net-responsive');
 
 const AppDataTable = (props) => {
+  const history = useHistory();
+
   const tableEl = useRef(null);
   const { config } = props;
   const headings = []
@@ -14,7 +17,7 @@ const AppDataTable = (props) => {
 
   for (const [index, value] of config.data.entries()) {
     datas.push(
-      <tr key={index}>
+      <tr onClick={handleClick} key={index} data-id={value.product_id}>
         <td><img src={value.profile} /></td>
         <td>{value.product_code}</td>
         <td>{value.product_title}</td>
@@ -43,11 +46,18 @@ const AppDataTable = (props) => {
       },
       order: [[1, 'asc']]
     });
-
-    $('#product-table tbody').on('click', 'tr', function () {
-      console.log('clicked')
-    })
   }, [])
+
+  function handleClick (e) {
+    // console.log('clicked', e.target.parentElement.getAttribute('data-id'))
+    console.log('classname', e.target.className)
+    if (e.target.className !== ' select-checkbox') {
+      // history.push("/product/222")
+      const productId = e.target.parentElement.getAttribute('data-id')
+      console.log({ props })
+      history.push(`/product/${productId}`)
+    }
+  }
 
   return (
     <table ref={tableEl} id="product-table" className="table table-hover display pb-30">

@@ -1885,5 +1885,3 @@
 
 
 }));
-
-export default Selectpicker
