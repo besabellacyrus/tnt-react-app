@@ -74,7 +74,7 @@ class Navbar extends Component {
             <div className="nav-header pull-left">
               <div className="logo-wrap">
                 <Link to="/">
-                  <img className="brand-img" src="img/simplifycool-icon.svg" alt="brand" />
+                  <img className="brand-img" src="/img/simplifycool-icon.svg" alt="brand" />
                   <span className="brand-text">simplify.cool</span>
                 </Link>
               </div>
@@ -221,23 +221,23 @@ class Navbar extends Component {
                         <hr className="light-grey-hr ma-0" />
                         <div className="product-carousel owl-carousel owl-theme text-center">
                           <a href="#">
-                            <img src="img/chair.jpg" alt="chair" />
+                            <img src="/img/chair.jpg" alt="chair" />
                             <span>Circle chair</span>
                           </a>
                           <a href="#">
-                            <img src="img/chair2.jpg" alt="chair" />
+                            <img src="/img/chair2.jpg" alt="chair" />
                             <span>square chair</span>
                           </a>
                           <a href="#">
-                            <img src="img/chair3.jpg" alt="chair" />
+                            <img src="/img/chair3.jpg" alt="chair" />
                             <span>semi circle chair</span>
                           </a>
                           <a href="#">
-                            <img src="img/chair4.jpg" alt="chair" />
+                            <img src="/img/chair4.jpg" alt="chair" />
                             <span>wooden chair</span>
                           </a>
                           <a href="#">
-                            <img src="img/chair2.jpg" alt="chair" />
+                            <img src="/img/chair2.jpg" alt="chair" />
                             <span>square chair</span>
                           </a>
                         </div>
@@ -305,7 +305,7 @@ class Navbar extends Component {
                       <div className="sl-item">
                         <a href="javascript:void(0)">
                           <div className="sl-avatar">
-                            <img className="img-responsive" src="img/avatar.jpg" alt="avatar" />
+                            <img className="img-responsive" src="/img/avatar.jpg" alt="avatar" />
                           </div>
                           <div className="sl-content">
                             <span className="inline-block capitalize-font  pull-left truncate head-notifications">Sandy Doe</span>
@@ -341,7 +341,7 @@ class Navbar extends Component {
                 </ul>
               </li>
               <li className="dropdown auth-drp">
-                <a href="#" className="dropdown-toggle pr-0" data-toggle="dropdown"><img src="img/user1.png" alt="user_auth" className="user-auth-img img-circle" /><span className="user-online-status"></span></a>
+                <a href="#" className="dropdown-toggle pr-0" data-toggle="dropdown"><img src="/img/user1.png" alt="user_auth" className="user-auth-img img-circle" /><span className="user-online-status"></span></a>
                 <ul className="dropdown-menu user-auth-dropdown" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                   <li>
                     <a href="profile.html"><i className="zmdi zmdi-account"></i><span>Profile</span></a>
