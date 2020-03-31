@@ -19,8 +19,8 @@ const AppDataTable = (props) => {
     datas.push(
       <tr onClick={handleClick} key={index} data-id={value.product_id}>
         <td><img src={value.profile} /></td>
-        <td>{value.product_code}</td>
-        <td>{value.product_title}</td>
+        <td onMouseEnter={handleHover}>{value.product_code}</td>
+        <td onMouseEnter={handleHover}>{value.product_title}</td>
         <td>{value.price_a}</td>
         <td>{value.price_b}</td>
         <td>{value.price_c}</td>
@@ -49,7 +49,6 @@ const AppDataTable = (props) => {
   }, [])
 
   function handleClick (e) {
-    // console.log('clicked', e.target.parentElement.getAttribute('data-id'))
     console.log('classname', e.target.className)
     if (e.target.className !== ' select-checkbox') {
       // history.push("/product/222")
@@ -57,6 +56,10 @@ const AppDataTable = (props) => {
       console.log({ props })
       history.push(`/product/${productId}`)
     }
+  }
+
+  function handleHover (e) {
+    console.log(e)
   }
 
   return (
