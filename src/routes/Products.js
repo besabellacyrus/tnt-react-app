@@ -1,5 +1,4 @@
-import React, { PureComponent } from 'react'
-import $ from 'jquery';
+import React from 'react'
 import Search from '../components/Search';
 import Card from '../components/Card';
 import AppDataTable from '../components/AppDataTable';
@@ -35,18 +34,18 @@ const Products = () => {
       {/* will make this a component later */}
       <div className="table-wrap tablesaw-overflow">
         <div id="app-table-header-btns">
-          <div className="pull-right">
+          <div className="product-action-btns pull-right">
             <button onClick={handleAddNew} className="btn btn-primary">Add New</button>
             <button className="btn btn-warning">Duplicate</button>
             <button className="btn btn-darkblue">Delete</button>
           </div>
           <div className="clearfix"></div>
-          <div className="pull-right">
-            <button className="btn btn-default">Copy</button>
-            <button className="btn btn-default">CSV</button>
-            <button className="btn btn-default">Excel</button>
-            <button className="btn btn-default">PDF</button>
-            <button className="btn btn-default">Print</button>
+          <div className="product-table-actions pull-right">
+            <button className="btn-default">Copy Table</button>
+            <button className="btn-default">CSV</button>
+            <button className="btn-default">Excel</button>
+            <button className="btn-default">PDF</button>
+            <button className="btn-default">Print</button>
           </div>
         </div>
         <Search />

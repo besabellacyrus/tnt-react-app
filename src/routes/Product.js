@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react'
-import '../vendors/bower_components/switchery/dist/switchery.js';
 import Switch from 'react-switchery';
+import ProductMedia from './ProductMedia';
+import ProductPrice from './ProductPrice';
+import ProductSupplier from './ProductSupplier';
+import '../vendors/bower_components/switchery/dist/switchery.js';
+import ProductNav from '../components/ProductNav';
+
 const Product = (props) => {
   const { match: { params } } = props;
   console.log({ params: params.productId })
@@ -8,15 +13,9 @@ const Product = (props) => {
 
   }, [])
   return (
-    <>
-      <div className="pills-struct mt-40">
-        <ul role="tablist" className="pull-right nav nav-pills" id="myTabs_6">
-          <li className="active" role="presentation"><a aria-expanded="true" data-toggle="tab" role="tab" id="product_info_tab" href="#product_info">Product Information</a></li>
-          <li role="presentation" className=""><a data-toggle="tab" id="product_media_tab" role="tab" href="#product_media" aria-expanded="false">Product Media</a></li>
-          <li role="presentation" className=""><a data-toggle="tab" id="product_price_tab" role="tab" href="#product_price" aria-expanded="false">Product Price</a></li>
-          <li role="presentation" className=""><a data-toggle="tab" id="product_supplier_tab" role="tab" href="#product_supplier" aria-expanded="false">Product Supplier</a></li>
-        </ul>
-        <div className="clearfix"></div>
+    <React.Fragment>
+      <ProductNav />
+      <div className="mt-20">
         <div className="tab-content" id="myTabContent_6">
           <div id="product_info" className="tab-pane fade active in" role="tabpanel">
             {/*  */}
@@ -124,68 +123,61 @@ const Product = (props) => {
                           </div>
                         </div>
                         <div className="col-sm-6">
-                          <div className="form-wrap">
-                            {/* Switchery */}
-                            <div className="row switch-label">
-                              <div className="col-sm-3 text-right">Featured</div>
-                              <Switch
-                                className="switch-class col-sm-1"
-                                options={
-                                  {
-                                    color: '#474F79',
-                                    size: 'small'
-                                  }
-                                }
-                                checked
-                              />
-                              <div className="col-sm-8">This will be added to special deals.</div>
-                            </div>
-                            <div className="row switch-label">
-                              <div className="col-sm-3 text-right">Special Deals</div>
-                              <Switch
-                                className="switch-class col-sm-1"
-                                options={
-                                  {
-                                    color: '#474F79',
-                                    size: 'small'
-                                  }
-                                }
-                                checked
-                              />
-                              <div className="col-sm-8">This will be added to featured products.</div>
-                            </div>
-                            <div className="row switch-label">
-                              <div className="col-sm-3 text-right">Recommended</div>
-                              <Switch
-                                className="switch-class col-sm-1"
-                                options={
-                                  {
-                                    color: '#474F79',
-                                    size: 'small'
-                                  }
-                                }
-                                checked
-                              />
-                              <div className="col-sm-8">This will be added to <i>default</i> recommended products.</div>
-                            </div>
-                            <div className="row">
-                              {/* <div className="form-group">
-                                <label className="control-label col-md-3">Featured</label>
-                                <div className="col-md-3">
-                                  <Switch
-                                    className="switch-class"
-                                    options={
-                                      {
-                                        color: '#474F79',
-                                        size: 'small'
-                                      }
+                          <div className="row">
+                            <div className="switch-label">
+                              <div className="col-xs-4 col-sm-3 text-right">Featured</div>
+                              <div className="col-xs-2 col-sm-1">
+                                <Switch
+                                  className="switch-class"
+                                  options={
+                                    {
+                                      color: '#474F79',
+                                      size: 'small'
                                     }
-                                    checked
-                                  />
-                                </div>
-                              </div> */}
+                                  }
+                                  checked
+                                />
+                              </div>
+                              <div className="col-xs-6 col-sm-8">This will be added to special deals.</div>
                             </div>
-                            {/* /Switchery */}
+                          </div>
+                          <div className="row">
+                            <div className="switch-label">
+                              <div className="col-xs-4 col-sm-3 text-right">Special Deals</div>
+                              <div className="col-xs-2 col-sm-1">
+                                <Switch
+                                  className="switch-class"
+                                  options={
+                                    {
+                                      color: '#474F79',
+                                      size: 'small'
+                                    }
+                                  }
+                                  checked
+                                />
+                              </div>
+                              <div className="col-xs-6 col-sm-8">This will be added to featured products.</div>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="switch-label">
+                              <div className="col-xs-4 col-sm-3 text-right">Recommended</div>
+                              <div className="col-xs-2 col-sm-1">
+                                <Switch
+                                  className="switch-class"
+                                  options={
+                                    {
+                                      color: '#474F79',
+                                      size: 'small'
+                                    }
+                                  }
+                                  checked
+                                />
+                              </div>
+                              <div className="col-xs-6 col-sm-8">This will be added to <i>default</i> recommended products.</div>
+                            </div>
+                          </div>
+                          <div className="form-wrap">
                             {/* tabs vertical */}
                             <div className="tab-struct vertical-tab custom-tab-1 mt-40">
                               <ul role="tablist" className="nav nav-tabs ver-nav-tab" id="myTabs_8">
@@ -194,7 +186,7 @@ const Product = (props) => {
                                 <li role="presentation" className=""><a data-toggle="tab" id="memo_tab" role="tab" href="#memo" aria-expanded="false">Memo</a></li>
 
                               </ul>
-                              <div className="tab-content" id="myTabContent_8">
+                              <div className="tab-content" id="product-tab">
                                 <div id="description" className="tab-pane fade active in" role="tabpanel">
                                   <textarea rows="15" cols="56">
                                     Lorem ipsum dolor sit amet, et pertinax ocurreret scribentur sit, eum euripidis assentior ei. In qui quodsi maiorum, dicta clita duo ut. Fugit sonet quo te. Ad vel quando causae signiferumque. Aperiam luptatum senserit eu vis, eu ius purto torquatos vituperatoribus.An nec fastidii eligendi molestiae.
@@ -333,13 +325,13 @@ const Product = (props) => {
             {/*  */}
           </div>
           <div id="product_media" className="tab-pane fade in" role="tabpanel">
-            <p>2</p>
+            <ProductMedia />
           </div>
           <div id="product_price" className="tab-pane fade in" role="tabpanel">
-            <p>3</p>
+            <ProductPrice />
           </div>
           <div id="product_supplier" className="tab-pane fade in" role="tabpanel">
-            <p>4</p>
+            <ProductSupplier />
           </div>
         </div>
         <div className="pull-right">
@@ -348,7 +340,7 @@ const Product = (props) => {
           <button className="btn app-btn-cancel">Cancel</button>
         </div>
       </div>
-    </>
+    </React.Fragment>
   )
 }
 
