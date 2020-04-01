@@ -1,13 +1,43 @@
 import React from 'react'
+import Card from '../components/Card'
+import AppSearch from '../components/AppSearch'
+import DateRangePicker from '../components/DateRangePicker'
+import FeaturedProductList from '../components/FeaturedProductList'
 
-function FeaturedProducts () {
+const FeaturedProducts = (props) => {
   return (
-    <React.Fragment>
-      <h6 className="panel-title txt-dark">Featured Products</h6>
-      <div className="row">
+    <Card title="Featured Products" subTitle="Product Schedule">
+      <div className="row featured-product-wrapper">
+        <div className="col-xs-12 col-sm-12">
+          <div className="row">
+            <div className="col-sm-2 product-label">
+              <label>Search:</label>
+            </div>
+            <div className="col-sm-10">
+              <AppSearch />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-2 product-label">
+              <label>Date Range:</label>
+            </div>
+            <div className="col-sm-10">
+              <DateRangePicker schedule="01/01/2020 - 01/15/2020" />
+            </div>
+          </div>
+        </div>
+        <div className="col-xs-12 col-sm-12">
+          <div className="row">
+            <div className="col-md-12">
+              <FeaturedProductList />
+            </div>
+          </div>
+        </div>
       </div>
-    </React.Fragment>
+    </Card>
   )
 }
+
+
 
 export default FeaturedProducts

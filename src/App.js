@@ -6,6 +6,7 @@ import Product from "./routes/Product";
 import FeaturedProducts from './routes/FeaturedProducts';
 import SpecialDeals from "./routes/SpecialDeals";
 import Dashboard from "./routes/Dashboard";
+global.jQuery = require('jquery');
 
 // const Products = lazy(() => import('./routes/Product'));
 

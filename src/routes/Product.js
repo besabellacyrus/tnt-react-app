@@ -131,7 +131,7 @@ const Product = (props) => {
                                   className="switch-class"
                                   options={
                                     {
-                                      color: '#474F79',
+                                      color: '#2ecd99',
                                       size: 'small'
                                     }
                                   }
@@ -149,7 +149,7 @@ const Product = (props) => {
                                   className="switch-class"
                                   options={
                                     {
-                                      color: '#474F79',
+                                      color: '#2ecd99',
                                       size: 'small'
                                     }
                                   }
@@ -167,7 +167,7 @@ const Product = (props) => {
                                   className="switch-class"
                                   options={
                                     {
-                                      color: '#474F79',
+                                      color: '#2ecd99',
                                       size: 'small'
                                     }
                                   }

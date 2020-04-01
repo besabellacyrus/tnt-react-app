@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import $ from 'jquery';
 import { useHistory } from "react-router-dom";
 // const $DataTable = require('datatables.net-responsive');
@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const AppDataTable = (props) => {
   const history = useHistory();
 
-  const tableEl = useRef(null);
+  // const tableEl = useRef(null);
   const { config } = props;
   const headings = []
   const datas = []
@@ -63,7 +63,7 @@ const AppDataTable = (props) => {
   }
 
   return (
-    <table ref={tableEl} id="product-table" className="table table-hover display pb-30">
+    <table id="product-table" className="table table-hover display responsive nowrap pb-30">
       <thead>
         <tr>
           {headings}
