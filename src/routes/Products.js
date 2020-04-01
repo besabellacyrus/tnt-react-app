@@ -4,7 +4,6 @@ import Card from '../components/Card';
 import AppDataTable from '../components/AppDataTable';
 import products from '../test/products.json';
 import { useHistory } from "react-router-dom";
-const $DataTable = require('datatables.net-responsive');
 
 let scripts = []
 
@@ -35,17 +34,17 @@ const Products = () => {
       <div className="table-wrap tablesaw-overflow">
         <div id="app-table-header-btns">
           <div className="product-action-btns pull-right">
-            <button onClick={handleAddNew} className="btn btn-primary">Add New</button>
-            <button className="btn btn-warning">Duplicate</button>
-            <button className="btn btn-darkblue">Delete</button>
+            <button onClick={handleAddNew} className="btn app-btn btn-primary">Add New</button>
+            <button className="btn app-btn btn-warning">Duplicate</button>
+            <button className="btn app-btn btn-darkblue">Delete</button>
           </div>
           <div className="clearfix"></div>
-          <div className="product-table-actions pull-right">
-            <button className="btn-default">Copy Table</button>
-            <button className="btn-default">CSV</button>
-            <button className="btn-default">Excel</button>
-            <button className="btn-default">PDF</button>
-            <button className="btn-default">Print</button>
+          <div className="product-table-actions pull-right mt-10 mb-10">
+            <button className="app-btn app-btn-gray">Copy Table</button>
+            <button className="app-btn app-btn-gray">CSV</button>
+            <button className="app-btn app-btn-gray">Excel</button>
+            <button className="app-btn app-btn-gray">PDF</button>
+            <button className="app-btn app-btn-gray">Print</button>
           </div>
         </div>
         <Search />

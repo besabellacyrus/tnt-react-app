@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Products from "./routes/Products";
-import Product from "./routes/Product";
+import AddProduct from "./routes/AddProduct";
+import AddSchedule from "./routes/AddSchedule";
 import FeaturedProducts from './routes/FeaturedProducts';
 import SpecialDeals from "./routes/SpecialDeals";
 import Dashboard from "./routes/Dashboard";
@@ -25,7 +26,8 @@ function App () {
             <Route path="/products" component={Products} />
             <Route path="/featured-products" component={FeaturedProducts} />
             <Route path="/special-deals" component={SpecialDeals} />
-            <Route path="/product/:productId" component={Product} />
+            <Route path="/product/:productId" component={AddProduct} />
+            <Route path="/schedule/:schedId" component={AddSchedule} />
           </div>
           <footer className="footer container-fluid pl-30 pr-30">
             <div className="row">

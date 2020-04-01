@@ -8,20 +8,14 @@ const DateRangePicker = (props) => {
   }, [])
 
   return (
-    <form>
-      <div className="row">
-        <div className="col-lg-4">
-          <div className="form-group mb-0">
-            <div class="input-group date" id="datetimepicker1">
-              <input type="text" name="daterange" class="form-control" value={props.schedule} />
-              <span class="input-group-addon">
-                <span class="fa fa-calendar"></span>
-              </span>
-            </div>
-          </div>
-        </div>
+    <div className="form-group">
+      <div class="input-group date" id="datetimepicker1">
+        <input type="text" name="daterange" class="form-control" value={props.schedule} />
+        <span class="input-group-addon">
+          <span class="fa fa-calendar"></span>
+        </span>
       </div>
-    </form>
+    </div>
   )
 }
 

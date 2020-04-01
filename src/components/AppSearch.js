@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AppSearch = () => {
+const AppSearch = (props) => {
   return (
     <React.Fragment>
       <div className="form-group">

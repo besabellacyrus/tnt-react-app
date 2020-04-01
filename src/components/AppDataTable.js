@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import $ from 'jquery';
+import React from 'react'
 import { useHistory } from "react-router-dom";
+import Datatable from "../components/Datatable";
 // const $DataTable = require('datatables.net-responsive');
 
 const AppDataTable = (props) => {
@@ -18,7 +18,7 @@ const AppDataTable = (props) => {
   for (const [index, value] of config.data.entries()) {
     datas.push(
       <tr onClick={handleClick} key={index} data-id={value.product_id}>
-        <td><img src={value.profile} /></td>
+        <td><img className="product-profile" src={value.profile} /></td>
         <td onMouseEnter={handleHover}>{value.product_code}</td>
         <td onMouseEnter={handleHover}>{value.product_title}</td>
         <td>{value.price_a}</td>
@@ -30,30 +30,10 @@ const AppDataTable = (props) => {
     )
   }
 
-  useEffect(() => {
-    $('#product-table').DataTable({
-      bFilter: false,
-      bInfo: false,
-      responsive: true,
-      columnDefs: [{
-        orderable: false,
-        className: 'select-checkbox',
-        targets: 0
-      }],
-      select: {
-        style: 'os',
-        selector: 'td:first-child'
-      },
-      order: [[1, 'asc']]
-    });
-  }, [])
-
   function handleClick (e) {
-    console.log('classname', e.target.className)
-    if (e.target.className !== ' select-checkbox') {
-      // history.push("/product/222")
+    console.log({ weeee: e.target.className })
+    if (!e.target.className.includes("sorting_1")) {
       const productId = e.target.parentElement.getAttribute('data-id')
-      console.log({ props })
       history.push(`/product/${productId}`)
     }
   }
@@ -63,16 +43,7 @@ const AppDataTable = (props) => {
   }
 
   return (
-    <table id="product-table" className="table table-hover display responsive nowrap pb-30">
-      <thead>
-        <tr>
-          {headings}
-        </tr>
-      </thead>
-      <tbody>
-        {datas}
-      </tbody>
-    </table>
+    <Datatable headings={headings} datas={datas} />
   )
 }
 

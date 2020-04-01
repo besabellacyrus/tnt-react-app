@@ -80,11 +80,11 @@
   border: solid 1px #fc8300 !important;
 }
 
-#app-table-header-btns button {
-  margin-right: 10px;
-  margin-bottom: 20px;
-  color: #FFF !important;
-}
+// #app-table-header-btns button {
+//   margin-right: 10px;
+//   margin-bottom: 20px;
+//   color: #FFF !important;
+// }
 
 #app-table-header-btns .btn-default {
   background: #8496a4 !important;
@@ -102,6 +102,7 @@
 .app-btn {
   margin-right: 5px;
   border-radius: initial !important;
+  color: #fff;
 }
 .app-btn-default {
   background: #4e9de6 !important;
@@ -116,7 +117,11 @@
 .tab-content-item {
   width: 100%;
 }
-
+.app-btn-gray {
+  background: gainsboro;
+  border: solid 1px gainsboro;
+  color: #fff;
+}
 .switch-label {
   padding-top: 5px;
 }
@@ -150,7 +155,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
   top: 44%;
   @media screen and (max-width: 425px) {
     transform: scale(2);
-
+    top: 32%;
   }
 }
 
@@ -188,6 +193,10 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
 
 .switch-class {
   float: left;
+}
+
+.product-profile {
+  height: 3rem;
 }
 
 .product-price-selector {
@@ -244,8 +253,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
         width: 190px;
         margin-left: 2px !important;
       }
+      @media (max-width: 375px) {
+        width: 132px;
+        margin-left: 2px !important;
+      }
     }
   }
+
 
   .product-nav-head {
     margin-top: 1rem;
@@ -278,6 +292,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
     }
   }
   .product-table-actions {
+
     @media screen and (min-width: 425px) {
       button {
         display: inline-block;
@@ -313,12 +328,16 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
 
   // Featured product
 
-  .featured-product-wrapper {
-    .product-label {
-      @media screen and (min-width: 768px) {
-        text-align: right;
-      }
+  .product-label {
+    text-align: initial;
+    @media screen and (min-width: 768px) {
+      text-align: right;
+      line-height: 3;
     }
+
+  }
+  .featured-product-wrapper {
+
     & > label {
       line-height: 3;
     }

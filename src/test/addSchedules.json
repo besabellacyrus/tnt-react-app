@@ -1,0 +1,29 @@
+[
+  {
+    "product_id": 1,
+    "profile": "/img/user1.png",
+    "product_code": "122233",
+    "product_title": "Sample Title 1",
+    "featured": true,
+    "home_featured": true,
+    "ranking": "1"
+  },
+  {
+    "product_id": 2,
+    "profile": "/img/user1.png",
+    "product_code": "11323",
+    "product_title": "Sample Title 2",
+    "featured": true,
+    "home_featured": true,
+    "ranking": "1"
+  },
+  {
+    "product_id": 3,
+    "profile": "/img/user1.png",
+    "product_code": "43323",
+    "product_title": "Sample Title 3",
+    "featured": true,
+    "home_featured": true,
+    "ranking": "1"
+  }
+]

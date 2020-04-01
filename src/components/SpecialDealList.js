@@ -1,10 +1,9 @@
 import React from 'react'
-import featuredProducts from '../test/schedules.json';
+import specialDeals from '../test/specialDeals.json';
 import DateRangePicker from './DateRangePicker';
 import Switch from 'react-switchery';
 import { useHistory } from 'react-router-dom';
 import Datatable from "../components/Datatable";
-import $ from 'jquery';
 
 
 const config = {
@@ -12,11 +11,12 @@ const config = {
     'Default Featured',
     'In-Stock',
     'Enable',
+    'Background Photo'
   ],
-  data: featuredProducts
+  data: specialDeals
 }
 
-const FeaturedProductList = (props) => {
+const SpecialDealList = (props) => {
   const history = useHistory();
   const headings = []
   const datas = []
@@ -28,10 +28,8 @@ const FeaturedProductList = (props) => {
   for (const [index, value] of config.data.entries()) {
     datas.push(
       <tr onClick={handleClick} key={index} data-id={value.schedule_id}>
-        <td>
-          <div className="col-sm-6">
-            <DateRangePicker schedule={value.default_featured} />
-          </div>
+        <td width="40%">
+          <DateRangePicker schedule={value.default_featured} />
         </td>
         <td>{value.in_stock}</td>
         <td>
@@ -46,6 +44,9 @@ const FeaturedProductList = (props) => {
             checked={value.is_enabled}
           />
         </td>
+        <td>
+          <img src={value.background_photo} alt="background photo" />
+        </td>
       </tr>
     )
   }
@@ -53,7 +54,7 @@ const FeaturedProductList = (props) => {
   function handleClick (e) {
     if (e.target.className.includes("sorting_1")) {
       const schedId = e.target.parentElement.getAttribute('data-id')
-      history.push(`/schedule/${schedId}`)
+      // history.push(`/schedule/${schedId}`)
     }
   }
 
@@ -67,4 +68,4 @@ const FeaturedProductList = (props) => {
   )
 }
 
-export default FeaturedProductList
+export default SpecialDealList
