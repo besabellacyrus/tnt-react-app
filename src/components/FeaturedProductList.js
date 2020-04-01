@@ -51,7 +51,7 @@ const FeaturedProductList = (props) => {
   }
 
   function handleClick (e) {
-    if (e.target.className.includes("sorting_1")) {
+    if (!e.target.className.includes("sorting_1")) {
       const schedId = e.target.parentElement.getAttribute('data-id')
       history.push(`/schedule/${schedId}`)
     }

@@ -50,6 +50,19 @@
   top: 21%;
 }
 
+.app-search-dropdown {
+  border: 1px solid rgba(33, 33, 33, 0.12);
+  border-radius: 0;
+  background-color: #fff;
+  box-shadow: none;
+  color: #212121;
+  height: 42px;
+  &:focus {
+    border: 1px solid rgba(33, 33, 33, 0.12);
+    border-radius: 0;
+  }
+}
+
 .app-search input {
   margin-left: 0.3rem;
   width: 24rem;

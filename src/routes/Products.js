@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from '../components/Search';
+import AppSearch from '../components/AppSearch';
 import Card from '../components/Card';
 import AppDataTable from '../components/AppDataTable';
 import products from '../test/products.json';
@@ -47,7 +47,9 @@ const Products = () => {
             <button className="app-btn app-btn-gray">Print</button>
           </div>
         </div>
-        <Search />
+        <div className="col-sm-6">
+          <AppSearch />
+        </div>
         <AppDataTable config={config} />
       </div>
     </Card >
