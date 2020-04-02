@@ -1,18 +1,70 @@
 [
   {
     "schedule_id": 1,
+    "feature_title": "ToyNToy Promos",
     "default_featured": "01/01/2020 - 01/15/2020",
     "in_stock": "30",
     "is_enabled": false
   },
   {
     "schedule_id": 2,
+    "feature_title": "New Year's Month",
     "default_featured": "01/01/2021 - 01/15/2021",
     "in_stock": "10",
     "is_enabled": true
   },
   {
     "schedule_id": 3,
+    "feature_title": "Chinese New Year",
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true
+  },
+  {
+    "schedule_id": 1,
+    "feature_title": "Valentines Day",
+    "default_featured": "01/01/2020 - 01/15/2020",
+    "in_stock": "30",
+    "is_enabled": false
+  },
+  {
+    "schedule_id": 2,
+    "feature_title": "Batman Anniversary",
+    "default_featured": "01/01/2021 - 01/15/2021",
+    "in_stock": "10",
+    "is_enabled": true
+  },
+  {
+    "schedule_id": 3,
+    "feature_title": "Easter Promo",
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true
+  },
+  {
+    "schedule_id": 1,
+    "feature_title": "April Fools",
+    "default_featured": "01/01/2020 - 01/15/2020",
+    "in_stock": "30",
+    "is_enabled": false
+  },
+  {
+    "schedule_id": 2,
+    "feature_title": "Marvel Promos",
+    "default_featured": "01/01/2021 - 01/15/2021",
+    "in_stock": "10",
+    "is_enabled": true
+  },
+  {
+    "schedule_id": 3,
+    "feature_title": "Neca Promos",
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true
+  },
+  {
+    "schedule_id": 3,
+    "feature_title": "Halloween",
     "default_featured": "01/01/2022 - 01/15/2022",
     "in_stock": "20",
     "is_enabled": true

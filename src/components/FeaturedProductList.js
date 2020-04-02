@@ -1,25 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import featuredProducts from '../test/schedules.json';
 import DateRangePicker from './DateRangePicker';
 import Switch from 'react-switchery';
 import { useHistory } from 'react-router-dom';
 import Datatable from "../components/Datatable";
-import $ from 'jquery';
-
+import Helper from '../helper';
 
 const config = {
   headings: [
-    'Default Featured',
+    'Featured Title',
+    'Featured Schedule',
     'In-Stock',
     'Enable',
   ],
   data: featuredProducts
 }
 
+
+
 const FeaturedProductList = (props) => {
   const history = useHistory();
   const headings = []
   const datas = []
+
+  const tableConfig = [
+    { responsivePriority: 1, targets: 0 },
+    { responsivePriority: 1, targets: 1 },
+    { responsivePriority: 5, targets: 2 },
+    { responsivePriority: 2, targets: 3 },
+    { responsivePriority: 1, targets: 4 }
+  ]
+
+  useEffect(() => {
+    Helper.initializeHoverCopy('.pCode');
+  }, [])
 
   for (const [index, value] of config.headings.entries()) {
     headings.push(<th key={index}>{value}</th>)
@@ -27,15 +41,14 @@ const FeaturedProductList = (props) => {
 
   for (const [index, value] of config.data.entries()) {
     datas.push(
-      <tr onClick={handleClick} key={index} data-id={value.schedule_id}>
+      <tr key={index} data-id={value.schedule_id}>
         <td></td>
+        <td onClick={handleClick} className="pCode">{value.feature_title}</td>
         <td>
-          <div className="col-sm-6">
-            <DateRangePicker schedule={value.default_featured} />
-          </div>
+          <DateRangePicker schedule={value.default_featured} />
         </td>
-        <td>{value.in_stock}</td>
-        <td>
+        <td onClick={handleClick} >{value.in_stock}</td>
+        <td onClick={handleClick} >
           <Switch
             className="switch-class"
             options={
@@ -52,7 +65,9 @@ const FeaturedProductList = (props) => {
   }
 
   function handleClick (e) {
-    if (!e.target.className.includes("sorting_1")) {
+    Helper.copyToClipboard(e);
+
+    if (!e.target.className.includes("fa fa-copy")) {
       const schedId = e.target.parentElement.getAttribute('data-id')
       history.push(`/schedule/${schedId}`)
     }
@@ -64,7 +79,7 @@ const FeaturedProductList = (props) => {
 
 
   return (
-    <Datatable headings={headings} datas={datas} />
+    <Datatable headings={headings} config={tableConfig} datas={datas} />
   )
 }
 

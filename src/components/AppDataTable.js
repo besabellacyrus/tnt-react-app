@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 import Datatable from "../components/Datatable";
-import NewDatatable from './NewDatatable';
 // const $DataTable = require('datatables.net-responsive');
+import Helper from '../helper';
 
 const AppDataTable = (props) => {
   const history = useHistory();
@@ -11,6 +11,18 @@ const AppDataTable = (props) => {
   const { config } = props;
   const headings = []
   const datas = []
+
+
+
+  useEffect(() => {
+    Helper.initializeHoverCopy('.pCode');
+  }, [])
+
+  const tableConfig = [
+    { responsivePriority: 1, targets: 0 },
+    { responsivePriority: 10001, targets: 1 },
+    { responsivePriority: 1, targets: 3 }
+  ]
 
   for (const [index, value] of config.headings.entries()) {
     headings.push(<th key={index}>{value}</th>)
@@ -21,8 +33,8 @@ const AppDataTable = (props) => {
       <tr key={index} data-id={value.product_id}>
         <td></td>
         <td><img className="product-profile" src={value.profile} /></td>
-        <td onMouseEnter={handleHover} onClick={handleClick}>{value.product_code}</td>
-        <td onMouseEnter={handleHover} onClick={handleClick}>{value.product_title}</td>
+        <td className="pCode" onClick={handleClick}>{value.product_code}</td>
+        <td className="pCode" onClick={handleClick}>{value.product_title}</td>
         <td>{value.price_a}</td>
         <td>{value.price_b}</td>
         <td>{value.price_c}</td>
@@ -33,20 +45,15 @@ const AppDataTable = (props) => {
   }
 
   function handleClick (e) {
-    console.log({ weeee: e.target.className })
-    if (!e.target.className.includes("sorting_1")) {
+    Helper.copyToClipboard(e);
+    if (!e.target.className.includes("fa fa-copy")) {
+      const productId = e.target.parentElement.getAttribute('data-id')
+      history.push(`/product/${productId}`)
     }
-    const productId = e.target.parentElement.getAttribute('data-id')
-    history.push(`/product/${productId}`)
-  }
-
-  function handleHover (e) {
-    console.log(e)
   }
 
   return (
-    <Datatable headings={headings} datas={datas} />
-    // <NewDatatable />
+    <Datatable headings={headings} config={tableConfig} datas={datas} />
   )
 }
 

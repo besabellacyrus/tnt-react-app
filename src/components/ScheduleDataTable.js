@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import schedules from '../test/addSchedules.json';
 import Datatable from './Datatable';
 import Switch from 'react-switchery';
+import Helper from '../helper';
 
 const ScheduleDataTable = (props) => {
   const headings = []
@@ -19,17 +20,21 @@ const ScheduleDataTable = (props) => {
     data: schedules
   }
 
+  useEffect(() => {
+    Helper.initializeHoverCopy('.pCode');
+  }, [])
+
   for (const [index, value] of config.headings.entries()) {
     headings.push(<th key={index}>{value}</th>)
   }
 
   for (const [index, value] of config.data.entries()) {
     datas.push(
-      <tr onClick={handleClick} key={index} data-id={value.product_id}>
+      <tr key={index} data-id={value.product_id}>
         <td></td>
         <td><img className="product-profile" src={value.profile} alt={value.product_title} /></td>
-        <td>{value.product_code}</td>
-        <td>{value.product_title}</td>
+        <td className="pCode" onClick={handleClick}>{value.product_code}</td>
+        <td className="pCode" onClick={handleClick}>{value.product_title}</td>
         <td>
           <Switch
             className="switch-class"
@@ -65,8 +70,9 @@ const ScheduleDataTable = (props) => {
   }
 
   function handleClick (e) {
-    console.log(e.target.className)
-    if (e.target.className.includes("sorting_1")) {
+    Helper.copyToClipboard(e);
+
+    if (e.target.className.includes("fa fa-copy")) {
       const productId = e.target.parentElement.getAttribute('data-id')
       // history.push(`/product/${productId}`)
     }
