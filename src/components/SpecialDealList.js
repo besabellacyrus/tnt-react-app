@@ -28,6 +28,7 @@ const SpecialDealList = (props) => {
   for (const [index, value] of config.data.entries()) {
     datas.push(
       <tr onClick={handleClick} key={index} data-id={value.deal_id}>
+        <td></td>
         <td>
           <DateRangePicker schedule={value.default_featured} />
         </td>

@@ -26,6 +26,7 @@ const DealDataTable = (props) => {
   for (const [index, value] of config.data.entries()) {
     datas.push(
       <tr onClick={handleClick} key={index} data-id={value.product_id}>
+        <td></td>
         <td><img className="product-profile" src={value.profile} alt={value.product_title} /></td>
         <td>{value.product_code}</td>
         <td>{value.product_title}</td>

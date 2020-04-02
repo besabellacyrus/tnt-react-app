@@ -10,6 +10,7 @@ import AddSpecialDeals from "./routes/AddSpecialDeals";
 import Dashboard from "./routes/Dashboard";
 global.jQuery = require('jquery');
 
+
 // const Products = lazy(() => import('./routes/Product'));
 
 function App () {

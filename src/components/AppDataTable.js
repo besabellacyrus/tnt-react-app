@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
 import Datatable from "../components/Datatable";
+import NewDatatable from './NewDatatable';
 // const $DataTable = require('datatables.net-responsive');
 
 const AppDataTable = (props) => {
@@ -17,10 +18,11 @@ const AppDataTable = (props) => {
 
   for (const [index, value] of config.data.entries()) {
     datas.push(
-      <tr onClick={handleClick} key={index} data-id={value.product_id}>
+      <tr key={index} data-id={value.product_id}>
+        <td></td>
         <td><img className="product-profile" src={value.profile} /></td>
-        <td onMouseEnter={handleHover}>{value.product_code}</td>
-        <td onMouseEnter={handleHover}>{value.product_title}</td>
+        <td onMouseEnter={handleHover} onClick={handleClick}>{value.product_code}</td>
+        <td onMouseEnter={handleHover} onClick={handleClick}>{value.product_title}</td>
         <td>{value.price_a}</td>
         <td>{value.price_b}</td>
         <td>{value.price_c}</td>
@@ -33,9 +35,9 @@ const AppDataTable = (props) => {
   function handleClick (e) {
     console.log({ weeee: e.target.className })
     if (!e.target.className.includes("sorting_1")) {
-      const productId = e.target.parentElement.getAttribute('data-id')
-      history.push(`/product/${productId}`)
     }
+    const productId = e.target.parentElement.getAttribute('data-id')
+    history.push(`/product/${productId}`)
   }
 
   function handleHover (e) {
@@ -44,6 +46,7 @@ const AppDataTable = (props) => {
 
   return (
     <Datatable headings={headings} datas={datas} />
+    // <NewDatatable />
   )
 }
 

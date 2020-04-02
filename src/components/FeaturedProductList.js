@@ -28,6 +28,7 @@ const FeaturedProductList = (props) => {
   for (const [index, value] of config.data.entries()) {
     datas.push(
       <tr onClick={handleClick} key={index} data-id={value.schedule_id}>
+        <td></td>
         <td>
           <div className="col-sm-6">
             <DateRangePicker schedule={value.default_featured} />
