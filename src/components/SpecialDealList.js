@@ -27,8 +27,8 @@ const SpecialDealList = (props) => {
 
   for (const [index, value] of config.data.entries()) {
     datas.push(
-      <tr onClick={handleClick} key={index} data-id={value.schedule_id}>
-        <td width="40%">
+      <tr onClick={handleClick} key={index} data-id={value.deal_id}>
+        <td>
           <DateRangePicker schedule={value.default_featured} />
         </td>
         <td>{value.in_stock}</td>
@@ -45,16 +45,19 @@ const SpecialDealList = (props) => {
           />
         </td>
         <td>
-          <img src={value.background_photo} alt="background photo" />
+          <div className="list-bg-photo-wrapper">
+            <img src={value.background_photo} alt="background photo" />
+          </div>
         </td>
       </tr>
     )
   }
 
   function handleClick (e) {
-    if (e.target.className.includes("sorting_1")) {
-      const schedId = e.target.parentElement.getAttribute('data-id')
-      // history.push(`/schedule/${schedId}`)
+    console.log({ click: e.target.className })
+    if (e.target.className === "") {
+      const dealId = e.target.parentElement.getAttribute('data-id')
+      history.push(`/special-deal/${dealId}`)
     }
   }
 

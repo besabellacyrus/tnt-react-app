@@ -4,20 +4,15 @@ require('datatables.net-responsive');
 
 const Datatable = (props) => {
   useEffect(() => {
-    $('#app-data-table').DataTable({
-      // bFilter: false,
-      // bInfo: false,
+    $('.app-data-table').DataTable({
+      bFilter: false,
+      bInfo: false,
       responsive: true,
-      // select: {
-      //   style: 'os',
-      //   selector: 'td:first-child'
-      // },
-      // order: [[1, 'asc']]
     });
   }, [])
 
   return (
-    <table id="app-data-table" className="table table-hover display pb-30">
+    <table className="app-data-table table display nowrap table-hover pb-30" width="100%">
       <thead>
         <tr>
           {props.headings}

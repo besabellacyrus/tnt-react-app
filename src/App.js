@@ -6,6 +6,7 @@ import AddProduct from "./routes/AddProduct";
 import AddSchedule from "./routes/AddSchedule";
 import FeaturedProducts from './routes/FeaturedProducts';
 import SpecialDeals from "./routes/SpecialDeals";
+import AddSpecialDeals from "./routes/AddSpecialDeals";
 import Dashboard from "./routes/Dashboard";
 global.jQuery = require('jquery');
 
@@ -28,6 +29,7 @@ function App () {
             <Route path="/special-deals" component={SpecialDeals} />
             <Route path="/product/:productId" component={AddProduct} />
             <Route path="/schedule/:schedId" component={AddSchedule} />
+            <Route path="/special-deal/:dealId" component={AddSpecialDeals} />
           </div>
           <footer className="footer container-fluid pl-30 pr-30">
             <div className="row">

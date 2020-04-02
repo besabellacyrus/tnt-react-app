@@ -63,6 +63,24 @@
   }
 }
 
+.list-bg-photo-wrapper {
+  height: 7rem;
+    width: 18rem;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.bg-photo-top {
+  height: 6rem;
+  width: 16rem;
+  margin-bottom: 1rem;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
 .app-search input {
   margin-left: 0.3rem;
   width: 24rem;
