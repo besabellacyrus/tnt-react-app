@@ -275,19 +275,30 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
 }
 
 
-
-
+.nav-pills > li > a:active, .nav-pills > li > a:focus, .nav-pills > li > a:hover {
+  background: #fc8300;
+  color: #fff;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+  background: #fc8300;
+  color: #fff;
+}
+.nav-pills > li > a {
+  background: #fff;
+  &:active {
+    transform: scale(1.01);
+  }
+}
 
 .app-product-nav {
-  &.nav-pills > li > a {
-    background: #fff;
+
+  .nav-pills > li.active > a, .nav-pills > li.open > a {
+    color: #878787 !important;
   }
+
     display: flex;
     flex-wrap: wrap;
-    & .nav-pills > li > a:active, &.nav-pills > li > a:focus, &.nav-pills > li > a:hover {
-      background: #fc8300;
-      color: #fff;
-    }
+
     & > li {
       text-align: center;
       @media (max-width: 565px) {
@@ -391,7 +402,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
     height: 1rem;
     width: 1rem;
     cursor: pointer;
-    color: #fc8300;
+    &:hover {
+      color: #fc8300;
+    }
     &:active {
       transform: scale(1.2);
     }

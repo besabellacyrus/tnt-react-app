@@ -18,7 +18,6 @@ const Product = (props) => {
       <div className="mt-20">
         <div className="tab-content" id="myTabContent_6">
           <div id="product_info" className="tab-pane fade active in" role="tabpanel">
-            {/*  */}
             <div className="row">
               <div className="col-sm-12">
                 <div className="panel panel-default card-view">
