@@ -1,5 +1,6 @@
 [
   {
+    "feature_title": "ToyNToy Promos",
     "deal_id": 1,
     "default_featured": "01/01/2020 - 01/15/2020",
     "in_stock": "30",
@@ -7,6 +8,7 @@
     "background_photo": "/img/user1.png"
   },
   {
+    "feature_title": "New Year's Month",
     "deal_id": 2,
     "default_featured": "01/01/2021 - 01/15/2021",
     "in_stock": "10",
@@ -14,7 +16,64 @@
     "background_photo": "/img/user1.png"
   },
   {
+    "feature_title": "Chinese New Year",
     "deal_id": 3,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "Valentines Day",
+    "deal_id": 4,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "Batman Anniversary",
+    "deal_id": 5,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "Easter Promo",
+    "deal_id": 6,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "April Fools",
+    "deal_id": 7,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "Marvel Promos",
+    "deal_id": 8,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "Neca Promos",
+    "deal_id": 9,
+    "default_featured": "01/01/2022 - 01/15/2022",
+    "in_stock": "20",
+    "is_enabled": true,
+    "background_photo": "/img/user1.png"
+  },
+  {
+    "feature_title": "Halloween",
+    "deal_id": 10,
     "default_featured": "01/01/2022 - 01/15/2022",
     "in_stock": "20",
     "is_enabled": true,

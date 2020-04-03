@@ -5,8 +5,6 @@ import AppDataTable from '../components/AppDataTable';
 import products from '../test/products.json';
 import { useHistory } from "react-router-dom";
 
-let scripts = []
-
 const config = {
   headings: [
     'Profile',

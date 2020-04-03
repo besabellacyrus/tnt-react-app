@@ -9,10 +9,10 @@ const DateRangePicker = (props) => {
 
   return (
     <div className="form-group">
-      <div class="input-group date" id="datetimepicker1">
-        <input type="text" name="daterange" class="form-control" value={props.schedule} />
-        <span class="input-group-addon">
-          <span class="fa fa-calendar"></span>
+      <div className="input-group date" id="datetimepicker1">
+        <input type="text" name="daterange" className="form-control" value={props.schedule} />
+        <span className="input-group-addon">
+          <span className="fa fa-calendar"></span>
         </span>
       </div>
     </div>

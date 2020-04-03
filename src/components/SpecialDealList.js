@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import specialDeals from '../test/specialDeals.json';
 import DateRangePicker from './DateRangePicker';
 import Switch from 'react-switchery';
 import { useHistory } from 'react-router-dom';
 import Datatable from "../components/Datatable";
-
+import Helper from "../helper";
 
 const config = {
   headings: [
+    'Featured Title',
     'Default Featured',
     'In-Stock',
     'Enable',
@@ -21,18 +22,23 @@ const SpecialDealList = (props) => {
   const headings = []
   const datas = []
 
+  useEffect(() => {
+    Helper.initializeHoverCopy('.pCode');
+  }, [])
+
   for (const [index, value] of config.headings.entries()) {
     headings.push(<th key={index}>{value}</th>)
   }
 
   for (const [index, value] of config.data.entries()) {
     datas.push(
-      <tr onClick={handleClick} key={index} data-id={value.deal_id}>
+      <tr key={index} data-id={value.deal_id}>
         <td></td>
+        <td onClick={handleClick} className="pCode">{value.feature_title}</td>
         <td>
           <DateRangePicker schedule={value.default_featured} />
         </td>
-        <td>{value.in_stock}</td>
+        <td onClick={handleClick}>{value.in_stock}</td>
         <td>
           <Switch
             className="switch-class"
@@ -55,17 +61,12 @@ const SpecialDealList = (props) => {
   }
 
   function handleClick (e) {
-    console.log({ click: e.target.className })
-    if (e.target.className === "") {
+    Helper.copyToClipboard(e);
+    if (!e.target.className.includes("fa fa-copy")) {
       const dealId = e.target.parentElement.getAttribute('data-id')
       history.push(`/special-deal/${dealId}`)
     }
   }
-
-  function handleHover (e) {
-    console.log(e)
-  }
-
 
   return (
     <Datatable headings={headings} datas={datas} />

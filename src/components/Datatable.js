@@ -34,11 +34,12 @@ const Datatable = (props) => {
     ]
   }
 
-  if (props.config) {
-    mainConfig.columnDefs.push(...props.config)
-  }
+
 
   useEffect(() => {
+    if (props.config) {
+      mainConfig.columnDefs.push(...props.config)
+    }
     const table = $('.app-data-table');
     table.DataTable(mainConfig);
 
@@ -64,8 +65,7 @@ const Datatable = (props) => {
   }, [])
 
   return (
-    // <table className="app-data-table table display nowrap table-hover pb-30" width="100%">
-    <table class="app-data-table table table-striped table-bordered table-hover table-checkable mt-20" id="kt_table_1" width="100%">
+    <table className="app-data-table table table-striped table-bordered table-hover table-checkable mt-20" id="kt_table_1" width="100%">
       <thead>
         <tr>
           <th><input type="checkbox" className="kt-group-checkable" /></th>
