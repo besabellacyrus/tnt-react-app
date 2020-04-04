@@ -1,0 +1,86 @@
+{
+  "images": [
+    {
+      "label": "1",
+      "url": "/img/slides/01.jpg"
+    },
+    {
+      "label": "2",
+      "url": "/img/slides/02.jpg"
+    },
+    {
+      "label": "3",
+      "url": "/img/slides/03.jpg"
+    },
+    {
+      "label": "4",
+      "url": "/img/slides/04.jpg"
+    },
+    {
+      "label": "1",
+      "url": "/img/slides/05.jpg"
+    },
+    {
+      "label": "5",
+      "url": "/img/slides/06.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/slides/07.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/slides/08.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/slides/09.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/slides/10-white.jpg"
+    }
+  ],
+  "thumbnail": [
+    {
+      "label": "1",
+      "url": "/img/thumbnail/MEZ76515_thumbnail.jpg"
+    },
+    {
+      "label": "2",
+      "url": "/img/thumbnail/MEZ77330_thumbnail.jpg"
+    },
+    {
+      "label": "3",
+      "url": "/img/thumbnail/MEZ77480_thumbnail.jpg"
+    },
+    {
+      "label": "4",
+      "url": "/img/thumbnail/NEC03343_thumbnail.jpg"
+    },
+    {
+      "label": "1",
+      "url": "/img/thumbnail/NEC42899_thumbnail.jpg"
+    },
+    {
+      "label": "5",
+      "url": "/img/thumbnail/NEC49501_thumbnail.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/thumbnail/NEC51575_thumbnail.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/thumbnail/NEC51585_thumbnail.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/thumbnail/NEC54132_thumbnail.jpg"
+    },
+    {
+      "label": "6",
+      "url": "/img/thumbnail/WETA73129_thumbnail.jpg"
+    }
+  ]
+}

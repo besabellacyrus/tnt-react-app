@@ -1,44 +1,21 @@
 import React from 'react'
+import ImageSlider from '../components/product/ImagesSlider';
+import sampleImages from "../test/sampleImages.json";
 
 const displayImages = [];
 
-const images = [
-  {
-    title: '',
-    url: '/img/chair4.jpg'
-  },
-  {
-    title: '',
-    url: '/img/chair4.jpg'
-  },
-  {
-    title: '',
-    url: '/img/chair4.jpg'
-  },
-  {
-    title: '',
-    url: '/img/chair4.jpg'
-  },
-  {
-    title: '',
-    url: '/img/chair4.jpg'
-  },
-  {
-    title: '',
-    url: '/img/chair4.jpg'
-  }
-];
+const images = sampleImages.images;
 
 for (const [index, value] of images.entries()) {
   displayImages.push(
-    <img src={value.url} key={index + 'a'} />
+    <div className="item"><img src={value.url} key={index + 'a'} /></div>
   )
 }
 
 const SlideShow = () => {
   return (
     <div className="slide-show">
-      {displayImages}
+      <ImageSlider items={displayImages} />
     </div>
   )
 }

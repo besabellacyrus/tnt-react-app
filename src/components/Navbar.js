@@ -64,6 +64,11 @@ class Navbar extends Component {
       }
       return false;
     });
+    Jquery('ul.dropdown-menu').on('click', function (event) {
+      // The event won't be propagated up to the document NODE and
+      // therefore delegated events won't be fired
+      event.stopPropagation();
+    });
   }
 
   render () {

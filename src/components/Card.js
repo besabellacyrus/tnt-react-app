@@ -10,10 +10,15 @@ const Card = (props) => {
         <div className="col-sm-12">
           <div className="panel panel-default card-view">
             <div className="panel-heading">
-              <div className="pull-left">
-                <h6 className="panel-title txt-dark">{props.subTitle}</h6>
+              <h6 className="panel-title panel-subtitle txt-dark">{props.subTitle}</h6>
+              <div className="row card-row-reverse">
+                <div className="col-sm-5">
+                  {props.contentLeft}
+                </div>
+                <div className="col-sm-7">
+                  {props.contentRight}
+                </div>
               </div>
-              <div className="clearfix"></div>
             </div>
             <div className="panel-wrapper collapse in">
               <div className="panel-body">

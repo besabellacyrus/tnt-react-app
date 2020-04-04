@@ -11,11 +11,19 @@ const config = {
     'Featured Title',
     'Default Featured',
     'In-Stock',
+    'Pre-Order',
+    'Out Of Stock',
     'Enable',
     'Background Photo'
   ],
   data: specialDeals
 }
+
+const tableConfig = [
+  { responsivePriority: 1, targets: 0 },
+  { responsivePriority: 10001, targets: 1 },
+  { responsivePriority: 1, targets: 3 }
+]
 
 const SpecialDealList = (props) => {
   const history = useHistory();
@@ -39,6 +47,8 @@ const SpecialDealList = (props) => {
           <DateRangePicker schedule={value.default_featured} />
         </td>
         <td onClick={handleClick}>{value.in_stock}</td>
+        <td onClick={handleClick}>{value.pre_order}</td>
+        <td onClick={handleClick}>{value.out_of_stock}</td>
         <td>
           <Switch
             className="switch-class"
@@ -69,7 +79,7 @@ const SpecialDealList = (props) => {
   }
 
   return (
-    <Datatable headings={headings} datas={datas} />
+    <Datatable headings={headings} config={tableConfig} datas={datas} />
   )
 }
 

@@ -4,11 +4,8 @@ require('datatables.net-responsive');
 
 const Datatable = (props) => {
 
-  // { responsivePriority: 1, targets: 0 },
-  //         { responsivePriority: 10001, targets: 1 },
-  //         { responsivePriority: 1, targets: 3 },
-
-  // console.log({ dddd: sample })
+  const regEx = true;
+  const smart = true;
 
   const mainConfig = {
     responsive: true,
@@ -35,12 +32,76 @@ const Datatable = (props) => {
   }
 
 
+  const filterGlobal = () => {
+    $('.app-data-table').DataTable().search(
+      $('#global_filter').val(),
+      regEx,
+      smart
+    ).draw();
+  }
+
+
+  const createFilter = (table) => {
+
+    let checkedboxes = document.querySelectorAll('#checkbox-ul input[type=checkbox]');
+
+    let selectedBoxes = [];
+
+    [...checkedboxes].forEach((e) => {
+      let cols = []
+      if (e.checked) {
+        cols.push(e.value)
+      }
+      e.addEventListener('click', (w) => {
+        // if (e.checked) {
+        //   cols.push(e.value)
+        // }
+        // console.log({ cols, ll: e.value })
+      })
+    })
+
+    var input = $('input.search-datatable').on("keyup", function () {
+      table.draw();
+    });
+
+    const columns = [2, 3]
+    $.fn.dataTable.ext.search.push(function (
+      settings,
+      searchData,
+      index,
+      rowData,
+      counter
+    ) {
+      var val = input.val().toLowerCase();
+
+      for (var i = 0, ien = columns.length; i < ien; i++) {
+        if (searchData[columns[i]].toLowerCase().indexOf(val) !== -1) {
+          return true;
+        }
+      }
+
+      return false;
+    });
+
+
+    // return input;
+  }
+
+  const filterColumn = (i) => {
+    $('.app-data-table').DataTable().columns().search(
+      $('.search-datatable').val(),
+      regEx,
+      smart
+    ).draw();
+  }
+
 
   useEffect(() => {
     if (props.config) {
       mainConfig.columnDefs.push(...props.config)
     }
     const table = $('.app-data-table');
+
     table.DataTable(mainConfig);
 
     table.on('change', '.kt-group-checkable', function () {
@@ -62,10 +123,15 @@ const Datatable = (props) => {
       $(this).parents('tr').toggleClass('active');
     });
 
+    createFilter($('.app-data-table').DataTable())
+    // $('input.search-datatable').on('keyup click', function () {
+    //   // filterColumn(1);
+    // });
+
   }, [])
 
   return (
-    <table className="app-data-table table table-striped table-bordered table-hover table-checkable mt-20" id="kt_table_1" width="100%">
+    <table className="app-data-table table table-hover display mt-20" width="100%">
       <thead>
         <tr>
           <th><input type="checkbox" className="kt-group-checkable" /></th>

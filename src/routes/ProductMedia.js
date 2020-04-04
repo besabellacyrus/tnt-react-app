@@ -22,7 +22,9 @@ const ProductMedia = () => {
             <div className="product-images">
               <label className="col-sm-3 text-right">Thumbnail</label>
               <div className="col-sm-9">
-                <img src="/img/chair.jpg" />
+                <div className="thumbnail-wrapper">
+                  <img src="/img/thumbnail/MEZ76515_thumbnail.jpg" />
+                </div>
                 <br />
                 <button className="btn btn-default"> <span>Change</span></button>
                 <span>&nbsp;&nbsp;&nbsp; &#x2714; Already set from "Media".</span>
@@ -116,7 +118,7 @@ const ProductMedia = () => {
               <label className="col-sm-3 text-right">Main Display</label>
               <div className="col-sm-9">
                 <div className="main-display-image">
-                  <img src="/img/slide1.jpg" />
+                  <img src="/img/thumbnail/MEZ76515_display.jpg" />
                 </div>
                 <div className="row">
                   <div className="col-sm-12">
@@ -161,7 +163,7 @@ const ProductMedia = () => {
             <label className="col-sm-3 text-right">Banner</label>
             <div className="col-sm-9">
               <div className="banner-image">
-                <img src="/img/slide1.jpg" />
+                <img src="/img/thumbnail/MEZ76515_1920.jpg" />
                 <button className="btn btn-default"> <span>Change</span></button>
                 <span>&nbsp;&nbsp;&nbsp; &#x2714; Already set from "Media".</span>
               </div>

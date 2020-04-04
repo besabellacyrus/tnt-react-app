@@ -1,27 +1,54 @@
 [
   {
     "product_id": 1,
-    "profile": "/img/user1.png",
+    "profile": "/img/thumbnail/NEC51585_thumbnail.jpg",
     "product_code": "122233",
-    "product_title": "Sample Title 1",
+    "product_title": "The Last of Us Part II",
     "featured": true,
     "home_featured": true,
     "ranking": "1"
   },
   {
     "product_id": 2,
-    "profile": "/img/user1.png",
+    "profile": "/img/thumbnail/NEC51575_thumbnail.jpg",
     "product_code": "11323",
-    "product_title": "Sample Title 2",
+    "product_title": "RoboCop",
     "featured": true,
     "home_featured": true,
     "ranking": "1"
   },
   {
     "product_id": 3,
-    "profile": "/img/user1.png",
+    "profile": "/img/thumbnail/MEZ77480_thumbnail.jpg",
     "product_code": "43323",
-    "product_title": "Sample Title 3",
+    "product_title": "Scott Pilgrim VS the World",
+    "featured": true,
+    "home_featured": true,
+    "ranking": "1"
+  },
+  {
+    "product_id": 4,
+    "profile": "/img/thumbnail/NEC49501_thumbnail.jpg",
+    "product_code": "122233",
+    "product_title": "Sonic the Hedgehog",
+    "featured": true,
+    "home_featured": true,
+    "ranking": "1"
+  },
+  {
+    "product_id": 5,
+    "profile": "/img/thumbnail/NEC51575_thumbnail.jpg",
+    "product_code": "11323",
+    "product_title": "The Spirit",
+    "featured": true,
+    "home_featured": true,
+    "ranking": "1"
+  },
+  {
+    "product_id": 6,
+    "profile": "/img/thumbnail/NEC03343_thumbnail.jpg",
+    "product_code": "43323",
+    "product_title": "Full Metal Alchemist",
     "featured": true,
     "home_featured": true,
     "ranking": "1"

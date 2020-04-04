@@ -4,69 +4,60 @@ import AppSearch from '../components/AppSearch'
 import DateRangePicker from '../components/DateRangePicker'
 import FeaturedProductList from '../components/FeaturedProductList'
 import SpecialDealList from '../components/SpecialDealList'
+import TableExportButtons from '../components/TableExportButtons'
 
 const SpecialDeals = (props) => {
-  return (
-    <Card title="Special Deals" subTitle="Special Deals Schedule">
-      <div className="featured-product-wrapper">
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Search:</label>
-            </div>
-            <div className="col-sm-5">
-              <AppSearch />
-            </div>
-            <div className="col-sm-5">
-              <div className="pull-right">
-                <button className="btn app-btn btn-primary">Add New</button>
-                <button className="btn app-btn app-btn-danger">Delete</button>
-              </div>
-            </div>
-          </div>
+
+  const config = {
+    headings: [
+      'Featured Title',
+      'Default Featured',
+      'In-Stock',
+      'Pre-Order',
+      'Out Of Stock',
+      'Enable',
+      'Background Photo'
+    ]
+  }
+
+  const contentLeft = (
+    <div className="search-wrapper">
+      <div className="row">
+        <div className="col-sm-12">
+          <AppSearch searchables={config.headings} />
         </div>
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Date Range:</label>
-            </div>
-            <div className="col-sm-5">
+        <div className="col-sm-12 mt-10">
+          <div className="row">
+            <label className="col-sm-3 line-height-3">Date Range:</label>
+            <div className="col-sm-9">
               <DateRangePicker schedule="01/01/2020 - 01/15/2020" />
             </div>
-            <div className="col-sm-5 mb-20">
-              <div className="product-table-actions pull-right">
-                <button className="app-btn app-btn-gray">Copy Table</button>
-                <button className="app-btn app-btn-gray">CSV</button>
-                <button className="app-btn app-btn-gray">Excel</button>
-                <button className="app-btn app-btn-gray">PDF</button>
-                <button className="app-btn app-btn-gray">Print</button>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Product Inventory:</label>
-            </div>
-            <div className="col-sm-5">
-              <select className="form-control">
-                <option value="">In-Stock</option>
-                <option value="">Pre-Order</option>
-                <option value="">Almost Gone</option>
-                <option value="">Sold Out</option>
-              </select>
-            </div>
-            <div className="col-sm-5"></div>
-          </div>
+      </div>
+    </div>
+  )
+
+  const contentRight = (
+    <div className="row">
+      <div className="col-sm-12">
+        <div className="featured-action-btns">
+          <button className="btn app-btn btn-primary">Add New</button>
+          <button className="btn app-btn app-btn-danger">Delete</button>
         </div>
-        <div className="col-xs-12 col-sm-12">
-          <div className="row">
-            <div className="col-md-12">
-              <SpecialDealList />
-            </div>
-          </div>
+      </div>
+      <div className="col-sm-12">
+        <div className="product-table-actions pull-right mt-10 mb-10">
+          <TableExportButtons />
         </div>
+      </div>
+    </div>
+  )
+
+  return (
+    <Card title="Special Deals" contentLeft={contentLeft} contentRight={contentRight} subTitle="Special Deals Schedule">
+      <div className="table-wrap">
+        <SpecialDealList />
       </div>
     </Card>
   )

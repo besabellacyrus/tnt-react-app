@@ -11,6 +11,8 @@ const config = {
     'Featured Title',
     'Featured Schedule',
     'In-Stock',
+    'Pre-Order',
+    'Out Of Stock',
     'Enable',
   ],
   data: featuredProducts
@@ -45,9 +47,13 @@ const FeaturedProductList = (props) => {
         <td></td>
         <td onClick={handleClick} className="pCode">{value.feature_title}</td>
         <td>
-          <DateRangePicker schedule={value.default_featured} />
+          <div className="col-sm-8">
+            <DateRangePicker schedule={value.default_featured} />
+          </div>
         </td>
         <td onClick={handleClick} >{value.in_stock}</td>
+        <td onClick={handleClick} >{value.pre_order}</td>
+        <td onClick={handleClick} >{value.out_of_stock}</td>
         <td onClick={handleClick} >
           <Switch
             className="switch-class"

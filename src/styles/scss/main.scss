@@ -22,6 +22,13 @@
   margin-right: -5px;
 }
 
+.product-search {
+  margin-top: 3.3rem;
+}
+
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+  border-radius: 0;
+}
 
 .app-product-action-btns {
   position: absolute;
@@ -74,9 +81,9 @@
 }
 
 .bg-photo-top {
-  height: 6rem;
-  width: 16rem;
-  margin-bottom: 1rem;
+  height: 8.2rem;
+  // width: 16rem;
+  margin-bottom: 0.5rem;
   img {
     height: 100%;
     width: 100%;
@@ -87,6 +94,9 @@
   width: 24rem;
 }
 
+.special-deal-search {
+  margin-top: 5.4rem;
+}
 
 @media screen and (max-width: 425px) {
 
@@ -122,19 +132,30 @@
   background: #8496a4 !important;
   border: solid 1px #8496a4 !important;
 }
-#app-table-header-btns .btn-darkblue {
+.btn-darkblue {
   background: #2c3e4c  !important;
   border: solid 1px #2c3e4c  !important;
 }
-
+.table-export-button {
+  margin-top: 2.68rem;
+}
 #app-table-header-btns .btn-warning {
   background: #fcb800   !important;
   border: solid 1px #fcb800   !important;
 }
 .app-btn {
-  margin-right: 5px;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
   border-radius: initial !important;
   color: #fff;
+  @media screen and (min-width: 768px) {
+    height: 42px;
+    width: 7rem;
+  }
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+  }
 }
 .app-btn-default {
   background: #4e9de6 !important;
@@ -150,8 +171,8 @@
   width: 100%;
 }
 .app-btn-gray {
-  background: gainsboro;
-  border: solid 1px gainsboro;
+  background: #8496A4;
+  border: solid 1px #8496A4;
   color: #fff;
 }
 .switch-label {
@@ -178,17 +199,9 @@ hr {
   border-bottom: 2px solid #2ecd99;
 }
 
-table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child::before {
-  // background-color: #2ecd99;
-  // // box-shadow: none;
-  // // transform: scale(3);
-  // position: absolute;
-  // left: 0;
-  // top: 44%;
-  @media screen and (max-width: 425px) {
-    // transform: scale(2);
-    // display: none;
-    // top: 32%;
+table {
+  td {
+    cursor: pointer;
   }
 }
 
@@ -217,7 +230,6 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
 }
 
 .banner-image {
-  height: 10rem;
   img {
     height: 100%;
     width: 100%;
@@ -235,6 +247,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
 .product-price-selector {
   position: relative;
 }
+
 
 .accordion-wrapper {
    & > .row {
@@ -255,6 +268,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
 }
 .app-input-group {
   // display: inline-flex !important;
+  border-radius: 0;
 }
 .offered-cost {
   display: inline-table;
@@ -325,9 +339,56 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
     }
   }
 
+  label.line-height-3 {
+    line-height: 3;
+  }
+
+  // card
+  .card-view {
+    .panel-heading {
+      padding-bottom: 0 !important;
+      position: relative;
+    }
+  }
+
+  .panel-subtitle {
+    margin-bottom: 1rem;
+    @media screen and (min-width: 768px) {
+      // position: absolute;
+      // left: 0;
+      // margin-left: 1rem;
+    }
+  }
+
+  .card-row-reverse {
+    @media screen and (max-width: 425px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  .search-wrapper {
+    // margin-top: 3rem;
+  }
+
+  .featured-action-btns {
+    @media screen and (min-width: 768px) {
+      text-align: right;
+    }
+    @media screen and (max-width: 425px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 0.3rem;
+    }
+  }
+
   .product-action-btns {
+
     button {
       border-radius: initial;
+    }
+    @media screen and (min-width: 1024px) {
+      text-align: right;
     }
     @media screen and (max-width: 425px) {
       display: grid;
@@ -409,3 +470,43 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before, tabl
       transform: scale(1.2);
     }
   }
+
+  .thumbnail-wrapper {
+    height: 17rem;
+    width: 17rem;
+    & > img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  // Owl
+  .owl-nav {
+    span {
+      color: #fff;
+      background-color: #f7f3f45e;
+    }
+    .owl-prev {
+      position: absolute;
+      left: 0;
+      top: 30%;
+      color: #fff !important;
+
+    }
+    .owl-next {
+      position: absolute;
+      right: 0;
+      top: 30%;
+    }
+
+  }
+
+
+  // custom dropdown search
+.datatable-dropdown {
+  user-select: none;
+  padding: 1rem;
+  label {
+    padding-left: 0.5rem;
+  }
+}

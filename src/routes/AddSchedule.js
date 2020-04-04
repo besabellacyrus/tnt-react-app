@@ -4,48 +4,59 @@ import Card from '../components/Card';
 import AppSearch from '../components/AppSearch';
 import DateRangePicker from "../components/DateRangePicker";
 import ScheduleDataTable from '../components/ScheduleDataTable';
+import TableExportButtons from "../components/TableExportButtons";
 
 const AddSchedule = (props) => {
+
+  const config = {
+    headings: [
+      'Profile',
+      'Product Code',
+      'Product Title',
+      'Featured',
+      'Home Featured',
+      'Ranking'
+    ]
+  }
+
+  const contentLeft = (
+    <div className="search-wrapper">
+      <div className="row">
+        <div className="col-sm-12">
+          <AppSearch searchables={config.headings} />
+        </div>
+        <div className="col-sm-12 mt-10">
+          <div className="row">
+            <label className="col-sm-3">Set Schedule:</label>
+            <div className="col-sm-9">
+              <DateRangePicker schedule="01/01/2020 - 01/15/2020" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+  const contentRight = (
+    <div className="row table-export-button">
+      <div className="col-sm-12">
+        <div className="product-table-actions pull-right mt-10 mb-10">
+          <TableExportButtons />
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <React.Fragment>
       <NavigationWithBack title="Featured Products" />
-      <Card subTitle="Featured Schedule">
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Search:</label>
-            </div>
-            <div className="col-sm-5">
-              <AppSearch />
-            </div>
-            <div className="col-sm-5">
-            </div>
-          </div>
+      <Card subTitle="Featured Schedule" contentLeft={contentLeft} contentRight={contentRight}>
+        <div className="table-wrap">
+          <ScheduleDataTable />
         </div>
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Set Schedule:</label>
-            </div>
-            <div className="col-sm-5">
-              <DateRangePicker schedule="01/01/2020 - 01/15/2020" />
-            </div>
-            <div className="col-sm-5 mb-20">
-              <div className="product-table-actions pull-right">
-                <button className="app-btn app-btn-gray">Copy Table</button>
-                <button className="app-btn app-btn-gray">CSV</button>
-                <button className="app-btn app-btn-gray">Excel</button>
-                <button className="app-btn app-btn-gray">PDF</button>
-                <button className="app-btn app-btn-gray">Print</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <ScheduleDataTable />
       </Card>
       <div className="pull-right">
-        <button className="btn app-btn app-btn-default">Preview</button>
-        <button className="btn app-btn app-btn-default">Save</button>
+        <button className="btn app-btn btn-primary">Preview</button>
+        <button className="btn app-btn btn-primary">Save</button>
         <button className="btn app-btn-cancel">Cancel</button>
       </div>
     </React.Fragment>

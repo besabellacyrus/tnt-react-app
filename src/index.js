@@ -4,10 +4,8 @@ import App from './App';
 import 'popper.js/dist/popper.js';
 import 'bootstrap3/dist/js/bootstrap.js';
 import './styles/fixed-width-light/js/init.js';
-// import './vendors/keen/plugins.bundle.js';
 import './App.css';
 import './styles/scss/main.scss';
-
 
 
 import * as serviceWorker from './serviceWorker';

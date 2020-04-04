@@ -8,8 +8,6 @@ import FeaturedProducts from './routes/FeaturedProducts';
 import SpecialDeals from "./routes/SpecialDeals";
 import AddSpecialDeals from "./routes/AddSpecialDeals";
 import Dashboard from "./routes/Dashboard";
-global.jQuery = require('jquery');
-
 
 // const Products = lazy(() => import('./routes/Product'));
 
