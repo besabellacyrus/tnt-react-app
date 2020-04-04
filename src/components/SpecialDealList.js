@@ -46,9 +46,9 @@ const SpecialDealList = (props) => {
         <td>
           <DateRangePicker schedule={value.default_featured} />
         </td>
-        <td onClick={handleClick}>{value.in_stock}</td>
-        <td onClick={handleClick}>{value.pre_order}</td>
-        <td onClick={handleClick}>{value.out_of_stock}</td>
+        <td className="pCode" onClick={handleClick}>{value.in_stock}</td>
+        <td className="pCode" onClick={handleClick}>{value.pre_order}</td>
+        <td className="pCode" onClick={handleClick}>{value.out_of_stock}</td>
         <td>
           <Switch
             className="switch-class"
@@ -63,7 +63,7 @@ const SpecialDealList = (props) => {
         </td>
         <td>
           <div className="list-bg-photo-wrapper">
-            <img src={value.background_photo} alt="background photo" />
+            <img src={value.background_photo} alt="background about the product" />
           </div>
         </td>
       </tr>

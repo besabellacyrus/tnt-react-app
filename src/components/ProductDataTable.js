@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useHistory } from "react-router-dom";
-import Datatable from "../components/Datatable";
+import Datatable from "./Datatable";
 // const $DataTable = require('datatables.net-responsive');
 import Helper from '../helper';
 
@@ -32,14 +32,14 @@ const AppDataTable = (props) => {
     datas.push(
       <tr key={index} data-id={value.product_id}>
         <td></td>
-        <td><img className="product-profile" src={value.profile} /></td>
+        <td><img className="product-profile" src={value.profile} alt="" /></td>
         <td className="pCode" onClick={handleClick}>{value.product_code}</td>
         <td className="pCode" onClick={handleClick}>{value.product_title}</td>
-        <td>{value.price_a}</td>
-        <td>{value.price_b}</td>
-        <td>{value.price_c}</td>
-        <td>{value.retail_price}</td>
-        <td>{value.product_cost}</td>
+        <td className="pCode" onClick={handleClick}>{value.price_a}</td>
+        <td className="pCode" onClick={handleClick}>{value.price_b}</td>
+        <td className="pCode" onClick={handleClick}>{value.price_c}</td>
+        <td className="pCode" onClick={handleClick}>{value.retail_price}</td>
+        <td className="pCode" onClick={handleClick}>{value.product_cost}</td>
       </tr>
     )
   }

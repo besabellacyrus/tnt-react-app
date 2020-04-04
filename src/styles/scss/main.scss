@@ -143,6 +143,9 @@
   background: #fcb800   !important;
   border: solid 1px #fcb800   !important;
 }
+.free-width {
+  width: initial !important;
+}
 .app-btn {
   &:not(:last-child) {
     margin-right: 10px;

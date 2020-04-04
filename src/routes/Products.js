@@ -1,7 +1,7 @@
 import React from 'react'
 import AppSearch from '../components/AppSearch';
 import Card from '../components/Card';
-import AppDataTable from '../components/AppDataTable';
+import ProductDataTable from '../components/ProductDataTable';
 import TableExportButtons from "../components/TableExportButtons";
 import products from '../test/products.json';
 import { useHistory } from "react-router-dom";
@@ -57,7 +57,7 @@ const Products = () => {
   return (
     <Card title="Products" subTitle="Product List" contentLeft={contentLeft} contentRight={contentRight}>
       <div className="table-wrap">
-        <AppDataTable config={config} />
+        <ProductDataTable config={config} />
       </div>
     </Card >
   )

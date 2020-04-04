@@ -38,13 +38,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Retail Price" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -61,13 +61,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Pre Order Prices" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -87,13 +87,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Whole Sale" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -110,13 +110,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Special Offer" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -136,13 +136,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Deposit Price" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -165,7 +165,7 @@ const ProductPrice = () => {
                     </div>
                   </form>
                   <hr></hr>
-                  <button className="btn app-btn app-btn-default">Add Member Price</button>
+                  <button className="btn app-btn btn-primary free-width">Add Member Price</button>
                 </div>
               </div>
             </div>
@@ -204,13 +204,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Retail Price" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -227,13 +227,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Pre Order Prices" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -253,13 +253,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Whole Sale" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -276,13 +276,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Special Offer" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -302,13 +302,13 @@ const ProductPrice = () => {
                             <div className="input-group app-input-group">
                               <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="Deposit Price" />
                               <div className="input-group-btn">
-                                <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                                <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
-                                  <li><a href="javascript:void(0)">USD</a></li>
-                                  <li><a href="javascript:void(0)">AUD</a></li>
-                                  <li><a href="javascript:void(0)">PHP</a></li>
-                                  <li><a href="javascript:void(0)">JPY</a></li>
-                                  <li><a href="javascript:void(0)">Add New Currency</a></li>
+                                  <li><a>USD</a></li>
+                                  <li><a>AUD</a></li>
+                                  <li><a>PHP</a></li>
+                                  <li><a>JPY</a></li>
+                                  <li><a>Add New Currency</a></li>
                                 </ul>
                               </div>
                             </div>
@@ -331,7 +331,7 @@ const ProductPrice = () => {
                     </div>
                   </form>
                   <hr></hr>
-                  <button className="btn app-btn app-btn-default">Add Member Price</button>
+                  <button className="btn app-btn btn-primary free-width">Add Member Price</button>
                 </div>
               </div>
             </div>
