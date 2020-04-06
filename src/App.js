@@ -8,6 +8,7 @@ import FeaturedProducts from './routes/FeaturedProducts';
 import SpecialDeals from "./routes/SpecialDeals";
 import AddSpecialDeals from "./routes/AddSpecialDeals";
 import Dashboard from "./routes/Dashboard";
+import ProductInventory from "./routes/ProductInventory";
 
 // const Products = lazy(() => import('./routes/Product'));
 
@@ -26,6 +27,7 @@ function App () {
             <Route path="/products" component={Products} />
             <Route path="/featured-products" component={FeaturedProducts} />
             <Route path="/special-deals" component={SpecialDeals} />
+            <Route path="/product-inventory" component={ProductInventory} />
             <Route path="/product/:productId" component={AddProduct} />
             <Route path="/schedule/:schedId" component={AddSchedule} />
             <Route path="/special-deal/:dealId" component={AddSpecialDeals} />
