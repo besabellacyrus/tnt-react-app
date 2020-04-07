@@ -10,7 +10,7 @@ const config = {
   headings: [
     'Profile',
     'Product Code',
-    'Product Title',
+    'Product Name',
     'Price A',
     'Price B',
     'Price C',

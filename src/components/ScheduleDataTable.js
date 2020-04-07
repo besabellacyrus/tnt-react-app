@@ -12,7 +12,7 @@ const ScheduleDataTable = (props) => {
     headings: [
       'Profile',
       'Product Code',
-      'Product Title',
+      'Product Name',
       'Featured',
       'Home Featured',
       'Ranking'
