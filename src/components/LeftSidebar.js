@@ -21,6 +21,9 @@ export default function LeftSidebar () {
             <li>
               <Link to="/special-deals">Special Deals</Link>
             </li>
+            <li>
+              <Link to="/product-inventory">Product Inventory</Link>
+            </li>
           </ul>
         </li>
       </ul>

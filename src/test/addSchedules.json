@@ -15,7 +15,7 @@
     "product_title": "RoboCop",
     "featured": true,
     "home_featured": true,
-    "ranking": "1"
+    "ranking": "2"
   },
   {
     "product_id": 3,
@@ -24,7 +24,7 @@
     "product_title": "Scott Pilgrim VS the World",
     "featured": true,
     "home_featured": true,
-    "ranking": "1"
+    "ranking": "3"
   },
   {
     "product_id": 4,
@@ -33,7 +33,7 @@
     "product_title": "Sonic the Hedgehog",
     "featured": true,
     "home_featured": true,
-    "ranking": "1"
+    "ranking": "any"
   },
   {
     "product_id": 5,
@@ -42,7 +42,7 @@
     "product_title": "The Spirit",
     "featured": true,
     "home_featured": true,
-    "ranking": "1"
+    "ranking": "any"
   },
   {
     "product_id": 6,
@@ -51,6 +51,6 @@
     "product_title": "Full Metal Alchemist",
     "featured": true,
     "home_featured": true,
-    "ranking": "1"
+    "ranking": "any"
   }
 ]

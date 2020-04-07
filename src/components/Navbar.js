@@ -99,6 +99,14 @@ class Navbar extends Component {
           {/* Mobile nav */}
           <div id="mobile_only_nav" className="mobile-only-nav pull-right">
             <ul className="nav navbar-right top-nav pull-right">
+              <li className="language-select">
+                <a>
+                  <select className="form-control" data-placeholder="Language">
+                    <option>English</option>
+                    <option>Chinese</option>
+                  </select>
+                </a>
+              </li>
               <li>
                 <a id="open_right_sidebar" href="#"><i className="zmdi zmdi-settings top-nav-icon"></i></a>
               </li>

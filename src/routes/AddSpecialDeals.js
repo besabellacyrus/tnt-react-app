@@ -49,15 +49,6 @@ const AddSpecialDeals = (props) => {
           </div>
         </div>
       </div>
-      {/* <div className="pull-right mb-10">
-        <div className="bg-photo-top">
-          <label>Background Photo:</label>
-          <img src="/img/thumbnail/MEZ76515_1920.jpg" alt="background photo" />
-        </div>
-      </div>
-      <div className="product-table-actions pull-right mb-10">
-        <TableExportButtons />
-      </div> */}
     </React.Fragment>
   )
 
@@ -65,50 +56,6 @@ const AddSpecialDeals = (props) => {
     <React.Fragment>
       <NavigationWithBack title="Special Deals" />
       <Card subTitle="Special Deals Schedule" contentLeft={contentLeft} contentRight={contentRight}>
-        {/* <div className="row">
-          <div className="col-sm-7">
-          </div>
-          <div className="col-sm-5">
-            <label className="col-sm-5">
-              Background Photo:
-          </label>
-            <div className="col-sm-7">
-              <div className="bg-photo-top">
-                <img src="/img/user.png" alt="background photo" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Search:</label>
-            </div>
-            <div className="col-sm-5">
-            </div>
-            <div className="col-sm-5">
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="form-group">
-            <div className="col-sm-2 product-label">
-              <label>Set Schedule:</label>
-            </div>
-            <div className="col-sm-5">
-              <DateRangePicker schedule="01/01/2020 - 01/15/2020" />
-            </div>
-            <div className="col-sm-5 mb-20">
-              <div className="product-table-actions pull-right">
-                <button className="app-btn app-btn-gray">Copy Table</button>
-                <button className="app-btn app-btn-gray">CSV</button>
-                <button className="app-btn app-btn-gray">Excel</button>
-                <button className="app-btn app-btn-gray">PDF</button>
-                <button className="app-btn app-btn-gray">Print</button>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <ScheduleDataTable />
       </Card>
       <div className="pull-right">

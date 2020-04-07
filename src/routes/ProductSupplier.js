@@ -40,7 +40,7 @@ const ProductSupplier = () => {
                         <div className="input-group">
                           <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="0.00" />
                           <div className="input-group-btn">
-                            <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                            <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                             <ul className="dropdown-menu dropdown-menu-right">
                               <li><a href="javascript:void(0)">USD</a></li>
                               <li><a href="javascript:void(0)">AUD</a></li>
@@ -69,9 +69,9 @@ const ProductSupplier = () => {
                 </form>
               </div>
               {/* /row */}
-              <hr></hr>
-              <button className="btn app-btn app-btn-default">Add Supplier</button>
-              <button className="btn app-btn app-btn-danger">Delete Supplier</button>
+              {/* <hr></hr> */}
+              {/* <button className="btn app-btn btn-primary free-width">Add Supplier</button>
+              <button className="btn app-btn btn-darkblue free-width">Delete Supplier</button> */}
             </div>
           </div>
         </Card>
@@ -110,7 +110,7 @@ const ProductSupplier = () => {
                         <div className="input-group">
                           <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="0.00" />
                           <div className="input-group-btn">
-                            <button type="button" className="btn  app-btn-default dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
+                            <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                             <ul className="dropdown-menu dropdown-menu-right">
                               <li><a href="javascript:void(0)">USD</a></li>
                               <li><a href="javascript:void(0)">AUD</a></li>
@@ -139,9 +139,9 @@ const ProductSupplier = () => {
                 </form>
               </div>
               {/* /row */}
-              <hr></hr>
-              <button className="btn app-btn app-btn-default">Add Supplier</button>
-              <button className="btn app-btn app-btn-danger">Delete Supplier</button>
+              {/* <hr></hr> */}
+              {/* <button className="btn app-btn btn-primary free-width">Add Supplier</button>
+              <button className="btn app-btn btn-darkblue free-width">Delete Supplier</button> */}
             </div>
           </div>
         </Card>

@@ -1,10 +1,19 @@
 import React from 'react'
+import Card from '../components/Card';
+import ProductInventoryTable from "../components/ProductInventoryTable";
 
 const ProductInventory = () => {
-  return (
-    <div>
+  const contentLeft = ""
+  const contentRight = ""
 
-    </div>
+  return (
+    <React.Fragment>
+      <Card title="Products" subTitle="Inventory" contentLeft={contentLeft} contentRight={contentRight}>
+        <div className="table-wrap">
+          <ProductInventoryTable />
+        </div>
+      </Card >
+    </React.Fragment>
   )
 }
 

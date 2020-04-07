@@ -7,30 +7,6 @@ const Datatable = (props) => {
   const regEx = true;
   const smart = true;
 
-  const mainConfig = {
-    responsive: true,
-    dom: `<'row'<'col-sm-12'tr>>
-        <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
-    lengthMenu: [5, 10, 25, 50],
-    pageLength: 10,
-    order: [[1, 'desc']],
-    columnDefs: [
-      {
-        targets: 0,
-        width: '',
-        className: 'dt-right',
-        orderable: false,
-        render: function (data, type, full, meta) {
-          return `
-          <label class="kt-checkbox kt-checkbox--single kt-checkbox--solid">
-              <input type="checkbox" value="" class="kt-checkable">
-              <span></span>
-          </label>`;
-        },
-      },
-    ]
-  }
-
 
   const filterGlobal = () => {
     $('.app-data-table').DataTable().search(
@@ -95,11 +71,35 @@ const Datatable = (props) => {
     ).draw();
   }
 
+  const mainConfig = {
+    responsive: true,
+    dom: `<'row'<'col-sm-12'tr>>
+        <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+    lengthMenu: [5, 10, 25, 50],
+    pageLength: 10,
+    order: [[1, 'desc']],
+    columnDefs: [
+      {
+        targets: 0,
+        width: '',
+        className: 'dt-right',
+        orderable: false,
+        render: function (data, type, full, meta) {
+          return `
+          <label class="kt-checkbox kt-checkbox--single kt-checkbox--solid">
+              <input type="checkbox" value="" class="kt-checkable">
+              <span></span>
+          </label>`;
+        },
+      },
+    ]
+  }
+
+  if (props.config) {
+    mainConfig.columnDefs.push(...props.config)
+  }
 
   useEffect(() => {
-    if (props.config) {
-      mainConfig.columnDefs.push(...props.config)
-    }
     const table = $('.app-data-table');
 
     table.DataTable(mainConfig);

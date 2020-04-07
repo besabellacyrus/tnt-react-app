@@ -50,7 +50,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -73,7 +73,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -99,7 +99,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -122,7 +122,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -148,7 +148,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -216,7 +216,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -239,7 +239,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -265,7 +265,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -288,7 +288,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>
@@ -314,7 +314,7 @@ const ProductPrice = () => {
                             </div>
                           </div>
                           <div className="col-xs-2 col-md-2">
-                            <span className="add-btn"><i className="fa fa-plus"></i></span>
+                            {/* <span className="add-btn"><i className="fa fa-plus"></i></span> */}
                           </div>
                         </div>
                       </div>

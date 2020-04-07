@@ -1,0 +1,43 @@
+[
+  {
+    "profile": "",
+    "product_code": "NEX45995",
+    "product_title": "Sample Title One",
+    "location": [
+      {
+        "location_name": "Shenzhen",
+        "qty": 320,
+        "cost_value": 3000,
+        "retail_value": 2000,
+        "age": 30
+      },
+      {
+        "location_name": "Tokyo",
+        "qty": 320,
+        "cost_value": 3000,
+        "retail_value": 2000,
+        "age": 30
+      }
+    ],
+    "quantity": 0,
+    "cost_value": 0,
+    "retail_value": 0
+  },
+  {
+    "profile": "",
+    "product_code": "IA445377",
+    "product_title": "Sample Title Two",
+    "location": [
+      {
+        "location_name": "Manila",
+        "qty": 320,
+        "cost_value": 3000,
+        "retail_value": 2000,
+        "age": 30
+      }
+    ],
+    "quantity": 0,
+    "cost_value": 0,
+    "retail_value": 0
+  }
+]

@@ -18,8 +18,6 @@ const config = {
   data: featuredProducts
 }
 
-
-
 const FeaturedProductList = (props) => {
   const history = useHistory();
   const headings = []
@@ -54,7 +52,7 @@ const FeaturedProductList = (props) => {
         <td className="pCode" onClick={handleClick} >{value.in_stock}</td>
         <td className="pCode" onClick={handleClick} >{value.pre_order}</td>
         <td className="pCode" onClick={handleClick} >{value.out_of_stock}</td>
-        <td className="pCode" onClick={handleClick} >
+        <td>
           <Switch
             className="switch-class"
             options={
@@ -78,11 +76,6 @@ const FeaturedProductList = (props) => {
       history.push(`/schedule/${schedId}`)
     }
   }
-
-  function handleHover (e) {
-    console.log(e)
-  }
-
 
   return (
     <Datatable headings={headings} config={tableConfig} datas={datas} />

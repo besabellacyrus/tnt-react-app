@@ -48,9 +48,6 @@ const FeaturedProducts = (props) => {
     </div>
   )
 
-
-
-
   return (
     <Card title="Featured Products" contentLeft={contentLeft} contentRight={contentRight} subTitle="Product Schedule">
       <div className="table-wrap">
@@ -59,7 +56,5 @@ const FeaturedProducts = (props) => {
     </Card>
   )
 }
-
-
 
 export default FeaturedProducts
