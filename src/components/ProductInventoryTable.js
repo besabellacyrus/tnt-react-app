@@ -45,7 +45,7 @@ const ProductInventoryTable = (props) => {
   ]
 
 
-  const insideTableResponsive = (data) => {
+  const insideTableResponsive = (data, wrapperDiv) => {
     let row = []
 
     if (data.location.length > 1) {
@@ -60,6 +60,17 @@ const ProductInventoryTable = (props) => {
         )
       }
     }
+    console.log({ data })
+    row.push(
+      <ul className="dtr-details custom-dtr-details">
+        <li>
+          <span className="dtr-title">Profile</span>
+          <span className="dtr-data">
+            <img className="product-profile" src={data.profile} alt="" />
+          </span>
+        </li>
+      </ul>
+    )
     for (const [index, value] of data.location.entries()) {
       row.push(
         <ul className="dtr-details custom-dtr-details" key={index}>
@@ -86,7 +97,9 @@ const ProductInventoryTable = (props) => {
         </ul>
       )
     }
-    return row;
+    // return row;
+    ReactDOM.render(<div>{row}</div>, wrapperDiv);
+
   }
 
   let parentTableOptions = {
@@ -100,7 +113,7 @@ const ProductInventoryTable = (props) => {
         targets: 0,
         width: '',
         className: 'details-control',
-        orderable: false
+        orderable: false,
       }
     ],
     columns: [
@@ -161,10 +174,22 @@ const ProductInventoryTable = (props) => {
 
   if (width <= 425) {
     parentTableOptions.columns = [
-      { "data": "profile" },
+      { "data": 'product_id' },
       { "data": "product_code" },
       { "data": "product_title" }
     ]
+  } else {
+    parentTableOptions.columnDefs.push(
+      {
+        targets: 1,
+        width: '',
+        data: 'img',
+        render: function (url, type, full) {
+          console.log({ url, full })
+          return `<img class="product-profile" src="${url}" />`;
+        }
+      }
+    )
   }
 
   let displayedHeader = width <= 425 ? smallHeadings : headings;
@@ -198,7 +223,8 @@ const ProductInventoryTable = (props) => {
           const wrapperDiv = document.querySelector(`.toggle-wrapper-${indx}`)
 
           if (width <= 425) {
-            ReactDOM.render(<div>{insideTableResponsive(row.data())}</div>, wrapperDiv);
+            // ReactDOM.render(<div>{insideTableResponsive(row.data())}</div>, wrapperDiv);
+            insideTableResponsive(row.data(), wrapperDiv)
           } else {
             row.child(
               `<table class="inside-table-${indx} table display no-wrap" width="100%">

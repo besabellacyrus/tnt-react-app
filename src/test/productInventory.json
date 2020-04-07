@@ -1,6 +1,7 @@
 [
   {
-    "profile": "",
+    "product_id": "",
+    "profile": "/img/thumbnail/MEZ76515_thumbnail.jpg",
     "product_code": "NEX45995",
     "product_title": "Sample Title One",
     "location": [
@@ -24,7 +25,8 @@
     "retail_value": 0
   },
   {
-    "profile": "",
+    "product_id": "",
+    "profile": "/img/thumbnail/MEZ77330_thumbnail.jpg",
     "product_code": "IA445377",
     "product_title": "Sample Title Two",
     "location": [
