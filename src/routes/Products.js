@@ -32,8 +32,8 @@ const Products = () => {
       <div className="col-sm-12">
         <div className="product-action-btns">
           <button onClick={handleAddNew} className="btn app-btn btn-primary">Add New</button>
-          <button className="btn app-btn btn-warning">Duplicate</button>
-          <button className="btn app-btn btn-darkblue">Delete</button>
+          <button className="btn app-btn btn-primary">Duplicate</button>
+          <button className="btn app-btn btn-danger">Delete</button>
         </div>
       </div>
       <div className="col-sm-12">

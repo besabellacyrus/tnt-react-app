@@ -69,9 +69,9 @@ const ProductSupplier = () => {
                 </form>
               </div>
               {/* /row */}
-              {/* <hr></hr> */}
-              {/* <button className="btn app-btn btn-primary free-width">Add Supplier</button>
-              <button className="btn app-btn btn-darkblue free-width">Delete Supplier</button> */}
+              <hr></hr>
+              <button className="btn app-btn btn-primary free-width">Add Supplier</button>
+              <button className="btn app-btn btn-danger free-width">Delete Supplier</button>
             </div>
           </div>
         </Card>
@@ -139,9 +139,9 @@ const ProductSupplier = () => {
                 </form>
               </div>
               {/* /row */}
-              {/* <hr></hr> */}
-              {/* <button className="btn app-btn btn-primary free-width">Add Supplier</button>
-              <button className="btn app-btn btn-darkblue free-width">Delete Supplier</button> */}
+              <hr></hr>
+              <button className="btn app-btn btn-primary free-width">Add Supplier</button>
+              <button className="btn app-btn btn-danger free-width">Delete Supplier</button>
             </div>
           </div>
         </Card>

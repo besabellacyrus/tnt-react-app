@@ -130,7 +130,7 @@ const Product = (props) => {
                                   className="switch-class"
                                   options={
                                     {
-                                      color: '#2ecd99',
+                                      color: '#fc8300',
                                       size: 'small'
                                     }
                                   }
@@ -148,7 +148,7 @@ const Product = (props) => {
                                   className="switch-class"
                                   options={
                                     {
-                                      color: '#2ecd99',
+                                      color: '#fc8300',
                                       size: 'small'
                                     }
                                   }
@@ -166,7 +166,7 @@ const Product = (props) => {
                                   className="switch-class"
                                   options={
                                     {
-                                      color: '#2ecd99',
+                                      color: '#fc8300',
                                       size: 'small'
                                     }
                                   }
@@ -336,7 +336,7 @@ const Product = (props) => {
         <div className="pull-right">
           <button className="btn app-btn btn-primary">Preview</button>
           <button className="btn app-btn btn-primary">Save</button>
-          <button className="btn app-btn-cancel">Cancel</button>
+          <button className="btn app-btn btn-danger">Cancel</button>
         </div>
       </div>
     </React.Fragment>

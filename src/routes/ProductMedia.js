@@ -13,7 +13,7 @@ const ProductMedia = () => {
               <label className="col-sm-3 text-right">Product Images</label>
               <div className="col-sm-9">
                 <SlideShow />
-                <button className="btn app-btn-default btn-icon left-icon mb-30"> <i className="fa fa-paperclip"></i> <span>Media Upload</span></button>
+                <button className="btn app-btn btn-primary btn-icon left-icon mb-30 free-width"> <i className="fa fa-paperclip"></i> <span>Media Upload</span></button>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ const ProductMedia = () => {
                   <img src="/img/thumbnail/MEZ76515_thumbnail.jpg" />
                 </div>
                 <br />
-                <button className="btn btn-default"> <span>Change</span></button>
+                <button className="btn app-btn btn-primary"> <span>Change</span></button>
                 <span>&nbsp;&nbsp;&nbsp; &#x2714; Already set from "Media".</span>
               </div>
             </div>
@@ -126,7 +126,7 @@ const ProductMedia = () => {
                       <input type="radio" name="radio" id="radio1" value="option1" checked="" />
                       <label for="radio1">
                       </label>
-                      <button className="btn btn-default" >Change</button>
+                      <button className="btn app-btn btn-primary" >Change</button>
                       <span>&nbsp;&nbsp;&nbsp; &#x2714; Already set from "Media".</span>
                     </div>
                   </div>
@@ -164,7 +164,7 @@ const ProductMedia = () => {
             <div className="col-sm-9">
               <div className="banner-image">
                 <img src="/img/thumbnail/MEZ76515_1920.jpg" />
-                <button className="btn btn-default"> <span>Change</span></button>
+                <button className="btn app-btn btn-primary"> <span>Change</span></button>
                 <span>&nbsp;&nbsp;&nbsp; &#x2714; Already set from "Media".</span>
               </div>
             </div>

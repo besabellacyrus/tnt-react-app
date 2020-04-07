@@ -40,7 +40,7 @@ const ScheduleDataTable = (props) => {
             className="switch-class"
             options={
               {
-                color: '#2ecd99',
+                color: '#fc8300',
                 size: 'small'
               }
             }
@@ -51,7 +51,7 @@ const ScheduleDataTable = (props) => {
           className="switch-class"
           options={
             {
-              color: '#2ecd99',
+              color: '#fc8300',
               size: 'small'
             }
           }

@@ -13,7 +13,7 @@ const NavigationWithBack = (props) => {
         <h6>{props.title}</h6>
       </div>
       <div className="col-xs-3">
-        <button className="pull-right btn app-btn-cancel" onClick={handleBackBtn}>Back</button>
+        <button className="pull-right btn app-btn btn-danger" onClick={handleBackBtn}>Back</button>
       </div>
     </div>
   )

@@ -43,7 +43,7 @@ const SpecialDeals = (props) => {
       <div className="col-sm-12">
         <div className="featured-action-btns">
           <button className="btn app-btn btn-primary">Add New</button>
-          <button className="btn app-btn app-btn-danger">Delete</button>
+          <button className="btn app-btn btn-danger">Delete</button>
         </div>
       </div>
       <div className="col-sm-12">

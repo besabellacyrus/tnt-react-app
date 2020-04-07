@@ -54,7 +54,7 @@ const SpecialDealList = (props) => {
             className="switch-class"
             options={
               {
-                color: '#2ecd99',
+                color: '#fc8300',
                 size: 'small'
               }
             }

@@ -1,10 +1,30 @@
 
+$darkblue: #2c3e4c;
+$orange: #fc8300;
+$grayBlue: #8496A4;
+$search: #EDF1F5;
+
+.btn-danger {
+ background-color: $grayBlue !important;
+ border-color: $grayBlue !important;
+}
+
+.btn.focus, .btn:focus, .btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-search {
+  background-color: $search !important;
+  border-color: $search !important;
+}
+
 .brand-img {
   height: 1.5rem;
 }
 
 .wrapper.theme-1-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-2-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-3-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-4-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-5-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-6-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active {
-  color: #fc8300;
+  color: $orange;
 }
 
 .page-wrapper {
@@ -118,8 +138,8 @@
 }
 
 .btn.btn-primary, .wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active, .wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active, .dt-buttons .dt-button, .tablesaw-sortable th.tablesaw-sortable-head button.btn-primary, .tablesaw-sortable th.tablesaw-sortable-head .dt-buttons button.dt-button, .dt-buttons .tablesaw-sortable th.tablesaw-sortable-head button.dt-button, .sweet-alert button.btn-primary, .owl-theme .owl-nav .btn-primary[class*="owl-"], .owl-theme .owl-nav .wizard > .actions a[class*="owl-"], .wizard > .actions .owl-theme .owl-nav a[class*="owl-"], .owl-theme .owl-nav .dt-buttons [class*="owl-"].dt-button, .dt-buttons .owl-theme .owl-nav [class*="owl-"].dt-button, button.btn-primary.fc-agendaDay-button.fc-state-default.fc-corner-right, .dt-buttons button.fc-agendaDay-button.fc-state-default.fc-corner-right.dt-button, button.btn-primary.fc-month-button.fc-state-default.fc-corner-left, .dt-buttons button.fc-month-button.fc-state-default.fc-corner-left.dt-button, button.btn-primary.fc-agendaWeek-button, .btn-primary.fc-prev-button, .btn-primary.fc-next-button, .btn-primary.fc-today-button {
-  background: #fc8300 !important;
-  border: solid 1px #fc8300 !important;
+  background: $orange !important;
+  border: solid 1px $orange !important;
 }
 
 // #app-table-header-btns button {
@@ -133,8 +153,8 @@
   border: solid 1px #8496a4 !important;
 }
 .btn-darkblue {
-  background: #2c3e4c  !important;
-  border: solid 1px #2c3e4c  !important;
+  background: $darkblue  !important;
+  border: solid 1px $darkblue  !important;
 }
 .table-export-button {
   margin-top: 2.68rem;
@@ -203,7 +223,18 @@ hr {
 
 }
 .language-btn-active {
-  border-bottom: 2px solid #2ecd99;
+  border-bottom: 2px solid $orange;
+}
+.custom-tab-1.vertical-tab .ver-nav-tab > li.active > a {
+  border-bottom: none;
+  border-right: 3px solid $orange;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:active, .dataTables_wrapper .dataTables_paginate .paginate_button:focus {
+  background: $orange;
+  border-color: $orange;
+  color: #fff !important;
+  box-shadow: none;
 }
 
 table {
@@ -297,11 +328,11 @@ table {
 
 
 .nav-pills > li > a:active, .nav-pills > li > a:focus, .nav-pills > li > a:hover {
-  background: #fc8300;
+  background: $orange;
   color: #fff;
 }
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-  background: #fc8300;
+  background: $orange;
   color: #fff;
 }
 .nav-pills > li > a {
@@ -471,7 +502,7 @@ table {
     width: 1rem;
     cursor: pointer;
     &:hover {
-      color: #fc8300;
+      color: $orange;
     }
     &:active {
       transform: scale(1.2);
@@ -536,7 +567,7 @@ td.details-control {
     font-family: 'Courier New', Courier, monospace;
     line-height: 14px;
     content: '+';
-    background-color: #fc8300;
+    background-color: $orange;
   }
   cursor: pointer;
 }
@@ -557,7 +588,7 @@ tr.shown td.details-control {
     font-family: 'Courier New', Courier, monospace;
     line-height: 14px;
     content: '-';
-    background-color: #2c3e4c;
+    background-color: $darkblue;
   }
 }
 
@@ -578,19 +609,19 @@ span.dtr-title {
 }
 
 .expand-table {
-  color: #fc8300;
+  color: $orange;
   font-weight: bold;
 }
 
 table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child::before,
 table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child::before {
-    background-color: #fc8300;
+    background-color: $orange;
     box-shadow: none;
 }
 
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child::before,
 table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child::before {
-  background-color: #2c3e4c;
+  background-color: $darkblue;
   box-shadow: none;
 }
 
@@ -606,9 +637,9 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child::befor
 }
 
 .navbar.navbar-inverse.navbar-fixed-top .nav.top-nav > li > a .top-nav-icon-badge {
-  background: #fc8300;
+  background: $orange;
 }
 
 .navbar.navbar-inverse.navbar-fixed-top .nav > li > a .user-online-status {
-  background: #fc8300;
+  background: $orange;
 }

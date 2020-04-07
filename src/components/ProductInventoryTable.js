@@ -48,19 +48,6 @@ const ProductInventoryTable = (props) => {
   const insideTableResponsive = (data, wrapperDiv) => {
     let row = []
 
-    if (data.location.length > 1) {
-      if (data.location.reduce(sumQty)) {
-        data.location.push(
-          {
-            location_name: 'Total',
-            qty: data.location.reduce(sumQty),
-            cost_value: data.location.reduce(sumCostVal),
-            retail_value: data.location.reduce(sumRetailVal)
-          }
-        )
-      }
-    }
-    console.log({ data })
     row.push(
       <ul className="dtr-details custom-dtr-details">
         <li>
@@ -97,6 +84,33 @@ const ProductInventoryTable = (props) => {
         </ul>
       )
     }
+
+    if (data.location.length > 1) {
+      if (data.location.reduce(sumQty)) {
+        row.push(
+          <ul className="dtr-details custom-dtr-details">
+            <li>
+              <span className="dtr-title">Location</span>
+              <span className="dtr-data">Total</span>
+            </li>
+            <li>
+              <span className="dtr-title">Quantity</span>
+              <span className="dtr-data">{data.location.reduce(sumQty)}</span>
+            </li>
+            <li>
+              <span className="dtr-title">Cost Value</span>
+              <span className="dtr-data">{data.location.reduce(sumCostVal)}</span>
+            </li>
+            <li>
+              <span className="dtr-title">Retail Value</span>
+              <span className="dtr-data">{data.location.reduce(sumRetailVal)}</span>
+            </li>
+          </ul>
+        )
+      }
+    }
+
+
     // return row;
     ReactDOM.render(<div>{row}</div>, wrapperDiv);
 
