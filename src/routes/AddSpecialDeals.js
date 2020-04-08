@@ -20,7 +20,13 @@ const AddSpecialDeals = (props) => {
   const contentLeft = (
     <div className="search-wrapper special-deal-search">
       <div className="row">
-        <div className="col-sm-12">
+        <label className="control-label col-md-3 text-right">Special Deal Title</label>
+        <div className="col-md-9">
+          <input type="text" className="form-control" placeholder="Special Deal Title" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-sm-12 mt-10">
           <AppSearch searchables={config.headings} />
         </div>
         <div className="col-sm-12 mt-10">

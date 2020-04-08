@@ -37,13 +37,21 @@ const AddSchedule = (props) => {
     </div>
   )
   const contentRight = (
-    <div className="row table-export-button">
-      <div className="col-sm-12">
-        <div className="product-table-actions pull-right mt-10 mb-10">
-          <TableExportButtons />
+    <React.Fragment>
+      <div className="row">
+        <label className="control-label col-md-3 text-right">Featured Title</label>
+        <div className="col-md-9">
+          <input type="text" className="form-control" placeholder="Featured Title" />
         </div>
       </div>
-    </div>
+      <div className="row">
+        <div className="col-sm-12">
+          <div className="product-table-actions pull-right mt-10 mb-10">
+            <TableExportButtons />
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
   )
 
   return (
