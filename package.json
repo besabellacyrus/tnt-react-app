@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "bootstrap3": "^3.3.5",
     "datatables.net-buttons": "^1.6.1",
     "datatables.net-responsive": "^2.2.3",
