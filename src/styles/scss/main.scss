@@ -23,6 +23,12 @@ $search: #EDF1F5;
   height: 1.5rem;
 }
 
+.left-sidebar-wrapper  {
+  a {
+    cursor: pointer;
+  }
+}
+
 .wrapper.theme-1-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-2-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-3-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-4-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-5-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active, .wrapper.theme-6-active.pimary-color-green .fixed-sidebar-left .side-nav > li > a.active {
   color: $orange;
 }

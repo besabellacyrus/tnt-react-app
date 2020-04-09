@@ -3,14 +3,14 @@ import React from 'react';
 
 const AppSearch = (props) => {
   const searchables = props.searchables;
-  let searchableUi = []
+  let searchableUi = [];
 
   searchables.forEach((el, index) => {
     searchableUi.push(
-      <li>
+      <li key={index}>
         <div className="custom-control custom-checkbox">
           <input type="checkbox" className="custom-control-input" id={`checked_${index}`} value={index} name="search-checkbox" checked />
-          <label className="custom-control-label" for={`checked_${index}`}>{el}</label>
+          <label className="custom-control-label" htmlFor={`checked_${index}`}>{el}</label>
         </div>
       </li>
     )

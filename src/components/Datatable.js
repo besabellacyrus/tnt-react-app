@@ -8,20 +8,20 @@ const Datatable = (props) => {
   const smart = true;
 
 
-  const filterGlobal = () => {
-    $('.app-data-table').DataTable().search(
-      $('#global_filter').val(),
-      regEx,
-      smart
-    ).draw();
-  }
+  // const filterGlobal = () => {
+  //   $('.app-data-table').DataTable().search(
+  //     $('#global_filter').val(),
+  //     regEx,
+  //     smart
+  //   ).draw();
+  // }
 
 
   const createFilter = (table) => {
 
     let checkedboxes = document.querySelectorAll('#checkbox-ul input[type=checkbox]');
 
-    let selectedBoxes = [];
+    // let selectedBoxes = [];
 
     [...checkedboxes].forEach((e) => {
       let cols = []
@@ -63,13 +63,13 @@ const Datatable = (props) => {
     // return input;
   }
 
-  const filterColumn = (i) => {
-    $('.app-data-table').DataTable().columns().search(
-      $('.search-datatable').val(),
-      regEx,
-      smart
-    ).draw();
-  }
+  // const filterColumn = (i) => {
+  //   $('.app-data-table').DataTable().columns().search(
+  //     $('.search-datatable').val(),
+  //     regEx,
+  //     smart
+  //   ).draw();
+  // }
 
   const mainConfig = {
     responsive: true,

@@ -1,51 +1,51 @@
 import React, { Component } from 'react'
 import LeftSidebar from "./LeftSidebar";
 import { Link } from 'react-router-dom'
-import Jquery from 'jquery';
+import $ from 'jquery';
 
 
 class Navbar extends Component {
   componentDidMount () {
-    const $wrapper = Jquery(".wrapper");
-    Jquery(document).on('click', '#toggle_nav_btn,#open_right_sidebar,#setting_panel_btn', function (e) {
-      Jquery(".dropdown.open > .dropdown-toggle").dropdown("toggle");
+    const $wrapper = $(".wrapper");
+    $(document).on('click', '#toggle_nav_btn,#open_right_sidebar,#setting_panel_btn', function (e) {
+      $(".dropdown.open > .dropdown-toggle").dropdown("toggle");
       return false;
     });
-    Jquery(document).on('click', '#toggle_nav_btn', function (e) {
+    $(document).on('click', '#toggle_nav_btn', function (e) {
       $wrapper.removeClass('open-right-sidebar open-setting-panel').toggleClass('slide-nav-toggle');
       return false;
     });
-    Jquery(document).on('click', '#open_right_sidebar', function (e) {
+    $(document).on('click', '#open_right_sidebar', function (e) {
       $wrapper.toggleClass('open-right-sidebar').removeClass('open-setting-panel');
       return false;
     });
-    Jquery(document).on('click', '.product-carousel .owl-nav', function (e) {
+    $(document).on('click', '.product-carousel .owl-nav', function (e) {
       return false;
     });
-    Jquery(document).on('click', 'body', function (e) {
+    $(document).on('click', 'body', function (e) {
       console.log('clicked 5')
-      if (Jquery(e.target).closest('.fixed-sidebar-right,.setting-panel').length > 0) {
+      if ($(e.target).closest('.fixed-sidebar-right,.setting-panel').length > 0) {
         return;
       }
-      Jquery('body > .wrapper').removeClass('open-right-sidebar open-setting-panel');
+      $('body > .wrapper').removeClass('open-right-sidebar open-setting-panel');
       return;
     });
-    Jquery(document).on('show.bs.dropdown', '.nav.navbar-right.top-nav .dropdown', function (e) {
+    $(document).on('show.bs.dropdown', '.nav.navbar-right.top-nav .dropdown', function (e) {
       $wrapper.removeClass('open-right-sidebar open-setting-panel');
       return;
     });
 
-    Jquery(document).on('click', '#setting_panel_btn', function (e) {
+    $(document).on('click', '#setting_panel_btn', function (e) {
       $wrapper.toggleClass('open-setting-panel').removeClass('open-right-sidebar');
       return false;
     });
-    Jquery(document).on('click', '#toggle_mobile_nav', function (e) {
+    $(document).on('click', '#toggle_mobile_nav', function (e) {
       $wrapper.toggleClass('mobile-nav-open').removeClass('open-right-sidebar');
       return;
     });
 
 
-    Jquery(document).on("mouseenter mouseleave", ".wrapper > .fixed-sidebar-left", function (e) {
+    $(document).on("mouseenter mouseleave", ".wrapper > .fixed-sidebar-left", function (e) {
       if (e.type === "mouseenter") {
         $wrapper.addClass("sidebar-hover");
       }
@@ -55,7 +55,7 @@ class Navbar extends Component {
       return false;
     });
 
-    Jquery(document).on("mouseenter mouseleave", ".wrapper > .setting-panel", function (e) {
+    $(document).on("mouseenter mouseleave", ".wrapper > .setting-panel", function (e) {
       if (e.type === "mouseenter") {
         $wrapper.addClass("no-transition");
       }
@@ -64,7 +64,7 @@ class Navbar extends Component {
       }
       return false;
     });
-    Jquery('ul.dropdown-menu').on('click', function (event) {
+    $('ul.dropdown-menu').on('click', function (event) {
       // The event won't be propagated up to the document NODE and
       // therefore delegated events won't be fired
       event.stopPropagation();
@@ -84,9 +84,9 @@ class Navbar extends Component {
                 </Link>
               </div>
             </div>
-            <a id="toggle_nav_btn" className="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i className="zmdi zmdi-menu"></i></a>
-            <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" className="mobile-only-view" href="javascript:void(0);"><i className="zmdi zmdi-search"></i></a>
-            <a id="toggle_mobile_nav" className="mobile-only-view" href="javascript:void(0);"><i className="zmdi zmdi-more"></i></a>
+            <a id="toggle_nav_btn" className="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:"><i className="zmdi zmdi-menu"></i></a>
+            <a id="toggle_mobile_search" data-toggle="collapse" data-target="#search_form" className="mobile-only-view" href="javascript:"><i className="zmdi zmdi-search"></i></a>
+            <a id="toggle_mobile_nav" className="mobile-only-view" href="javascript:"><i className="zmdi zmdi-more"></i></a>
             <form id="search_form" role="search" className="top-nav-search collapse pull-left">
               <div className="input-group">
                 <input type="text" name="example-input1-group2" className="form-control" placeholder="Search" />

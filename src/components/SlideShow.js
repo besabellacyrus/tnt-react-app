@@ -8,7 +8,7 @@ const images = sampleImages.images;
 
 for (const [index, value] of images.entries()) {
   displayImages.push(
-    <div className="item"><img src={value.url} key={index + 'a'} /></div>
+    <div className="item"><img src={value.url} key={index + 'a'} alt="" /></div>
   )
 }
 

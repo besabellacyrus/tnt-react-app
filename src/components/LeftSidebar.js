@@ -1,7 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
-export default function LeftSidebar () {
+export default function LeftSidebar (props) {
+  const history = useHistory();
+
+  const goTo = (route) => {
+    console.log({ props })
+    history.push(route)
+  }
   return (
     <div className="fixed-sidebar-left">
       <ul className="nav navbar-nav side-nav nicescroll-bar">
@@ -11,18 +18,18 @@ export default function LeftSidebar () {
         </li>
         <li>
           <a className="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div className="pull-left"><i className="fa fa-sitemap mr-20"></i><span className="right-nav-text">Items and Inventory</span></div><div className="pull-right"><i className="zmdi zmdi-caret-down"></i></div><div className="clearfix"></div></a>
-          <ul id="dashboard_dr" className="collapse collapse-level-1">
+          <ul id="dashboard_dr" className="left-sidebar-wrapper collapse collapse-level-1">
             <li>
-              <Link to="/products">Products</Link>
+              <a onClick={goTo.bind(null, '/products')}>Products</a>
             </li>
             <li>
-              <Link to="/featured-products">Featured Products</Link>
+              <a onClick={goTo.bind(null, '/featured-products')}>Featured Products</a>
             </li>
             <li>
-              <Link to="/special-deals">Special Deals</Link>
+              <a onClick={goTo.bind(null, '/special-deals')}>Special Deals</a>
             </li>
             <li>
-              <Link to="/product-inventory">Product Inventory</Link>
+              <a onClick={goTo.bind(null, '/product-inventory')}>Product Inventory</a>
             </li>
           </ul>
         </li>
