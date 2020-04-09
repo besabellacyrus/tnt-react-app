@@ -23,7 +23,7 @@ class Navbar extends Component {
       return false;
     });
     $(document).on('click', 'body', function (e) {
-      console.log('clicked 5')
+      // console.log('clicked 5')
       if ($(e.target).closest('.fixed-sidebar-right,.setting-panel').length > 0) {
         return;
       }
@@ -96,7 +96,6 @@ class Navbar extends Component {
               </div>
             </form>
           </div>
-          {/* Mobile nav */}
           <div id="mobile_only_nav" className="mobile-only-nav pull-right">
             <ul className="nav navbar-right top-nav pull-right">
               <li className="language-select">
@@ -391,7 +390,6 @@ class Navbar extends Component {
               </li>
             </ul>
           </div>
-          {/* /Mobile nav */}
         </nav>
         <LeftSidebar />
       </React.Fragment>

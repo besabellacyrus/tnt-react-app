@@ -9,8 +9,7 @@ import SpecialDeals from "./routes/SpecialDeals";
 import AddSpecialDeals from "./routes/AddSpecialDeals";
 import Dashboard from "./routes/Dashboard";
 import ProductInventory from "./routes/ProductInventory";
-// import DashboardLayout from "./DashboardLayoutRoute";
-import LoginLayout from "./LoginLayoutRoute";
+import LoginLayout from "./LoginLayout";
 import SamplePage from "./routes/SamplePage";
 import Navbar from './components/Navbar';
 
@@ -38,8 +37,7 @@ const DashboardLayout = ({ children, ...rest }) => {
   )
 }
 
-function App () {
-
+function App (props) {
   return (
     <Router>
       <div className="preloader-it">
@@ -48,57 +46,77 @@ function App () {
       <div className="wrapper theme-3-active pimary-color-green">
         <Switch>
           {/* exact strict  */}
-          <LoginLayout exact path="/" component={Login} />
-          <Route exact path="/dashboard" render={
+          <Route exact path="/" render={
+            props => (
+              <LoginLayout>
+                <Login {...props} loggedInStatus={false} />
+              </LoginLayout>
+            )
+          } />
+          <Route path="/login" render={
+            props => (
+              <LoginLayout>
+                <Login {...props} loggedInStatus={false} />
+              </LoginLayout>
+            )
+          } />
+          <Route path="/sample" render={
+            props => (
+              <DashboardLayout>
+                <SamplePage {...props} loggedInStatus={false} />
+              </DashboardLayout>
+            )
+          } />
+          <Route path="/dashboard" render={
             props => (
               <DashboardLayout>
                 <Dashboard {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/products" render={
+          <Route path="/products" render={
             props => (
               <DashboardLayout>
                 <Products {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/featured-products" render={
+          <Route path="/featured-products" render={
             props => (
               <DashboardLayout>
                 <FeaturedProducts {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/special-deals" render={
+          <Route path="/special-deals" render={
             props => (
               <DashboardLayout>
                 <SpecialDeals {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/product-inventory" render={
+          <Route path="/product-inventory" render={
             props => (
               <DashboardLayout>
                 <ProductInventory {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/product/:productId" render={
+          <Route path="/product/:productId" render={
             props => (
               <DashboardLayout>
                 <AddProduct {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/schedule/:schedId" render={
+          <Route path="/schedule/:schedId" render={
             props => (
               <DashboardLayout>
                 <AddSchedule {...props} loggedInStatus={false} />
               </DashboardLayout>
             )
           } />
-          <Route exact path="/special-deal/:dealId" render={
+          <Route path="/special-deal/:dealId" render={
             props => (
               <DashboardLayout>
                 <AddSpecialDeals {...props} loggedInStatus={false} />

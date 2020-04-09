@@ -1,10 +1,20 @@
 import React from 'react'
 
-const SamplePage = () => {
+function SamplePage (props) {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log({ event })
+  }
+
   return (
-    <div>
-      hello
-    </div>
+    <React.Fragment>
+      <form onSubmit={handleSubmit}>
+        <input type="text" />
+        <input type="submit" value="Submit" />
+      </form>
+    </React.Fragment>
   )
 }
 
