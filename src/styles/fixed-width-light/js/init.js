@@ -3,8 +3,8 @@ import $ from 'jquery';
 
 $(document).ready(function () {
 	philbert();
-	var $preloader = $(".preloader-it > .la-anim-1");
-	$preloader.addClass('la-animate');
+	// var $preloader = $(".preloader-it > .la-anim-1");
+	// $preloader.addClass('la-animate');
 });
 /*****Ready function end*****/
 

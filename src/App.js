@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Login from "./routes/Login";
 import Products from "./routes/Products";
 import AddProduct from "./routes/AddProduct";
@@ -11,33 +11,40 @@ import Dashboard from "./routes/Dashboard";
 import ProductInventory from "./routes/ProductInventory";
 import LoginLayout from "./LoginLayout";
 import SamplePage from "./routes/SamplePage";
-import Navbar from './components/Navbar';
-
+import AuthenticatedRoute from "./AuthenticatedRoute";
+import $ from 'jquery';
 // const Products = lazy(() => import('./routes/Product'));
 
+const App = (props) => {
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
 
-const DashboardLayout = ({ children, ...rest }) => {
-  return (
-    <React.Fragment>
-      <Navbar />
-      <div className="right-sidebar-backdrop"></div>
-      <div className="page-wrapper">
-        <div className="container-fluid">
-          {children}
-        </div>
-        <footer className="footer container-fluid pl-30 pr-30">
-          <div className="row">
-            <div className="col-sm-12">
-              <p>{new Date().getFullYear()} &copy; Simplify.Cool. Powered by ToyNToys</p>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </React.Fragment>
-  )
-}
+  useEffect(() => {
+    var $preloader = $(".preloader-it > .la-anim-1");
+    $preloader.addClass('la-animate');
+    return () => {
+      // cleanup
+    }
+  })
 
-function App (props) {
+  useEffect(() => {
+    onLoad();
+  }, []);
+
+  async function onLoad () {
+    try {
+      let access_token = sessionStorage.getItem('access_token');
+      let user = sessionStorage.getItem('user');
+      console.log({ access_token, user })
+      if (access_token && user) {
+        userHasAuthenticated(true);
+      } else {
+        userHasAuthenticated(false);
+      }
+    } catch (e) {
+      alert(e);
+    }
+  }
+
   return (
     <Router>
       <div className="preloader-it">
@@ -45,84 +52,26 @@ function App (props) {
       </div>
       <div className="wrapper theme-3-active pimary-color-green">
         <Switch>
-          {/* exact strict  */}
-          <Route exact path="/" render={
-            props => (
-              <LoginLayout>
-                <Login {...props} loggedInStatus={false} />
-              </LoginLayout>
-            )
-          } />
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
           <Route path="/login" render={
             props => (
               <LoginLayout>
-                <Login {...props} loggedInStatus={false} />
+                <Login {...props} />
               </LoginLayout>
             )
           } />
-          <Route path="/sample" render={
-            props => (
-              <DashboardLayout>
-                <SamplePage {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/dashboard" render={
-            props => (
-              <DashboardLayout>
-                <Dashboard {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/products" render={
-            props => (
-              <DashboardLayout>
-                <Products {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/featured-products" render={
-            props => (
-              <DashboardLayout>
-                <FeaturedProducts {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/special-deals" render={
-            props => (
-              <DashboardLayout>
-                <SpecialDeals {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/product-inventory" render={
-            props => (
-              <DashboardLayout>
-                <ProductInventory {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/product/:productId" render={
-            props => (
-              <DashboardLayout>
-                <AddProduct {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/schedule/:schedId" render={
-            props => (
-              <DashboardLayout>
-                <AddSchedule {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
-          <Route path="/special-deal/:dealId" render={
-            props => (
-              <DashboardLayout>
-                <AddSpecialDeals {...props} loggedInStatus={false} />
-              </DashboardLayout>
-            )
-          } />
+          <AuthenticatedRoute path="/sample" component={SamplePage} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/dashboard" component={Dashboard} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/products" component={Products} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/add-product" component={AddProduct} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/featured-products" component={FeaturedProducts} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/special-deals" component={SpecialDeals} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/product-inventory" component={ProductInventory} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/product/:productId" component={AddProduct} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/schedule/:schedId" component={AddSchedule} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/special-deal/:dealId" component={AddSpecialDeals} appProps={{ isAuthenticated }} />
         </Switch>
       </div>
     </Router>

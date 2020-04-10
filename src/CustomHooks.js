@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-const useSignUpForm = (callback) => {
+const useFormTool = (callback) => {
   const [inputs, setInputs] = useState({});
 
   const handleSubmit = (event) => {
-    console.log({ event })
     if (event) {
       event.preventDefault();
     }
@@ -23,4 +22,4 @@ const useSignUpForm = (callback) => {
   };
 }
 
-export default useSignUpForm;
+export default useFormTool;

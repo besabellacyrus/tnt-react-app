@@ -1,8 +1,8 @@
 import React from 'react'
-import { Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 const DashboardLayout = ({ children, ...rest }) => {
+
   return (
     <React.Fragment>
       <Navbar />
@@ -21,16 +21,6 @@ const DashboardLayout = ({ children, ...rest }) => {
       </div>
     </React.Fragment>
   )
-}
-
-const DashboardLayoutRoute = ({ component: Component, ...rest }) => {
-  return (
-    <Route {...rest} render={matchProps => (
-      <DashboardLayout>
-        <Component {...matchProps} />
-      </DashboardLayout>
-    )} />
-  )
 };
 
-export default DashboardLayoutRoute
+export default DashboardLayout

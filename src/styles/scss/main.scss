@@ -650,3 +650,8 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child::befor
 .navbar.navbar-inverse.navbar-fixed-top .nav > li > a .user-online-status {
   background: $orange;
 }
+
+.logout-btn {
+  position: absolute;
+  cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Dashboard (props) {
+
   return (
     <React.Fragment>
       <h6 className="panel-title txt-dark">Items and Inventory Dashboard</h6>

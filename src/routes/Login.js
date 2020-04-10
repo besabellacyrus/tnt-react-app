@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import useSignUpForm from '../CustomHooks';
+import useFormTool from '../CustomHooks';
 import axios from 'axios';
 
 const Login = (props) => {
+  const history = useHistory();
   const [loading, setloading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const history = useHistory();
+
+  const handleSuccessfulAuth = (data) => {
+    if (data.access_token) {
+      sessionStorage.setItem('access_token', data.access_token);
+      sessionStorage.setItem('user', JSON.stringify(data.user));
+      history.push('/dashboard')
+    }
+  }
 
   const signIn = () => {
     const user = {
@@ -19,21 +27,23 @@ const Login = (props) => {
 
     axios.post(`http://toyntoys-api.test/api/login`, { ...user })
       .then(res => {
-        console.log({ res });
         if (res.data.access_token) {
           setloading(false);
-          history.push('/dashboard')
+          handleSuccessfulAuth(res.data)
+          console.log({ res, props })
         }
         if (res.data.message) {
           setloading(false);
           setErrorMessage(res.data.message)
         }
       }).catch(e => {
+        console.log({ e })
         setErrorMessage('Something went wrong.')
         setloading(false);
       })
   }
-  const { inputs, handleInputChange, handleSubmit } = useSignUpForm(signIn);
+  const { inputs, handleInputChange, handleSubmit } = useFormTool(signIn);
+
 
   return (
     <React.Fragment>
