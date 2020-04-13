@@ -38,7 +38,7 @@ const ProductSupplier = () => {
                       <label className="control-label col-md-3 text-right">+ Offered Cost</label>
                       <div className="col-md-9">
                         <div className="input-group">
-                          <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="0.00" />
+                          <input type="text" id="offered-cost" name="offered-cost" className="form-control" placeholder="0.00" />
                           <div className="input-group-btn">
                             <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                             <ul className="dropdown-menu dropdown-menu-right">
@@ -108,7 +108,7 @@ const ProductSupplier = () => {
                       <label className="control-label col-md-3 text-right">+ Offered Cost</label>
                       <div className="col-md-9">
                         <div className="input-group">
-                          <input type="text" id="example-input2-group3" name="example-input2-group3" className="form-control" placeholder="0.00" />
+                          <input type="text" id="offeredcost-2" name="offeredcost-2" className="form-control" placeholder="0.00" />
                           <div className="input-group-btn">
                             <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                             <ul className="dropdown-menu dropdown-menu-right">

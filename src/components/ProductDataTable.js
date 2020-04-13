@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Datatable from "./Datatable";
 // const $DataTable = require('datatables.net-responsive');
 import Helper from '../helper';
+import DynamicDatatable from './DynamicDatatable';
 
 const AppDataTable = (props) => {
   const history = useHistory();
@@ -28,21 +29,21 @@ const AppDataTable = (props) => {
     headings.push(<th key={index}>{value}</th>)
   }
 
-  for (const [index, value] of config.data.entries()) {
-    datas.push(
-      <tr key={index} data-id={value.product_id}>
-        <td></td>
-        <td><img className="product-profile" src={value.profile} alt="" /></td>
-        <td className="pCode" onClick={handleClick}>{value.product_code}</td>
-        <td className="pCode" onClick={handleClick}>{value.product_title}</td>
-        <td className="pCode" onClick={handleClick}>{value.price_a}</td>
-        <td className="pCode" onClick={handleClick}>{value.price_b}</td>
-        <td className="pCode" onClick={handleClick}>{value.price_c}</td>
-        <td className="pCode" onClick={handleClick}>{value.retail_price}</td>
-        <td className="pCode" onClick={handleClick}>{value.product_cost}</td>
-      </tr>
-    )
-  }
+  // for (const [index, value] of config.data.entries()) {
+  //   datas.push(
+  //     <tr key={index} data-id={value.id}>
+  //       <td></td>
+  //       <td><img className="product-profile" src="/img/thumbnail/MEZ76515_thumbnail.jpg" alt="" /></td>
+  //       <td className="pCode" onClick={handleClick}>{value.product_code}</td>
+  //       <td className="pCode" onClick={handleClick}>{value.product_title}</td>
+  //       <td className="pCode" onClick={handleClick}>0.00</td>
+  //       <td className="pCode" onClick={handleClick}>0.00</td>
+  //       <td className="pCode" onClick={handleClick}>0.00</td>
+  //       <td className="pCode" onClick={handleClick}>0.00</td>
+  //       <td className="pCode" onClick={handleClick}>0.00</td>
+  //     </tr>
+  //   )
+  // }
 
   function handleClick (e) {
     Helper.copyToClipboard(e);
@@ -53,7 +54,7 @@ const AppDataTable = (props) => {
   }
 
   return (
-    <Datatable headings={headings} config={tableConfig} datas={datas} />
+    <DynamicDatatable headings={headings} datas={datas} />
   )
 }
 

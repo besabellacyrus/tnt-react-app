@@ -13,6 +13,7 @@ import LoginLayout from "./LoginLayout";
 import SamplePage from "./routes/SamplePage";
 import AuthenticatedRoute from "./AuthenticatedRoute";
 import $ from 'jquery';
+
 // const Products = lazy(() => import('./routes/Product'));
 
 const App = (props) => {
@@ -22,7 +23,6 @@ const App = (props) => {
     var $preloader = $(".preloader-it > .la-anim-1");
     $preloader.addClass('la-animate');
     return () => {
-      // cleanup
     }
   })
 

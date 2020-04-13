@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import Switch from 'react-switchery';
+import AppDateTimePicker from './AppDateTimePicker';
+import useFormTool from '../CustomHooks';
+import axios from 'axios';
+
 
 const categories = [
   {
@@ -34,10 +38,13 @@ const brands = [
   },
 ]
 
-const ProductForm = () => {
+const ProductForm = (props) => {
   const [type, setType] = useState(1);
   const [brand, setBrand] = useState(1);
   const [category, setCategory] = useState(1);
+  const [saving, setSaving] = useState(false);
+
+  let isDisabled = saving ? { disabled: 'disabled' } : {};
 
   const handleChange = (event) => {
     console.log({ val: event.target.value, name: event.target.name });
@@ -54,10 +61,51 @@ const ProductForm = () => {
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('triggered!')
+  const handleSave = () => {
+    setSaving(true);
+    const {
+      product_code,
+      product_title,
+      pcs_per_carton,
+      date_arrived,
+      expiry_date,
+      qty,
+      weight,
+      memo,
+      specs,
+      description
+    } = inputs;
+
+    const product = {
+      product_code: product_code,
+      product_name: 'Sample',
+      product_title: product_title,
+      description: description,
+      pcs_per_carton: pcs_per_carton,
+      weight: weight,
+      qty: qty,
+      date_arrived: date_arrived,
+      expiry_date: expiry_date,
+      specs: specs,
+      memo: memo,
+      type_id: type,
+      brand_id: brand,
+      category_id: category,
+      profile: 'dddd'
+    };
+
+    console.log({ product })
+
+    axios.post(`http://toyntoys-api.test/api/product`, { ...product })
+      .then(res => {
+        console.log({ res })
+        setSaving(false);
+      }).catch(e => {
+        console.log({ e })
+        setSaving(false);
+      })
   }
+  const { inputs, handleInputChange, handleSubmit } = useFormTool(handleSave);
 
   return (
     <React.Fragment>
@@ -68,19 +116,19 @@ const ProductForm = () => {
               <div className="form-group">
                 <label className="control-label col-md-3">Product Code</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" placeholder="Product Code" />
+                  <input type="text" className="form-control" onChange={handleInputChange} name="product_code" placeholder="Product Code" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Product Title</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" placeholder="Product Title" />
+                  <input type="text" className="form-control" onChange={handleInputChange} name="product_title" placeholder="Product Title" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Product Type</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="type" value={type} onChange={handleChange}>
+                  <select className="form-control" name="type" value={type} onChange={handleChange} {...isDisabled}>
                     <option value="1">Sample 1</option>
                     <option value="2">Sample 2</option>
                   </select>
@@ -89,59 +137,49 @@ const ProductForm = () => {
               <div className="form-group">
                 <label className="control-label col-md-3">Brand</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="brand" value={brand} onChange={handleChange}>
-                    <option>Sample 1</option>
-                    <option>Sample 2</option>
+                  <select className="form-control" name="brand" value={brand} onChange={handleChange} {...isDisabled}>
+                    <option value="1">Sample 1</option>
+                    <option value="2">Sample 2</option>
                   </select>
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Category</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="category" value={category} onChange={handleChange}>
-                    <option>Sample 1</option>
-                    <option>Sample 2</option>
+                  <select className="form-control" name="category" value={category} onChange={handleChange} {...isDisabled}>
+                    <option value="1">Sample 1</option>
+                    <option value="2">Sample 2</option>
                   </select>
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Item Weight</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" placeholder="1" />
+                  <input type="text" className="form-control" onChange={handleInputChange} name="weight" placeholder="" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Pcs. Per Carton</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" placeholder="Pieces Per Carton" />
+                  <input type="text" className="form-control" onChange={handleInputChange} name="pcs_per_carton" placeholder="Pieces Per Carton" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Inventory QTY</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" placeholder="Inventory Quantity" />
+                  <input type="text" className="form-control" onChange={handleInputChange} name="qty" placeholder="Inventory Quantity" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Date Arrived</label>
                 <div className="col-md-9">
-                  <div className='input-group date' id='datetimepicker1'>
-                    <input type='text' className="form-control" />
-                    <span className="input-group-addon">
-                      <span className="fa fa-calendar"></span>
-                    </span>
-                  </div>
+                  <AppDateTimePicker name="date_arrived" onSelect={handleInputChange} {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Expiry Date</label>
                 <div className="col-md-9">
-                  <div className='input-group date' id='datetimepicker1'>
-                    <input type='text' className="form-control" />
-                    <span className="input-group-addon">
-                      <span className="fa fa-calendar"></span>
-                    </span>
-                  </div>
+                  <AppDateTimePicker name="expiry_date" onSelect={handleInputChange} {...isDisabled} />
                 </div>
               </div>
               {/* /form */}
@@ -213,20 +251,16 @@ const ProductForm = () => {
                 </ul>
                 <div className="tab-content" id="product-tab">
                   <div id="description" className="tab-pane fade active in" role="tabpanel">
-                    <textarea rows="15" cols="56">
-                      Lorem ipsum dolor sit amet, et pertinax ocurreret scribentur sit, eum euripidis assentior ei. In qui quodsi maiorum, dicta clita duo ut. Fugit sonet quo te. Ad vel quando causae signiferumque. Aperiam luptatum senserit eu vis, eu ius purto torquatos vituperatoribus.An nec fastidii eligendi molestiae.
-                                  </textarea>
+                    <textarea rows="15" cols="56" name="description" onSelect={handleInputChange} {...isDisabled}>
+                    </textarea>
                   </div>
                   <div id="specs" className="tab-pane fade in" role="tabpanel">
-                    <textarea rows="15" cols="56">
-                      Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
-                                  </textarea>
+                    <textarea rows="15" cols="56" name="specs" onSelect={handleInputChange} {...isDisabled}>
+                    </textarea>
                   </div>
                   <div id="memo" className="tab-pane fade in" role="tabpanel">
-                    <textarea rows="15" cols="56">
-
-                      Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.
-                                </textarea>
+                    <textarea rows="15" cols="56" name="memo" onSelect={handleInputChange} {...isDisabled}>
+                    </textarea>
                   </div>
                 </div>
               </div>

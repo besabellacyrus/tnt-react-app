@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFormTool from '../CustomHooks';
-import axios from 'axios';
+// import axios from 'axios';
+import { AppPost } from '../api'
 
 const Login = (props) => {
   const history = useHistory();
@@ -25,7 +26,7 @@ const Login = (props) => {
     setloading(true);
     setErrorMessage('');
 
-    axios.post(`http://toyntoys-api.test/api/login`, { ...user })
+    AppPost('login', { ...user })
       .then(res => {
         if (res.data.access_token) {
           setloading(false);

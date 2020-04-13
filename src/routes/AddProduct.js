@@ -8,8 +8,6 @@ import ProductForm from '../components/ProductForm';
 
 const Product = (props) => {
   const { match: { params } } = props;
-  console.log({ categories: props.categories })
-
   return (
     <React.Fragment>
       <ProductNav />
@@ -53,7 +51,7 @@ const Product = (props) => {
                               <div className="form-group">
                                 <label className="control-label col-md-3">End Date</label>
                                 <div className="col-md-9">
-                                  <div className='input-group date' id='datetimepicker1'>
+                                  <div className='input-group date' id='datetimepicker5'>
                                     <input type='text' className="form-control" />
                                     <span className="input-group-addon">
                                       <span className="fa fa-calendar"></span>
@@ -64,7 +62,7 @@ const Product = (props) => {
                               <div className="form-group">
                                 <label className="control-label col-md-3">Release Date</label>
                                 <div className="col-md-9">
-                                  <div className='input-group date' id='datetimepicker1'>
+                                  <div className='input-group date' id='datetimepicker6'>
                                     <input type='text' className="form-control" />
                                     <span className="input-group-addon">
                                       <span className="fa fa-calendar"></span>
@@ -84,7 +82,7 @@ const Product = (props) => {
                               <div className="form-group">
                                 <label className="control-label col-md-3">Start Date</label>
                                 <div className="col-md-9">
-                                  <div className='input-group date' id='datetimepicker1'>
+                                  <div className='input-group date' id='datetimepicker7'>
                                     <input type='text' className="form-control" />
                                     <span className="input-group-addon">
                                       <span className="fa fa-calendar"></span>
@@ -95,7 +93,7 @@ const Product = (props) => {
                               <div className="form-group">
                                 <label className="control-label col-md-3">End Date</label>
                                 <div className="col-md-9">
-                                  <div className='input-group date' id='datetimepicker1'>
+                                  <div className='input-group date' id='datetimepicker8'>
                                     <input type='text' className="form-control" />
                                     <span className="input-group-addon">
                                       <span className="fa fa-calendar"></span>
@@ -115,7 +113,7 @@ const Product = (props) => {
                               <div className="form-group">
                                 <label className="control-label col-md-3">Date Created</label>
                                 <div className="col-md-9">
-                                  <div className='input-group date' id='datetimepicker1'>
+                                  <div className='input-group date' id='datetimepicker9'>
                                     <input type='text' className="form-control" />
                                     <span className="input-group-addon">
                                       <span className="fa fa-calendar"></span>
@@ -126,7 +124,7 @@ const Product = (props) => {
                               <div className="form-group">
                                 <label className="control-label col-md-3">Last Update</label>
                                 <div className="col-md-9">
-                                  <div className='input-group date' id='datetimepicker1'>
+                                  <div className='input-group date' id='datetimepicker0'>
                                     <input type='text' className="form-control" />
                                     <span className="input-group-addon">
                                       <span className="fa fa-calendar"></span>

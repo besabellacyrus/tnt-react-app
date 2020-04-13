@@ -29,10 +29,6 @@ const Datatable = (props) => {
         cols.push(e.value)
       }
       e.addEventListener('click', (w) => {
-        // if (e.checked) {
-        //   cols.push(e.value)
-        // }
-        // console.log({ cols, ll: e.value })
       })
     })
 
@@ -73,7 +69,7 @@ const Datatable = (props) => {
 
   const mainConfig = {
     responsive: true,
-    dom: `<'row'<'col-sm-12'tr>>
+    dom: `<'row'<'col-sm-12 data-table-wrapper'tr>>
         <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
     lengthMenu: [5, 10, 25, 50],
     pageLength: 10,
@@ -127,7 +123,12 @@ const Datatable = (props) => {
     // $('input.search-datatable').on('keyup click', function () {
     //   // filterColumn(1);
     // });
-
+    return () => {
+      $('.data-table-wrapper')
+        .find('table')
+        .DataTable()
+        .destroy(true);
+    }
   }, [])
 
   return (

@@ -6,10 +6,10 @@ import 'bootstrap3/dist/js/bootstrap.js';
 import './styles/fixed-width-light/js/init.js';
 import './App.css';
 import './styles/scss/main.scss';
-// import auth from './Auth';
-
-
 import * as serviceWorker from './serviceWorker';
+
+window.$ = window.jQuery = require("jquery");
+
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,8 @@
 import React, { Component, useEffect } from 'react'
 import LeftSidebar from "./LeftSidebar";
 import { Link, useHistory } from 'react-router-dom'
+import Script from 'react-load-script';
+
 import $ from 'jquery';
 
 const Navbar = (props) => {
@@ -79,6 +81,7 @@ const Navbar = (props) => {
     console.log('logout')
     history.push('/login')
     sessionStorage.clear();
+    window.location.reload(false);
   }
 
   return (

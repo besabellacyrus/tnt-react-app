@@ -1,30 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AppSearch from '../components/AppSearch';
 import Card from '../components/Card';
 import ProductDataTable from '../components/ProductDataTable';
 import TableExportButtons from "../components/TableExportButtons";
-import products from '../test/products.json';
 import { useHistory } from "react-router-dom";
+import { AppGet } from '../api';
 
-const config = {
-  headings: [
-    'Profile',
-    'Product Code',
-    'Product Name',
-    'Price A',
-    'Price B',
-    'Price C',
-    'Retail Price',
-    'Product Cost',
-  ],
-  data: products
-}
 
-const Products = () => {
+
+
+const Products = (props) => {
   const history = useHistory();
+  const [product, setProduct] = useState([]);
+  const config = {
+    headings: [
+      'Profile',
+      'Product Code',
+      'Product Name',
+      'Price A',
+      'Price B',
+      'Price C',
+      'Retail Price',
+      'Product Cost',
+    ],
+    data: product
+  }
+  useEffect(() => {
+    const products = AppGet('product').then((res) => {
+      console.log(res)
+      if (res.data) {
+        setProduct(res.data)
+      }
+    }).catch((e) => {
+      console.log(e)
+    })
+  }, [])
 
   function handleAddNew () {
-    history.push('/product/222')
+    history.push('/add-product')
   }
 
   const contentRight = (
@@ -55,11 +68,13 @@ const Products = () => {
   )
 
   return (
-    <Card title="Products" subTitle="Product List" contentLeft={contentLeft} contentRight={contentRight}>
-      <div className="table-wrap">
-        <ProductDataTable config={config} />
-      </div>
-    </Card >
+    <React.Fragment>
+      <Card title="Products" subTitle="Product List" contentLeft={contentLeft} contentRight={contentRight}>
+        <div className="table-wrap">
+          <ProductDataTable config={config} />
+        </div>
+      </Card>
+    </React.Fragment>
   )
 }
 

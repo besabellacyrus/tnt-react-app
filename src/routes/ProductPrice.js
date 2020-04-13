@@ -59,7 +59,7 @@ const ProductPrice = () => {
                           <label className="control-label col-xs-12 col-md-3 ">Pre Order Prices</label>
                           <div className="col-xs-10 col-md-7">
                             <div className="input-group app-input-group">
-                              <input type="text" id="pre-order-prices" name="pre-order-prices" className="form-control" placeholder="Pre Order Prices" />
+                              <input type="text" id="pre-order-prices23" name="pre-order-prices23" className="form-control" placeholder="Pre Order Prices" />
                               <div className="input-group-btn">
                                 <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
@@ -85,7 +85,7 @@ const ProductPrice = () => {
                           <label className="control-label col-xs-12 col-md-3">Whole Sale</label>
                           <div className="col-xs-10 col-md-7">
                             <div className="input-group app-input-group">
-                              <input type="text" id="whole-sale-prices" name="whole-sale-prices" className="form-control" placeholder="Whole Sale" />
+                              <input type="text" id="whole-sale-prices22" name="whole-sale-prices22" className="form-control" placeholder="Whole Sale" />
                               <div className="input-group-btn">
                                 <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
@@ -108,7 +108,7 @@ const ProductPrice = () => {
                           <label className="control-label col-xs-12 col-md-3 ">Special Offer</label>
                           <div className="col-xs-10 col-md-7">
                             <div className="input-group app-input-group">
-                              <input type="text" id="special-offer" name="special-offer" className="form-control" placeholder="Special Offer" />
+                              <input type="text" id="special-offer33" name="special-offer33" className="form-control" placeholder="Special Offer" />
                               <div className="input-group-btn">
                                 <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
@@ -134,7 +134,7 @@ const ProductPrice = () => {
                           <label className="control-label col-xs-12 col-md-3">Deposit Price</label>
                           <div className="col-xs-10 col-md-7">
                             <div className="input-group app-input-group">
-                              <input type="text" id="deposit-price" name="deposit-price" className="form-control" placeholder="Deposit Price" />
+                              <input type="text" id="deposit-price22" name="deposit-price22" className="form-control" placeholder="Deposit Price" />
                               <div className="input-group-btn">
                                 <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
@@ -202,7 +202,7 @@ const ProductPrice = () => {
                           <label className="control-label col-xs-12 col-md-3">Retail Price</label>
                           <div className="col-xs-10 col-md-7">
                             <div className="input-group app-input-group">
-                              <input type="text" id="retail-price" name="retail-price" className="form-control" placeholder="Retail Price" />
+                              <input type="text" id="retail-price3" name="retail-price3" className="form-control" placeholder="Retail Price" />
                               <div className="input-group-btn">
                                 <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
@@ -225,7 +225,7 @@ const ProductPrice = () => {
                           <label className="control-label col-xs-12 col-md-3 ">Pre Order Prices</label>
                           <div className="col-xs-10 col-md-7">
                             <div className="input-group app-input-group">
-                              <input type="text" id="pre-order-prices" name="pre-order-prices" className="form-control" placeholder="Pre Order Prices" />
+                              <input type="text" id="pre-order-prices22" name="pre-order-prices22" className="form-control" placeholder="Pre Order Prices" />
                               <div className="input-group-btn">
                                 <button type="button" className="btn  btn-primary dropdown-toggle" data-toggle="dropdown">USD <span className="caret"></span></button>
                                 <ul className="dropdown-menu dropdown-menu-right">
