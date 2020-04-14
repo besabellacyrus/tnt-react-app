@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Helper from '../helper';
+import { apiUrl } from '../api';
 import $ from 'jquery'
 // require('datatables.net-responsive');
 $.DataTable = require('datatables.net');
-
-
 
 const DynamicDatatable = (props) => {
   const [product, setProduct] = useState([]);
@@ -17,12 +16,11 @@ const DynamicDatatable = (props) => {
     info: false,
     lengthMenu: [5, 10, 25, 50],
     pageLength: 10,
-    order: [[1, 'desc']],
+    // order: [[1, 'desc']],
     responsive: true,
-    // processing: true,
     serverSide: true,
     ajax: {
-      url: "http://toyntoys-api.test/api/product",
+      url: `${apiUrl}/api/product`,
       type: 'GET',
     },
     columnDefs: [
@@ -89,7 +87,6 @@ const DynamicDatatable = (props) => {
       {
         "className": 'details-control',
         "orderable": false,
-        "data": null,
         "defaultContent": ''
       },
       {
@@ -193,8 +190,7 @@ const DynamicDatatable = (props) => {
         if (checked) {
           $(this).prop('checked', true);
           $(this).closest('tr').addClass('active');
-        }
-        else {
+        } else {
           $(this).prop('checked', false);
           $(this).closest('tr').removeClass('active');
         }
@@ -205,7 +201,17 @@ const DynamicDatatable = (props) => {
     });
 
     createFilter($('.app-data-table').DataTable())
+
+    $('.app-data-table').on('click', 'tbody tr', function() {
+
+      //get textContent of the TD
+      console.log('TD cell textContent : ', this)
+
+      //get the value of the TD using the API
+    })
+
     return () => {
+      // cleaning
       $('.data-table-wrapper')
         .find('table')
         .DataTable()

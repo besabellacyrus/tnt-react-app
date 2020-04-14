@@ -9,7 +9,11 @@ import './styles/scss/main.scss';
 import * as serviceWorker from './serviceWorker';
 
 window.$ = window.jQuery = require("jquery");
-
+if (process.env.NODE_ENV !== 'production') {
+  console.log('development')
+} else {
+  console.log('production')
+}
 
 ReactDOM.render(
   <React.StrictMode>

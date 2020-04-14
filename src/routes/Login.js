@@ -26,7 +26,7 @@ const Login = (props) => {
     setloading(true);
     setErrorMessage('');
 
-    AppPost('login', { ...user })
+    AppPost('/api/login', { ...user })
       .then(res => {
         if (res.data.access_token) {
           setloading(false);

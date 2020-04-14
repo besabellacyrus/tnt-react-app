@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import AppSearch from '../components/AppSearch';
 import Card from '../components/Card';
-import ProductDataTable from '../components/ProductDataTable';
 import TableExportButtons from "../components/TableExportButtons";
+import AppTable from "../components/AppTable";
 import { useHistory } from "react-router-dom";
-import { AppGet } from '../api';
-
-
-
+import { AppGet, AppDelete } from '../api';
 
 const Products = (props) => {
   const history = useHistory();
   const [product, setProduct] = useState([]);
+  let tobedeleted = []
+
   const config = {
     headings: [
       'Profile',
@@ -26,7 +25,11 @@ const Products = (props) => {
     data: product
   }
   useEffect(() => {
-    const products = AppGet('product').then((res) => {
+    fetchProducts();
+  }, [])
+
+  const fetchProducts = () => {
+    AppGet('/api/product').then((res) => {
       console.log(res)
       if (res.data) {
         setProduct(res.data)
@@ -34,10 +37,32 @@ const Products = (props) => {
     }).catch((e) => {
       console.log(e)
     })
-  }, [])
+  }
 
-  function handleAddNew () {
+  const handleDeleteItems = (e) => {
+    tobedeleted = e
+  }
+
+  const handleAddNew = () => {
     history.push('/add-product')
+  }
+
+  const handleDelete = () => {
+    if (tobedeleted.length > 0) {
+      if (window.confirm(`Delete this items?`)) {
+        AppDelete(`/api/product/`, tobedeleted)
+        .then(res => {
+          console.log({res})
+          if (res.data.status === 'deleted') {
+            fetchProducts();
+          }
+        })
+        .catch(err => {
+          console.log({ err })
+        })
+      }
+
+    }
   }
 
   const contentRight = (
@@ -46,7 +71,7 @@ const Products = (props) => {
         <div className="product-action-btns">
           <button onClick={handleAddNew} className="btn app-btn btn-primary">Add New</button>
           <button className="btn app-btn btn-primary">Duplicate</button>
-          <button className="btn app-btn btn-danger">Delete</button>
+          <button onClick={handleDelete} className="btn app-btn btn-danger">Delete</button>
         </div>
       </div>
       <div className="col-sm-12">
@@ -71,7 +96,7 @@ const Products = (props) => {
     <React.Fragment>
       <Card title="Products" subTitle="Product List" contentLeft={contentLeft} contentRight={contentRight}>
         <div className="table-wrap">
-          <ProductDataTable config={config} />
+          <AppTable data={product} delItems={handleDeleteItems} />
         </div>
       </Card>
     </React.Fragment>

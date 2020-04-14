@@ -1,108 +1,64 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import AppDateTimePicker from "../components/AppDateTimePicker";
 import Switch from 'react-switchery';
-import AppDateTimePicker from './AppDateTimePicker';
-import useFormTool from '../CustomHooks';
-import { AppPost, AppPatch } from '../api'
+import { AppPatch } from '../api'
 import { useHistory } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
-const ProductForm = (props) => {
+const ProductEditForm = (props) => {
   const history = useHistory();
-  const [type, setType] = useState("");
-  const [brand, setBrand] = useState("");
-  const [category, setCategory] = useState("");
   const [saving, setSaving] = useState(false);
-  const [productCode, setProductCode] = useState("");
-  const [productTitle, setProductTitle] = useState("");
-  const [productName, setProductName] = useState("");
-  const [weight, setWeight] = useState(0);
-  const [pcsPerCarton, setPcsPerCarton] = useState(0);
-  const [qty, setQty] = useState(0);
-  const [specs, setSpecs] = useState("No Data");
-  const [memo, setMemo] = useState("No Data");
-  const [description, setDescription] = useState("No Data");
-  const [dateArrived, setDateArrived] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
 
+  const [title, setTitle] = useState({})
 
-  let isDisabled = saving ? { disabled: 'disabled' } : {};
-
-  const handleChange = (event) => {
-    console.log({ val: event.target.value, name: event.target.name });
-    switch (event.target.name) {
-      case 'brand':
-        setBrand(event.target.value)
-        break;
-      case 'category':
-        setCategory(event.target.value)
-        break;
-      default:
-        setType(event.target.value)
-        break;
+  const { register, handleSubmit, reset } = useForm(
+    {
+      defaultValues: {
+        product_code: "",
+        product_title: "",
+        product_name: "",
+        weight: 0,
+        pcs_per_carton: 0,
+        qty: 0,
+        product_brand: "",
+        product_type: "",
+        product_category: "",
+        date_arrived: "",
+        expiry_date: "",
+        description: "",
+        memo: "",
+        specs: "",
+      }
     }
-    console.log({ brand, type, category })
-  }
+  );
 
-  const handleSave = () => {
-    setSaving(true);
-    const product = {
-      product_code: inputs.product_code,
-      product_name:  inputs.product_name,
-      product_title: inputs.product_title,
-      description: inputs.description,
-      pcs_per_carton: inputs.pcs_per_carton,
-      weight: inputs.weight,
-      qty: inputs.qty,
-      date_arrived: inputs.date_arrived,
-      expiry_date: inputs.expiry_date,
-      specs: inputs.specs,
-      memo: inputs.memo,
-      type_id: type,
-      brand_id: brand,
-      category_id: category,
-      profile: '/img/thumbnail/MEZ76515_thumbnail.jpg'
-    };
+  useEffect(() => {
+    console.log({ prd: props.productData })
+    reset({
+      product_code: props.productData.product_code,
+      product_title: props.productData.product_title,
+      product_name: props.productData.product_name,
+      type_id: props.productData.product_type,
+      brand_id: props.productData.product_brand,
+      category_id: props.productData.product_category,
+      weight: props.productData.weight,
+      qty: props.productData.qty,
+      pcs_per_carton: props.productData.pcs_per_carton,
+      memo: props.productData.memo,
+      specs: props.productData.specs,
+      description: props.productData.description,
+      date_arrived: props.productData.date_arrived,
+      expiry_date: props.productData.expiry_date,
+    })
+  },[props])
 
-    let urlPath = window.location.href.split('/')[3];
-    console.log({ product, brand, type, category, urlPath })
+  const onSubmit = data => {
+    console.log({data})
 
-    if (urlPath === 'product') {
-      // const productUpdate = {
-      //   product_code: productCode,
-      //   product_name:  productName,
-      //   product_title: productTitle,
-      //   description: description,
-      //   pcs_per_carton: pcsPerCarton,
-      //   weight: weight,
-      //   qty: qty,
-      //   date_arrived: dateArrived,
-      //   expiry_date: expiryDate,
-      //   specs: specs,
-      //   memo: memo,
-      //   type_id: type,
-      //   brand_id: brand,
-      //   category_id: category,
-      //   profile: '/img/thumbnail/MEZ76515_thumbnail.jpg'
-      // };
-
-      console.log('update button', inputs)
-      // AppPatch('/api/product', { ...productUpdate })
-      // .then(res => {
-      //   console.log({ res })
-      //   if (res.data.status === 'updated') {
-      //     history.push(`/product/${res.data.product.id}`)
-      //   }
-      //   setSaving(false);
-      // }).catch(e => {
-      //   console.log({ e })
-      //   setSaving(false);
-      // })
-    }
-
-    if (urlPath === 'add-product') {
-      AppPost('/api/product', { ...product })
+    AppPatch(`/api/product/${props.productData.id}`, data)
       .then(res => {
         console.log({ res })
-        if (res.data.status === 'created') {
+        if (res.data.status === 'updated') {
           history.push(`/product/${res.data.product.id}`)
         }
         setSaving(false);
@@ -110,64 +66,39 @@ const ProductForm = (props) => {
         console.log({ e })
         setSaving(false);
       })
-    }
-  }
+  };
 
-  const handleUpdate = () => {
-    console.log('handle update');
-  }
+  let isDisabled = saving ? { disabled: 'disabled' } : {};
 
-  const { inputs, handleInputChange, handleSubmit } = useFormTool(handleSave);
-
-  useEffect(() => {
-    console.log({ proooo: props.productData })
-    if (Object.keys(props.productData).length !== 0 && props.productData.constructor === Object) {
-      setType(props.productData.type_id)
-      setBrand(props.productData.brand_id)
-      setCategory(props.productData.category_id)
-    }
-    setProductCode(props.productData.product_code)
-    setProductTitle(props.productData.product_title)
-    setProductName(props.productData.product_name)
-    setWeight(props.productData.weight)
-    setPcsPerCarton(props.productData.pcs_per_carton)
-    setQty(props.productData.qty)
-    setDescription(props.productData.qty)
-    setSpecs(props.productData.qty)
-    setMemo(props.productData.qty)
-    setDateArrived(props.productData.date_arrived)
-    setExpiryDate(props.productData.expiry_date)
-  })
 
   return (
     <React.Fragment>
       <div className="row">
-        <form id="first-part-form" onSubmit={handleSubmit} className="form-horizontal">
+        <form id="first-part-form" onSubmit={handleSubmit(onSubmit)} className="form-horizontal">
           <div className="col-sm-6">
             <div className="form-wrap">
               <div className="form-group">
                 <label className="control-label col-md-3">Product Code</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={productCode} onChange={handleInputChange} name="product_code" placeholder="Product Code" {...isDisabled} />
+                  <input type="text" className="form-control" ref={register} name="product_code" placeholder="Product Code" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Product Title</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={productTitle} onChange={handleInputChange} name="product_title" placeholder="Product Title" {...isDisabled} />
+                  <input type="text" className="form-control" ref={register} name="product_title" placeholder="Product Title" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Product Name</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={productName} onChange={handleInputChange} name="product_name" placeholder="Product Name" {...isDisabled} />
+                  <input type="text" className="form-control" ref={register} name="product_name" placeholder="Product Name" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Product Type</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="type" value={type} onChange={handleChange} {...isDisabled}>
-                    <option>Choose Product Type</option>
+                  <select className="form-control" name="type_id" ref={register} {...isDisabled}>
                     <option value="1">Type 1</option>
                     <option value="2">Type 2</option>
                   </select>
@@ -176,8 +107,7 @@ const ProductForm = (props) => {
               <div className="form-group">
                 <label className="control-label col-md-3">Brand</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="brand" value={brand} onChange={handleChange} {...isDisabled}>
-                    <option>Choose Product Brand</option>
+                  <select className="form-control" name="brand_id" ref={register} {...isDisabled}>
                     <option value="1">Neca</option>
                     <option value="2">Brand 2</option>
                   </select>
@@ -186,8 +116,7 @@ const ProductForm = (props) => {
               <div className="form-group">
                 <label className="control-label col-md-3">Category</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="category" value={category} onChange={handleChange} {...isDisabled}>
-                    <option>Choose Product Category</option>
+                  <select className="form-control" name="category_id" ref={register} {...isDisabled}>
                     <option value="1">Category 1</option>
                     <option value="2">Category 2</option>
                   </select>
@@ -196,31 +125,31 @@ const ProductForm = (props) => {
               <div className="form-group">
                 <label className="control-label col-md-3">Item Weight</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={weight} onChange={handleInputChange} name="weight" placeholder="" {...isDisabled} />
+                  <input type="text" className="form-control" ref={register} name="weight" placeholder="" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Pcs. Per Carton</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={pcsPerCarton} onChange={handleInputChange} name="pcs_per_carton" placeholder="Pieces Per Carton" {...isDisabled} />
+                  <input type="text" className="form-control" ref={register} name="pcs_per_carton" placeholder="Pieces Per Carton" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Inventory QTY</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control"  value={qty} onChange={handleInputChange} name="qty" placeholder="Inventory Quantity" {...isDisabled} />
+                  <input type="text" className="form-control" ref={register} name="qty" placeholder="Inventory Quantity" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Date Arrived</label>
                 <div className="col-md-9">
-                  <AppDateTimePicker name="date_arrived" value={dateArrived} onSelect={handleInputChange} {...isDisabled} />
+                  <AppDateTimePicker name="date_arrived" ref={register} {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Expiry Date</label>
                 <div className="col-md-9">
-                  <AppDateTimePicker name="expiry_date" value={expiryDate} onSelect={handleInputChange} {...isDisabled} />
+                  <AppDateTimePicker name="expiry_date" ref={register} {...isDisabled} />
                 </div>
               </div>
               {/* /form */}
@@ -291,15 +220,15 @@ const ProductForm = (props) => {
                 </ul>
                 <div className="tab-content" id="product-tab">
                   <div id="description" className="tab-pane fade active in" role="tabpanel">
-                    <textarea rows="15" cols="56" name="description" value={description} onSelect={handleInputChange} {...isDisabled}>
+                    <textarea rows="15" cols="56" name="description" ref={register} {...isDisabled}>
                     </textarea>
                   </div>
                   <div id="specs" className="tab-pane fade in" role="tabpanel">
-                    <textarea rows="15" cols="56" name="specs" value={specs} onSelect={handleInputChange} {...isDisabled}>
+                    <textarea rows="15" cols="56" name="specs" ref={register} {...isDisabled}>
                     </textarea>
                   </div>
                   <div id="memo" className="tab-pane fade in" role="tabpanel">
-                    <textarea rows="15" cols="56" name="memo" value={memo} onSelect={handleInputChange} {...isDisabled}>
+                    <textarea rows="15" cols="56" name="memo" ref={register} {...isDisabled}>
                     </textarea>
                   </div>
                 </div>
@@ -312,4 +241,4 @@ const ProductForm = (props) => {
   )
 }
 
-export default ProductForm
+export default ProductEditForm

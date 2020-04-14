@@ -12,6 +12,7 @@ import ProductInventory from "./routes/ProductInventory";
 import LoginLayout from "./LoginLayout";
 import SamplePage from "./routes/SamplePage";
 import AuthenticatedRoute from "./AuthenticatedRoute";
+import AddProductMedia from './routes/AddProductMedia';
 import $ from 'jquery';
 
 // const Products = lazy(() => import('./routes/Product'));
@@ -66,6 +67,7 @@ const App = (props) => {
           <AuthenticatedRoute path="/dashboard" component={Dashboard} appProps={{ isAuthenticated }} />
           <AuthenticatedRoute path="/products" component={Products} appProps={{ isAuthenticated }} />
           <AuthenticatedRoute path="/add-product" component={AddProduct} appProps={{ isAuthenticated }} />
+          <AuthenticatedRoute path="/add-product-media" component={AddProductMedia} appProps={{ isAuthenticated }} />
           <AuthenticatedRoute path="/featured-products" component={FeaturedProducts} appProps={{ isAuthenticated }} />
           <AuthenticatedRoute path="/special-deals" component={SpecialDeals} appProps={{ isAuthenticated }} />
           <AuthenticatedRoute path="/product-inventory" component={ProductInventory} appProps={{ isAuthenticated }} />

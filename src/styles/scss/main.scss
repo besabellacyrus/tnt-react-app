@@ -4,6 +4,69 @@ $orange: #fc8300;
 $grayBlue: #8496A4;
 $search: #EDF1F5;
 
+
+//
+.table-image-profile {
+  height: 4rem;
+  width: 4rem;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+// new product tab
+
+.product-tab-wrapper {
+  margin-top: 10px;
+  span {
+    color: #878787;
+  }
+  @media screen and (min-width: 768px) {
+    float: right;
+    & > button {
+      width: auto;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    & > .app-btn:not(:last-child) {
+      margin-right: initial;
+    }
+  }
+  & > button {
+    height: 3rem;
+    line-height: 2;
+  }
+  .app-btn-active {
+    background-color: $orange;
+    span {
+      color: #fff;
+    }
+  }
+  .app-btn-not-active {
+    background-color: #fff;
+    a {
+      color: #878787;
+      display:inline-block;
+      width:100%;
+      height:100%;
+    }
+    &:hover {
+      a {
+        color: #fff;
+      }
+      span {
+        color: #fff;
+      }
+      background-color: $orange;
+    }
+  }
+}
+
 .btn-danger {
  background-color: $grayBlue !important;
  border-color: $grayBlue !important;
@@ -556,6 +619,10 @@ table {
   }
 }
 
+input.details-control {
+  cursor: pointer;
+}
+
 td.details-control {
   position: relative;
   &:before {
@@ -600,8 +667,8 @@ tr.shown td.details-control {
 }
 
 .kt-group-checkable {
-  transform: translateX(-112%);
-    position: relative;
+  // transform: translateX(-112%);
+  //   position: relative;
 }
 table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
 table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
