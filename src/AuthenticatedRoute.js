@@ -5,9 +5,7 @@ import DashboardLayout from './DashboardLayout'
 
 const AuthenticatedRoute = ({ component: C, appProps, ...rest }) => {
   const history = useHistory();
-  console.log({ appProps2: appProps })
   useEffect(() => {
-    // console.log('onload')
     onLoad();
     return () => {
       // cleanup

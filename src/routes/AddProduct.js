@@ -9,7 +9,11 @@ import { AppGet } from '../api'
 
 const Product = (props) => {
   const { match: { params } } = props;
-  const [productData, setProductData] = useState({})
+  const [productData, setProductData] = useState({});
+  const [brands, setBrands] = useState([]);
+  const [types, setTypes] = useState([]);
+  const [categories, setCategories] = useState([]);
+
   console.log({ params: params.productId })
 
   useEffect(() => {
@@ -28,15 +32,51 @@ const Product = (props) => {
     } else {
       console.log(' no data params ')
     }
+    getBrands();
+    getTypes();
+    getCategory();
   }, []);
+
+  const getBrands = () => {
+    console.log('brannnds')
+    AppGet('/api/brand')
+    .then((res) => {
+      console.log({ res })
+      setBrands(res.data)
+    }).catch(err => {
+      console.log({ err })
+    })
+  }
+
+  const getTypes = () => {
+    AppGet('/api/type')
+    .then((res) => {
+      console.log({ res })
+
+      setTypes(res.data)
+
+    }).catch(err => {
+      console.log({ err })
+    })
+  }
+
+  const getCategory = () => {
+    AppGet('/api/category')
+    .then((res) => {
+      console.log({ res })
+      setCategories(res.data)
+    }).catch(err => {
+      console.log({ err })
+    })
+  }
 
   let urlPath = window.location.href.split('/')[3];
 
   let FormUi;
   if (urlPath === 'product') {
-    FormUi = <ProductEditForm productData={productData} />
+    FormUi = <ProductEditForm productData={productData} brands={brands} categories={categories} types={types}/>
   } else {
-    FormUi = <ProductForm productData={productData} />
+    FormUi = <ProductForm productData={productData} brands={brands} categories={categories} types={types}/>
   }
 
 

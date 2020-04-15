@@ -23,6 +23,10 @@ const ProductForm = (props) => {
   const [dateArrived, setDateArrived] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
 
+  let brands = []
+  let types = []
+  let categories = []
+
 
   let isDisabled = saving ? { disabled: 'disabled' } : {};
 
@@ -46,7 +50,7 @@ const ProductForm = (props) => {
     setSaving(true);
     const product = {
       product_code: inputs.product_code,
-      product_name:  inputs.product_name,
+      product_name: inputs.product_name,
       product_title: inputs.product_title,
       description: inputs.description,
       pcs_per_carton: inputs.pcs_per_carton,
@@ -100,16 +104,16 @@ const ProductForm = (props) => {
 
     if (urlPath === 'add-product') {
       AppPost('/api/product', { ...product })
-      .then(res => {
-        console.log({ res })
-        if (res.data.status === 'created') {
-          history.push(`/product/${res.data.product.id}`)
-        }
-        setSaving(false);
-      }).catch(e => {
-        console.log({ e })
-        setSaving(false);
-      })
+        .then(res => {
+          console.log({ res })
+          if (res.data.status === 'created') {
+            history.push(`/product/${res.data.product.id}`)
+          }
+          setSaving(false);
+        }).catch(e => {
+          console.log({ e })
+          setSaving(false);
+        })
     }
   }
 
@@ -154,42 +158,75 @@ const ProductForm = (props) => {
               <div className="form-group">
                 <label className="control-label col-md-3">Product Title</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={productTitle} onChange={handleInputChange} name="product_title" placeholder="Product Title" {...isDisabled} />
+                  <input type="text" className="form-control" value={productTitle} onChange={handleInputChange} name="product_title" placeholder="Product Title from the supplier" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
                 <label className="control-label col-md-3">Product Name</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control" value={productName} onChange={handleInputChange} name="product_name" placeholder="Product Name" {...isDisabled} />
+                  <input type="text" className="form-control" value={productName} onChange={handleInputChange} name="product_name" placeholder="Shorten Name for the website" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">
-                <label className="control-label col-md-3">Product Type</label>
+                <label className="control-label col-md-3"><i className="fa fa-plus"></i>&nbsp;Product Type</label>
                 <div className="col-md-9">
                   <select className="form-control" name="type" value={type} onChange={handleChange} {...isDisabled}>
-                    <option>Choose Product Type</option>
-                    <option value="1">Type 1</option>
-                    <option value="2">Type 2</option>
+                    <option selected>Choose Product Type</option>
+                    {props.types.map((type, index) => (
+                      <option value={type.id} key={type.id}>{type.name}</option>
+                    ))}
                   </select>
                 </div>
               </div>
               <div className="form-group">
-                <label className="control-label col-md-3">Brand</label>
+                <label className="control-label col-md-3">Brand Category</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="brand" value={brand} onChange={handleChange} {...isDisabled}>
-                    <option>Choose Product Brand</option>
-                    <option value="1">Neca</option>
-                    <option value="2">Brand 2</option>
+                  <select className="form-control" name="brand_cat_id" {...isDisabled}>
+                    <option selected>Choose Brand Category</option>
+                    <option>Avengers (Marvel)</option>
+                    <option>Batman (DC Comics)</option>
+                    <option>Justice League (DC Comics)</option>
+                    <option>Transformers (Hasbro)</option>
+                    <option>Transformers G1 (Hasbro)</option>
                   </select>
                 </div>
               </div>
               <div className="form-group">
-                <label className="control-label col-md-3">Category</label>
+                <label className="control-label col-md-3"><i className="fa fa-plus"></i>&nbsp;Brand</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="category" value={category} onChange={handleChange} {...isDisabled}>
-                    <option>Choose Product Category</option>
-                    <option value="1">Category 1</option>
-                    <option value="2">Category 2</option>
+                  <select className="form-control" name="brand" {...isDisabled}>
+                    <option selected>Choose Brand</option>
+                    <option>Marvel</option>
+                    <option>DC Comics</option>
+                    <option>Disney</option>
+                    <option>Hasbro</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="control-label col-md-3"><i className="fa fa-plus"></i>&nbsp; Manufacturer</label>
+                <div className="col-md-9">
+                  <select className="form-control" name="manufacturer_id" {...isDisabled}>
+                    <option selected>Choose Manufacturer</option>
+                    <option>Mezco</option>
+                    <option>Beast Kingdom</option>
+                    <option>Bowen Designs</option>
+                    <option>Coolprops</option>
+                    <option>Neca</option>
+                    <option>Imaginarium Art</option>
+                    <option>Weta</option>
+                  </select>
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="control-label col-md-3">Manufacturer Category</label>
+                <div className="col-md-9">
+                  <select className="form-control" name="manufacture_cat_id" {...isDisabled}>
+                    <option selected>Choose Manufacturer Category</option>
+                    <option>5 points (Mezco)</option>
+                    <option>Mini Epics (Weta)</option>
+                    <option>The Legacy of Cybetron (Imaginarium Art)</option>
+                    <option>PX Previews Exclusive (Mezco)</option>
                   </select>
                 </div>
               </div>
@@ -208,7 +245,7 @@ const ProductForm = (props) => {
               <div className="form-group">
                 <label className="control-label col-md-3">Inventory QTY</label>
                 <div className="col-md-9">
-                  <input type="text" className="form-control"  value={qty} onChange={handleInputChange} name="qty" placeholder="Inventory Quantity" {...isDisabled} />
+                  <input type="text" className="form-control" value={qty} onChange={handleInputChange} name="qty" placeholder="Inventory Quantity" {...isDisabled} />
                 </div>
               </div>
               <div className="form-group">

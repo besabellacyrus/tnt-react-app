@@ -22,6 +22,7 @@ const AppTable = (props) => {
       'Retail Price',
       'Product Cost'
     ])
+
   }, [])
 
   useEffect(() => {
