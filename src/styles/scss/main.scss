@@ -10,10 +10,41 @@ $search: #EDF1F5;
   color: #ffffff;
   background-color: #f3969a;
 }
-// option:not(:checked):hover {
-//   background-color: red;
-// }
-//
+.app-tbody {
+  position: relative;
+  .reveal-below {
+    position: absolute;
+    transform: translate(-30%, 80%);
+    width: 17px;
+    height: 21px;
+    &:after {
+      content: '+';
+      background-color: $orange;
+      color: #fff;
+      border-radius: 36px;
+      height: px;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      line-height: 1;
+      text-align: center;
+    }
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+  .below-details {
+    // display: none;
+  }
+
+  .reveal {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
+
+}
 .table-image-profile {
   height: 44px;
   width: 44px;

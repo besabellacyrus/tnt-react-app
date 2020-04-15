@@ -1,4 +1,5 @@
 const axios = require('axios');
+
 // const API_URL = `http://toyntoys-api.test/api/`
 const API_URL = process.env.NODE_ENV === 'production' ? 'http://159.65.139.212' : 'http://toyntoys-api.test';
 
@@ -13,11 +14,11 @@ const AppGet = (path) => {
 }
 
 const AppDelete = (path, payload) => {
-  return axios.delete(API_URL + path, { params: {'id': payload }} );
+  return axios.delete(API_URL + path, { params: { 'id': payload } });
 }
 
 const AppPatch = (path, payload) => {
-  return axios.patch(API_URL + path, payload );
+  return axios.patch(API_URL + path, payload);
 }
 
 exports.AppDelete = AppDelete;
