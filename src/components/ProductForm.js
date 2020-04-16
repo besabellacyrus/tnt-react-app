@@ -279,7 +279,7 @@ const ProductForm = (props) => {
                     checked
                   />
                 </div>
-                <div className="col-xs-6 col-sm-8">This will be added to special deals.</div>
+                <div className="col-xs-6 col-sm-8">This will be added to featured products.</div>
               </div>
             </div>
             <div className="row">
@@ -297,7 +297,7 @@ const ProductForm = (props) => {
                     checked
                   />
                 </div>
-                <div className="col-xs-6 col-sm-8">This will be added to featured products.</div>
+                <div className="col-xs-6 col-sm-8">This will be added to special deals.</div>
               </div>
             </div>
             <div className="row">

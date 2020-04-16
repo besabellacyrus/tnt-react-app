@@ -17,18 +17,17 @@ const Product = (props) => {
   console.log({ params: params.productId })
 
   useEffect(() => {
-
     if (params.productId !== 'undefined') {
       AppGet(`/api/product/${params.productId}`)
-      .then((res) => {
-        if (res.data) {
-          setProductData(res.data)
-          console.log({ getRes: res.data })
-        }
-      })
-      .catch((err) => {
-        console.log({ err })
-      })
+        .then((res) => {
+          if (res.data) {
+            setProductData(res.data)
+            console.log({ getRes: res.data })
+          }
+        })
+        .catch((err) => {
+          console.log({ err })
+        })
     } else {
       console.log(' no data params ')
     }
@@ -40,43 +39,43 @@ const Product = (props) => {
   const getBrands = () => {
     console.log('brannnds')
     AppGet('/api/brand')
-    .then((res) => {
-      console.log({ res })
-      setBrands(res.data)
-    }).catch(err => {
-      console.log({ err })
-    })
+      .then((res) => {
+        console.log({ res })
+        setBrands(res.data)
+      }).catch(err => {
+        console.log({ err })
+      })
   }
 
   const getTypes = () => {
     AppGet('/api/type')
-    .then((res) => {
-      console.log({ res })
+      .then((res) => {
+        console.log({ res })
 
-      setTypes(res.data)
+        setTypes(res.data)
 
-    }).catch(err => {
-      console.log({ err })
-    })
+      }).catch(err => {
+        console.log({ err })
+      })
   }
 
   const getCategory = () => {
     AppGet('/api/category')
-    .then((res) => {
-      console.log({ res })
-      setCategories(res.data)
-    }).catch(err => {
-      console.log({ err })
-    })
+      .then((res) => {
+        console.log({ res })
+        setCategories(res.data)
+      }).catch(err => {
+        console.log({ err })
+      })
   }
 
   let urlPath = window.location.href.split('/')[3];
 
   let FormUi;
   if (urlPath === 'product') {
-    FormUi = <ProductEditForm productData={productData} brands={brands} categories={categories} types={types}/>
+    FormUi = <ProductEditForm productData={productData} brands={brands} categories={categories} types={types} />
   } else {
-    FormUi = <ProductForm productData={productData} brands={brands} categories={categories} types={types}/>
+    FormUi = <ProductForm productData={productData} brands={brands} categories={categories} types={types} />
   }
 
 
@@ -102,7 +101,7 @@ const Product = (props) => {
                 <div className="panel-wrapper collapse in">
                   <div className="panel-body">
                     {/* <ProductForm productData={productData} /> */}
-                    { FormUi }
+                    {FormUi}
                     <hr></hr>
                     <ProductDateOfferSpecial />
                     <hr></hr>

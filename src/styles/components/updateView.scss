@@ -1,0 +1,18 @@
+$darkblue: #2c3e4c;
+$orange: #fc8300;
+$grayBlue: #8496A4;
+$search: #EDF1F5;
+
+.new-prod-nav {
+  li {
+    color: $darkblue;
+  }
+  .react-tabs__tab--selected {
+    background: $orange !important;
+    color: #fff;
+  }
+  .app-btn-not-active {
+    width: auto;
+  }
+
+}
