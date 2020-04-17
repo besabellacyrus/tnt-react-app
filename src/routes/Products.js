@@ -9,7 +9,8 @@ import { AppGet, AppDelete } from '../api';
 const Products = (props) => {
   const history = useHistory();
   const [product, setProduct] = useState([]);
-  let tobedeleted = []
+  const [deleteItems, setDeleteItems] = useState([])
+  // let tobedeleted = []
 
   const config = {
     headings: [
@@ -40,7 +41,8 @@ const Products = (props) => {
   }
 
   const handleDeleteItems = (e) => {
-    tobedeleted = e
+    console.log({ e })
+    setDeleteItems(e)
   }
 
   const handleAddNew = () => {
@@ -48,20 +50,21 @@ const Products = (props) => {
   }
 
   const handleDelete = () => {
-    if (tobedeleted.length > 0) {
-      if (window.confirm(`Delete this items?`)) {
-        AppDelete(`/api/product/`, tobedeleted)
-        .then(res => {
-          console.log({res})
-          if (res.data.status === 'deleted') {
-            fetchProducts();
-          }
-        })
-        .catch(err => {
-          console.log({ err })
-        })
-      }
+    console.log(deleteItems);
 
+    if (deleteItems.length > 0) {
+      if (window.confirm(`Delete this items?`)) {
+        AppDelete(`/api/product/`, deleteItems)
+          .then(res => {
+            console.log({ res })
+            if (res.data.status === 'deleted') {
+              fetchProducts();
+            }
+          })
+          .catch(err => {
+            console.log({ err })
+          })
+      }
     }
   }
 

@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import Helper from "../helper";
 import { useWindowSize } from '../windowSize';
 import $ from 'jquery';
+import { apiUrl } from '../api';
+
 require('datatables.net-responsive');
 
 
@@ -34,10 +36,11 @@ const AppTable = (props) => {
   }, [])
 
   const handleCheckChange = (event) => {
-    console.log({ changecheck: event.target.checked })
-    let checkboxs = document.querySelectorAll('.details-control');
+    let checkboxs = document.querySelectorAll('.kt-checkable');
+    console.log({ changecheck: event.target.checked, checkboxs })
     checkboxs.forEach(e => {
-      deletePusher(e.parentNode.parentNode.getAttribute('data-id'))
+      console.log(e.parentNode.parentNode.parentNode)
+      deletePusher(e.parentNode.parentNode.parentNode.getAttribute('data-id'))
       e.checked = event.target.checked;
     })
     console.log({ deleteItems })
@@ -50,10 +53,10 @@ const AppTable = (props) => {
 
   const handleClickRow = (event) => {
     try {
-      const trId = event.target.parentNode.parentNode.getAttribute('data-id')
+      // const trId = event.target.parentNode.parentNode.getAttribute('data-id')
 
-      deleteItems.indexOf(trId) === -1 ? deleteItems.push(trId) : deleteItems.splice(deleteItems.indexOf(trId), 1);
-      props.delItems(deleteItems);
+      // deleteItems.indexOf(trId) === -1 ? deleteItems.push(trId) : deleteItems.splice(deleteItems.indexOf(trId), 1);
+      // props.delItems(deleteItems);
 
       if (event.target.id !== 'hover-copy' && event.target.className !== 'details-control') {
         const productId = event.target.parentNode.getAttribute('data-id');
@@ -66,19 +69,20 @@ const AppTable = (props) => {
 
   const bigSizeRows = (e) => {
     return (
-      <tr data-id={e.id} key={e.id} onClick={handleClickRow}>
+      <tr data-id={e.id} key={e.id}>
+        <td></td>
         <td>
           <div className="table-image-profile">
-            <img src={e.profile} />
+            <img src={apiUrl + e.profile} />
           </div>
         </td>
-        <td className="pCode">{e.product_code}</td>
-        <td className="pCode">{e.product_title}</td>
-        <td>0.00</td>
-        <td>0.00</td>
-        <td>0.00</td>
-        <td>0.00</td>
-        <td>0.00</td>
+        <td className="pCode" onClick={handleClickRow}>{e.product_code}</td>
+        <td className="pCode" onClick={handleClickRow}>{e.product_title}</td>
+        <td onClick={handleClickRow}>0.00</td>
+        <td onClick={handleClickRow}>0.00</td>
+        <td onClick={handleClickRow}>0.00</td>
+        <td onClick={handleClickRow}>0.00</td>
+        <td onClick={handleClickRow}>0.00</td>
       </tr>
     )
   }
@@ -102,15 +106,59 @@ const AppTable = (props) => {
 
   const initializeDatatable = () => {
     $.fn.dataTable.ext.errMode = 'none';
-    $('#myTable').DataTable({
+    const table = $('#myTable');
+
+    table.DataTable({
       responsive: true,
       lengthMenu: [5, 10, 25, 50],
       pageLength: 10,
       order: [[1, 'desc']],
       searching: false,
       paging: false,
-      info: false
+      info: false,
+      columnDefs: [
+        { responsivePriority: 1, targets: 0 },
+        { responsivePriority: 1, targets: 2 },
+        { responsivePriority: 2, targets: 3 },
+        {
+          targets: 0,
+          width: '',
+          className: 'dt-right details-control',
+          orderable: false,
+          render: function (data, type, full, meta) {
+            return `
+            <label class="kt-checkbox kt-checkbox--single kt-checkbox--solid">
+                <input type="checkbox" value="" class="kt-checkable">
+                <span></span>
+            </label>`;
+          },
+        },
+      ]
     });
+    table.on('change', '.kt-group-checkable', function () {
+      var set = $(this).closest('table').find('td:first-child .kt-checkable');
+      var checked = $(this).is(':checked');
+
+      $(set).each(function () {
+        if (checked) {
+          $(this).prop('checked', true);
+          $(this).closest('tr').addClass('active');
+        }
+        else {
+          $(this).prop('checked', false);
+          $(this).closest('tr').removeClass('active');
+        }
+      });
+    });
+
+    table.on('change', 'tbody tr .kt-checkbox', function (e) {
+      // $(this).parents('tr').toggleClass('active');
+      // console.log({ e: e.target.parentNode.parentNode.parentNode.getAttribute('data-id') })
+      deletePusher(e.target.parentNode.parentNode.parentNode.getAttribute('data-id'))
+      console.log({ deleteItems })
+      props.delItems(deleteItems);
+    });
+
   }
 
   useEffect(() => {
@@ -128,6 +176,7 @@ const AppTable = (props) => {
       <table id="myTable" className="table table-hover display dt-responsive nowrap mt-20" width="100%">
         <thead>
           <tr>
+            <th><input type="checkbox" className="kt-group-checkable" onChange={handleCheckChange} /></th>
             <th>Profile</th>
             <th>Product Code</th>
             <th>Product Name</th>

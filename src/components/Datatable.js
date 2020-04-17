@@ -129,7 +129,7 @@ const Datatable = (props) => {
         .DataTable()
         .destroy(true);
     }
-  }, [])
+  }, []);
 
   return (
     <table className="app-data-table table table-hover display mt-20" width="100%">

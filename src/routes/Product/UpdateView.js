@@ -22,6 +22,7 @@ const UpdateView = (props) => {
           if (res.data) {
             setProductData(res.data.data)
             setThumbnail(res.data.thumbnail)
+            console.log({ data: res.data })
           }
         })
         .catch((err) => {
