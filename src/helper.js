@@ -9,9 +9,9 @@ export default {
 
         e.target.insertAdjacentHTML("beforeend",
           `<i id='hover-copy' data-value="${elValue}" class='fa fa-copy'></i>`);
-          const hover = document.querySelector('#hover-copy');
+        const hover = document.querySelector('#hover-copy');
 
-          if (hover) {
+        if (hover) {
           hover.addEventListener("click", el => {
             const val = el.target.attributes['data-value'].value
 
@@ -45,5 +45,7 @@ export default {
       document.execCommand('copy');
       document.body.removeChild(el);
     }
-  }
+  },
+
+  formatBytes: (a, b = 2) => { if (0 === a) return "0 Bytes"; const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024)); return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d] }
 }

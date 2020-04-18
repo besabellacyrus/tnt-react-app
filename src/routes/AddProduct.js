@@ -5,6 +5,8 @@ import ProductForm from '../components/ProductForm';
 import ProductDateInfo from "../components/product/ProductDateInfo";
 import ProductDateOfferSpecial from "../components/product/ProductDateOfferSpecial";
 import ProductEditForm from "../routes/ProductEditForm";
+import NavigationWithBack from "../components/NavigationWithBack";
+
 import { AppGet } from '../api'
 
 const Product = (props) => {
@@ -101,6 +103,8 @@ const Product = (props) => {
                 <div className="panel-wrapper collapse in">
                   <div className="panel-body">
                     {/* <ProductForm productData={productData} /> */}
+                    <NavigationWithBack title="Products" />
+
                     {FormUi}
                     <hr></hr>
                     <ProductDateOfferSpecial />

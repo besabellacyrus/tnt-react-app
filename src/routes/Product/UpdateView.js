@@ -3,6 +3,9 @@ import ProductEditForm from '../ProductEditForm';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import '../../styles/components/updateView.scss';
 import ProductMedia from '../ProductMedia';
+import NavigationWithBack from '../../components/NavigationWithBack';
+import ProductPrice from '../ProductPrice';
+import ProductSupplier from '../ProductSupplier';
 import { AppGet } from '../../api';
 import Card from '../../components/Card';
 
@@ -35,7 +38,9 @@ const UpdateView = (props) => {
 
   return (
     <React.Fragment>
-      <Tabs className="mt-20">
+
+      <Tabs className="">
+        <div className="row"><NavigationWithBack title="Products" /></div>
         <div className="row">
           <TabList className="product-tab-wrapper new-prod-nav">
             <Tab className="btn app-btn app-btn-not-active">Product Information</Tab>
@@ -54,10 +59,10 @@ const UpdateView = (props) => {
             <ProductMedia productId={params.productId} productData={{ ...productData, thumbnail }} />
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3</h2>
+            <ProductPrice />
           </TabPanel>
           <TabPanel>
-            <h2>Any content 4</h2>
+            <ProductSupplier />
           </TabPanel>
         </div>
         <div className="row">

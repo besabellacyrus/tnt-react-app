@@ -87,7 +87,7 @@ const Datatable = (props) => {
               <span></span>
           </label>`;
         },
-      },
+      }
     ]
   }
 

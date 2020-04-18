@@ -1,5 +1,6 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import ReactDOM from 'react-dom';
+import Helper from '../helper';
 import $ from 'jquery';
 import products from '../test/productInventory.json';
 require('datatables.net-responsive');
@@ -27,6 +28,10 @@ const ProductInventoryTable = (props) => {
 
   let theads = []
   let tdetails = []
+
+  useEffect(() => {
+    Helper.initializeHoverCopy('.pCode');
+  }, [])
 
   const headings = [
     "Profile",
@@ -128,7 +133,7 @@ const ProductInventoryTable = (props) => {
         width: '',
         className: 'details-control',
         orderable: false,
-      }
+      },
     ],
     columns: [
       {
@@ -138,8 +143,8 @@ const ProductInventoryTable = (props) => {
         "defaultContent": ''
       },
       { "data": "profile" },
-      { "data": "product_code" },
-      { "data": "product_title" },
+      { "data": "product_code", "className": 'pCode' },
+      { "data": "product_title", "className": 'pCode' },
       { "data": null },
       { "data": null },
       { "data": null },

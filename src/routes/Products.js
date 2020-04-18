@@ -41,7 +41,6 @@ const Products = (props) => {
   }
 
   const handleDeleteItems = (e) => {
-    console.log({ e })
     setDeleteItems(e)
   }
 
@@ -50,7 +49,7 @@ const Products = (props) => {
   }
 
   const handleDelete = () => {
-    console.log(deleteItems);
+    console.log({ awts: deleteItems });
 
     if (deleteItems.length > 0) {
       if (window.confirm(`Delete this items?`)) {

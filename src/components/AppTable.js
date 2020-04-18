@@ -30,10 +30,11 @@ const AppTable = (props) => {
       'Retail Price',
       'Product Cost'
     ]);
-
-    Helper.initializeHoverCopy('.pCode');
-
   }, [])
+
+  useEffect(() => {
+    Helper.initializeHoverCopy('.pCode');
+  }, [props]);
 
   const handleCheckChange = (event) => {
     let checkboxs = document.querySelectorAll('.kt-checkable');
@@ -53,11 +54,6 @@ const AppTable = (props) => {
 
   const handleClickRow = (event) => {
     try {
-      // const trId = event.target.parentNode.parentNode.getAttribute('data-id')
-
-      // deleteItems.indexOf(trId) === -1 ? deleteItems.push(trId) : deleteItems.splice(deleteItems.indexOf(trId), 1);
-      // props.delItems(deleteItems);
-
       if (event.target.id !== 'hover-copy' && event.target.className !== 'details-control') {
         const productId = event.target.parentNode.getAttribute('data-id');
         history.push(`/product/${productId}`)
@@ -118,6 +114,7 @@ const AppTable = (props) => {
       info: false,
       columnDefs: [
         { responsivePriority: 1, targets: 0 },
+        { responsivePriority: 1, targets: 1 },
         { responsivePriority: 1, targets: 2 },
         { responsivePriority: 2, targets: 3 },
         {
@@ -151,13 +148,19 @@ const AppTable = (props) => {
       });
     });
 
-    table.on('change', 'tbody tr .kt-checkbox', function (e) {
-      // $(this).parents('tr').toggleClass('active');
-      // console.log({ e: e.target.parentNode.parentNode.parentNode.getAttribute('data-id') })
+    // table.on('change', 'tbody tr .kt-checkbox', function (e) {
+    // $(this).parents('tr').toggleClass('active');
+    // deletePusher(e.target.parentNode.parentNode.parentNode.getAttribute('data-id'))
+    // props.delItems(deleteItems);
+    // console.log({ k: deleteItems })
+    // });
+
+    $('.kt-checkable').on('change', function (e) {
+      e.stopImmediatePropagation();
       deletePusher(e.target.parentNode.parentNode.parentNode.getAttribute('data-id'))
-      console.log({ deleteItems })
       props.delItems(deleteItems);
-    });
+      console.log($(this).is(':checked'))
+    })
 
   }
 
