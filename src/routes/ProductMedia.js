@@ -7,6 +7,7 @@ import { AppPostFile, apiUrl } from '../api';
 import Helper from '../helper';
 import ImageUploadModal from '../components/product/ImageUploadModal';
 import $ from 'jquery';
+import SelectType from '../components/SelectType';
 import '../styles/components/productMedia.scss'
 
 window.jQuery = $;
@@ -147,17 +148,7 @@ const ProductMedia = (props) => {
                 <img src={img.target.result} />
               </div>
               <div className="image-footer">
-                <div className="modal-select-wrapper">
-                  <select value={imageNameParse(e.name)} className="image-type-select" onChange={handleOnChangeItem}>
-                    <option value="none">None</option>
-                    <option value="thumbnail">Set as Thumbnail</option>
-                    <option value="banner">Set as Banner</option>
-                    <option value="display">Set Display</option>
-                    <option value="3" disabled>Crop Thumbnail</option>
-                    <option value="4" disabled>Free Crop</option>
-                  </select>
-                  <i className="fa fa-ellipsis-v pull-right mr-5"></i>
-                </div>
+                <SelectType selected={imageNameParse(e.name)} />
               </div>
             </div>
           </div>
@@ -165,11 +156,11 @@ const ProductMedia = (props) => {
       })
     })
 
+    // gather the images and will
+    // show the modal after 1sec
     Promise.all(base64Images).then((e) => {
       setImages(base64Images);
       setProccessedImages(processedImages);
-
-      console.log({ imageNewDetail })
     }).then(() => {
       setTimeout(() => {
         setShowModal(true);

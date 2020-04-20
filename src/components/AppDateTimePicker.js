@@ -1,15 +1,32 @@
-import React, { useEffect, useState, useLayoutEffect } from 'react'
-import Script from 'react-load-script';
-window.$ = window.jQuery = require('jquery')
+import React, { useEffect, useState, useLayoutEffect } from 'react';
+import $ from 'jquery';
+import moment from 'moment';
+window.jQuery = $;
+window.$ = $;
+
+require('../vendors/bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
 
 const AppDateTimePicker = (props) => {
+
+  const handleChange = (e) => {
+    console.log({ e })
+  }
+
   useEffect(() => {
-    const datepicker = document.querySelectorAll('.date-time-picker-app');
-    console.log({ datepicker })
-    return () => {
-      // cleanup
-    }
+    $('.date-time-picker-app').datetimepicker({
+      useCurrent: false,
+      icons: {
+        time: "fa fa-clock-o",
+        date: "fa fa-calendar",
+        up: "fa fa-arrow-up",
+        down: "fa fa-arrow-down"
+      },
+    }).on('dp.show', function () {
+      if ($(this).data("DateTimePicker").date() === null)
+        $(this).data("DateTimePicker").date(moment());
+    });
   })
+
   return (
     <React.Fragment>
       <div className='input-group date-time-picker-app date'>
@@ -18,18 +35,6 @@ const AppDateTimePicker = (props) => {
           <span className="fa fa-calendar"></span>
         </span>
       </div>
-      <Script
-        url="/bower/jquery/dist/jquery.min.js"
-      />
-      <Script
-        url="/bower/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"
-      />
-      <Script
-        url="/bower/bootstrap-daterangepicker/daterangepicker.js"
-      />
-      <Script
-        url="/bower/datepicker-init.js"
-      />
     </React.Fragment>
   )
 }
