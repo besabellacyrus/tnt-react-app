@@ -4,6 +4,7 @@ import SelectType from '../components/SelectType';
 import { useDropzone } from 'react-dropzone'
 import { AppPostFile, apiUrl, AppGet } from '../api';
 import Helper from '../helper';
+import moment from 'moment';
 
 const MediaModalContent = (props) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -23,7 +24,7 @@ const MediaModalContent = (props) => {
       const imageUrl = apiUrl + `/storage/${e.id}/${e.file_name}`;
       uiImages.push(
         <div className="file-item" key={index} onClick={handleImageSelect}>
-          <img src={imageUrl} data-file-size={e.size} />
+          <img src={imageUrl} data-file-size={e.size} data-created-at={e.created_at} />
           <SelectType handleSelect={handleTypeChange} />
         </div>
       )
@@ -47,7 +48,8 @@ const MediaModalContent = (props) => {
       width: selected.children[0].naturalWidth,
       height: selected.children[0].naturalHeight,
       image_size: `${selected.children[0].naturalWidth} x ${selected.children[0].naturalHeight}`,
-      file_size: Helper.formatBytes(selected.children[0].getAttribute('data-file-size'))
+      file_size: Helper.formatBytes(selected.children[0].getAttribute('data-file-size')),
+      created_at: moment(selected.children[0].getAttribute('data-created-at')).format('LLL')
     })
   }
 
@@ -153,11 +155,12 @@ const MediaModalContent = (props) => {
                       {uiImages}
                     </div>
                   </div>
-                  <div className="col-sm-3">
+                  <div className="col-sm-3 right-pane">
+                    <p>Date Uploaded: {imageDetails.created_at}</p>
                     <p>File size: {imageDetails.file_size}</p>
                     <p>Image size: {imageDetails.image_size}</p>
                     <hr></hr>
-                    <button onClick={handleSubmit}>Submit</button>
+                    {/* <button onClick={handleSubmit}>Submit</button> */}
                   </div>
                 </div>
               </div>

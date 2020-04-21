@@ -26,13 +26,13 @@ const Products = (props) => {
   }
   useEffect(() => {
     fetchProducts();
-  }, [])
+  }, []);
 
   const fetchProducts = () => {
     AppGet('/api/product').then((res) => {
       console.log(res)
       if (res.data) {
-        setProduct(res.data)
+        setProduct(res.data);
       }
     }).catch((e) => {
       console.log(e)

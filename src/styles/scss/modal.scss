@@ -113,6 +113,9 @@ select.image-type-select {
 }
 .right-pane {
   padding: 1rem;
+  & > p {
+    font-size: 0.8rem;
+  }
   .image-wrapper {
     height: 5rem;
     img {
