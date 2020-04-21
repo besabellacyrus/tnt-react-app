@@ -10,7 +10,6 @@ const Products = (props) => {
   const history = useHistory();
   const [product, setProduct] = useState([]);
   const [deleteItems, setDeleteItems] = useState([])
-  // let tobedeleted = []
 
   const config = {
     headings: [
@@ -49,7 +48,6 @@ const Products = (props) => {
   }
 
   const handleDelete = () => {
-    console.log({ awts: deleteItems });
 
     if (deleteItems.length > 0) {
       if (window.confirm(`Delete this items?`)) {

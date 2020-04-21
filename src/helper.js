@@ -1,3 +1,5 @@
+import { apiUrl } from './api';
+
 export default {
   initializeHoverCopy: (className) => {
     const elements = document.querySelectorAll(className);
@@ -45,6 +47,28 @@ export default {
       document.execCommand('copy');
       document.body.removeChild(el);
     }
+  },
+
+  appImage: (e) => {
+    return apiUrl + `/storage/${e.id}/${e.file_name}`;
+  },
+
+  imageNameParse: (img) => {
+    const removedExt = img.replace(/\.[^/.]+$/, "");
+    const splitt = removedExt.split('_');
+    if (splitt.includes('d')) {
+      return 'display';
+    }
+    if (splitt.includes('thumbnail')) {
+      return 'thumbnail';
+    }
+    if (splitt.includes('1920')) {
+      return 'banner';
+    }
+    if (splitt.includes('display')) {
+      return 'display';
+    }
+    return 'none';
   },
 
   formatBytes: (a, b = 2) => { if (0 === a) return "0 Bytes"; const c = 0 > b ? 0 : b, d = Math.floor(Math.log(a) / Math.log(1024)); return parseFloat((a / Math.pow(1024, d)).toFixed(c)) + " " + ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d] }

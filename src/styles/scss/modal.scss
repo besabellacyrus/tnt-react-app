@@ -20,8 +20,8 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 99;
-  height: 500px;
-  width: 1000px;
+  height: 600px;
+  width: 1138px;
   background: #fff;
   -webkit-overflow-scrolling: touch;
   z-index: 9999999999999999999;
@@ -41,7 +41,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 0.5rem;
-      height: 464px;
+      height: 26rem;
+
       overflow: auto;
       .content-item {
         // height: 10rem;
@@ -54,6 +55,7 @@
           align-items: center;
           justify-content: center;
           height: 90%;
+          overflow: hidden;
         }
         img {
           width: 100%;
@@ -112,9 +114,78 @@ select.image-type-select {
 .right-pane {
   padding: 1rem;
   .image-wrapper {
-    height: 6rem;
+    height: 5rem;
     img {
       height: 100%;
+    }
+  }
+}
+
+.media-modal-wrapper {
+  padding: 0.5rem;
+  ul {
+    li {
+      display: inline;
+    }
+  }
+}
+
+.app-modal-container {
+  .app-modal-header {
+    background-color: #575757;
+    color: #fff;
+    padding: 0.5rem;
+  }
+}
+
+.media-modal-content {
+  .react-tabs__tab--selected {
+    border-bottom: 2px solid #fc8300;
+  }
+  .media-dropzone {
+    position: relative;
+    margin: 0 auto;
+    width: 22rem;
+    margin-top: 6rem;
+  }
+  .react-tabs {
+    margin-top: 1rem;
+  }
+  ul {
+    height: 3rem;
+    li {
+      display: inline;
+      padding: 1rem;
+    }
+  }
+
+  .uploaded-files-container {
+    .files-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 0.2rem;
+      height: 29rem;
+      overflow: auto;
+      .file-item {
+        position: relative;
+        height: 15rem;
+        border: 4px solid #e3e3e3;
+        overflow: hidden;
+        padding: 0.5rem 1.5rem 0.5rem;
+        .modal-select-wrapper {
+          position: absolute;
+          bottom: 0;
+        }
+        select.image-type-select {
+          width: 9.24rem;
+        }
+        img {
+          width: 100%;
+          transform: translateY(-50%);
+          top: 50%;
+          position: relative;
+        }
+      }
     }
   }
 }

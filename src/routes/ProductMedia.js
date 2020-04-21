@@ -3,12 +3,13 @@ import Card from '../components/Card';
 import SlideShow from '../components/SlideShow';
 import Switch from 'react-switchery';
 import { useDropzone } from 'react-dropzone'
-import { AppPostFile, apiUrl } from '../api';
+import { AppPostFile, apiUrl, AppGet } from '../api';
 import Helper from '../helper';
 import ImageUploadModal from '../components/product/ImageUploadModal';
 import $ from 'jquery';
 import SelectType from '../components/SelectType';
 import '../styles/components/productMedia.scss'
+import MediaModalContent from '../components/MediaModalContent';
 
 window.jQuery = $;
 window.$ = $;
@@ -26,6 +27,7 @@ const ProductMedia = (props) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [imageDetails, setImageDetails] = useState({});
   const [processedImages, setProccessedImages] = useState([]);
+  const [productImages, setProductImages] = useState([]);
 
   const clickEvent = new MouseEvent("click", {
     "view": window,
@@ -42,8 +44,30 @@ const ProductMedia = (props) => {
     console.log({ thumbbb: props.productData })
 
     window.jQuery('.dropify').dropify();
+
+    // getdata
+    getMedia();
+
+
   }, []);
 
+
+  const getMedia = () => {
+    AppGet('/api/media/' + props.productId)
+      .then(res => {
+        console.log({ res });
+        if (res.data.product) {
+          if (res.data.product.media) {
+            const product_images = res.data.product.media.filter(e => e.collection_name === 'product-images');
+            console.log({ product_images })
+            setProductImages(product_images);
+          }
+        }
+      }).catch(err => {
+        console.log({ err })
+      })
+
+  }
 
   // AppPostFile('/api/thumbnail', formData)
   //     .then(res => {
@@ -69,6 +93,7 @@ const ProductMedia = (props) => {
 
   const handleModalClose = () => {
     setShowModal(false)
+    setImageDetails({});
   }
 
   const handleOnChangeItem = (event) => {
@@ -90,7 +115,6 @@ const ProductMedia = (props) => {
 
   const initializeModalItems = () => {
     const items = document.querySelectorAll('.content-item');
-    console.log({ theItems: items, selectedFiles })
     items.forEach((e, i) => {
       e.addEventListener('click', (e) => {
         const w = e.currentTarget.children[0].childNodes[0].childNodes[0].naturalWidth;
@@ -105,11 +129,10 @@ const ProductMedia = (props) => {
         }
         setImageDetails(imageDetails)
         removeActiveClass();
-        // e.currentTarget.className += " active";
         e.currentTarget.classList.add('active');
-
       })
     })
+
   }
 
   const removeActiveClass = () => {
@@ -137,7 +160,7 @@ const ProductMedia = (props) => {
     [...files].forEach((e, i) => {
       console.log({ e });
       imageNewDetail.push({
-        selected_type: imageNameParse(e.name)
+        selected_type: Helper.imageNameParse(e.name)
       })
       getFile(e).then(img => {
         processedImages.push(img.target.result);
@@ -148,7 +171,7 @@ const ProductMedia = (props) => {
                 <img src={img.target.result} />
               </div>
               <div className="image-footer">
-                <SelectType selected={imageNameParse(e.name)} />
+                <SelectType selected={Helper.imageNameParse(e.name)} />
               </div>
             </div>
           </div>
@@ -172,50 +195,23 @@ const ProductMedia = (props) => {
     initializeModalItems();
   }, [showModal])
 
-  const imageNameParse = (img) => {
-    const removedExt = img.replace(/\.[^/.]+$/, "");
-    const splitt = removedExt.split('_');
-    if (splitt.includes('d')) {
-      return 'display';
-    }
-    if (splitt.includes('thumbnail')) {
-      return 'thumbnail';
-    }
-    if (splitt.includes('1920')) {
-      return 'banner';
-    }
-    if (splitt.includes('display')) {
-      return 'display';
-    }
-    return 'none';
+  const ImageDisplayDetails = () => {
+    return (
+      <React.Fragment>
+        <div className="image-wrapper">
+          <img src={imageDetails.base64_image} />
+        </div>
+        <p>Date Upload: {imageDetails.upload_date}</p>
+        <p>File Size: {imageDetails.file_size}</p>
+        <p>Image Size: {imageDetails.image_size}</p>
+      </React.Fragment>
+    )
   }
 
   return (
     <React.Fragment>
-      <ImageUploadModal show={showModal}>
-        <div className="app-modal-wrapper">
-          <div className="app-modal-header">
-            <span>Upload Images</span>
-            <span className="pull-right" onClick={handleModalClose}><i className="fa fa-close"></i></span>
-          </div>
-          <div className="row">
-            <div className="col-sm-9">
-              <div className="image-lists">
-                <div className="content">
-                  {images}
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-3 right-pane">
-              <div className="image-wrapper">
-                <img src={imageDetails.base64_image} />
-              </div>
-              <p>Date Upload: {imageDetails.upload_date}</p>
-              <p>File Size: {imageDetails.file_size}</p>
-              <p>Image Size: {imageDetails.image_size}</p>
-            </div>
-          </div>
-        </div>
+      <ImageUploadModal show={showModal} close={handleModalClose}>
+        <MediaModalContent productId={props.productId} />
       </ImageUploadModal>
       <Card subTitle="Product Media">
         <div className="row">
@@ -232,7 +228,8 @@ const ProductMedia = (props) => {
               <div className="product-images">
                 <label className="col-sm-3 text-right">Product Images</label>
                 <div className="col-sm-9">
-                  <input type="file" onChange={handleFileChange} ref={multiImages} class="dropify" data-max-file-size="3M" multiple />
+                  <SlideShow productImages={productImages} />
+                  {/* <input type="file" onChange={handleFileChange} ref={multiImages} class="dropify" data-max-file-size="3M" multiple /> */}
                   <button onClick={handleMultipleUpload} className="btn app-btn btn-primary btn-icon left-icon mt-10 free-width">
                     <i className="fa fa-paperclip"></i> <span>Multiple Upload</span>
                   </button>

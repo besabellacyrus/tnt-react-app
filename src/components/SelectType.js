@@ -4,6 +4,8 @@ const SelectType = (props) => {
   const [selected, setSeleced] = useState('none');
 
   const handleChange = (e) => {
+    console.log({ e })
+    props.handleSelect({ type: e.target.value, index: props.typeIndex });
     setSeleced(e.target.value);
   }
 

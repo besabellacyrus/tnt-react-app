@@ -3,7 +3,6 @@ import $ from 'jquery';
 import moment from 'moment';
 window.jQuery = $;
 window.$ = $;
-
 require('../vendors/bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js')
 
 const AppDateTimePicker = (props) => {

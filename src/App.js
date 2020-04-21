@@ -15,6 +15,7 @@ import AuthenticatedRoute from "./AuthenticatedRoute";
 import AddProductMedia from './routes/AddProductMedia';
 import $ from 'jquery';
 import UpdateView from './routes/Product/UpdateView';
+import { ProductsProvider } from './context/ProductsContext';
 
 // const Products = lazy(() => import('./routes/Product'));
 
@@ -65,17 +66,21 @@ const App = (props) => {
             )
           } />
           <AuthenticatedRoute path="/sample" component={SamplePage} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/dashboard" component={Dashboard} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/products" component={Products} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/add-product" component={AddProduct} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/add-product-media" component={AddProductMedia} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/featured-products" component={FeaturedProducts} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/special-deals" component={SpecialDeals} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/product-inventory" component={ProductInventory} appProps={{ isAuthenticated }} />
-          {/* <AuthenticatedRoute path="/product/:productId" component={AddProduct} appProps={{ isAuthenticated }} /> */}
-          <AuthenticatedRoute path="/product/:productId" component={UpdateView} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/schedule/:schedId" component={AddSchedule} appProps={{ isAuthenticated }} />
-          <AuthenticatedRoute path="/special-deal/:dealId" component={AddSpecialDeals} appProps={{ isAuthenticated }} />
+
+          <ProductsProvider>
+            <AuthenticatedRoute path="/dashboard" component={Dashboard} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/products" component={Products} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/add-product" component={AddProduct} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/add-product-media" component={AddProductMedia} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/featured-products" component={FeaturedProducts} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/special-deals" component={SpecialDeals} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/product-inventory" component={ProductInventory} appProps={{ isAuthenticated }} />
+            {/* <AuthenticatedRoute path="/product/:productId" component={AddProduct} appProps={{ isAuthenticated }} /> */}
+            <AuthenticatedRoute path="/product/:productId" component={UpdateView} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/schedule/:schedId" component={AddSchedule} appProps={{ isAuthenticated }} />
+            <AuthenticatedRoute path="/special-deal/:dealId" component={AddSpecialDeals} appProps={{ isAuthenticated }} />
+          </ProductsProvider>
+
         </Switch>
       </div>
     </Router>
