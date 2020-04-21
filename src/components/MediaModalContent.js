@@ -67,6 +67,7 @@ const MediaModalContent = (props) => {
       .then(res => {
         console.log({ res });
         if (res.data.uploaded) {
+          setSelectedTab(1)
           getProductMedia();
         }
       }).catch(err => {
@@ -87,7 +88,6 @@ const MediaModalContent = (props) => {
         console.log({ res });
         if (res.data.product) {
           setImageFiles(res.data.product.media);
-          setSelectedTab(1)
         }
       }).catch(err => {
         console.log({ err })
@@ -134,6 +134,7 @@ const MediaModalContent = (props) => {
               <Tab>Media Library</Tab>
             </TabList>
             <TabPanel>
+
               <div className="media-dropzone">
                 <div {...getRootProps()}>
                   <input {...getInputProps()} />
@@ -146,6 +147,9 @@ const MediaModalContent = (props) => {
               </div>
             </TabPanel>
             <TabPanel>
+              <div className="delete-btn-right">
+                <span>Delete</span>
+              </div>
               <div className="uploaded-files-container">
                 <div className="row">
                   <div className="col-sm-9">
@@ -159,6 +163,9 @@ const MediaModalContent = (props) => {
                     <p>Image size: {imageDetails.image_size}</p>
                     <hr></hr>
                     {/* <span>Delete permanently</span> */}
+                    <div className="delete-btn-lower">
+                      <span>delete permanently</span>
+                    </div>
                   </div>
                 </div>
               </div>

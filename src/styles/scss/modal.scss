@@ -146,10 +146,20 @@ select.image-type-select {
     border-bottom: 2px solid #fc8300;
   }
   .media-dropzone {
+    // position: relative;
+    // margin: 0 auto;
+    // width: 22rem;
+    // margin-top: 6rem;
     position: relative;
     margin: 0 auto;
-    width: 22rem;
-    margin-top: 6rem;
+    width: 36rem;
+    margin-top: 2rem;
+    text-align: center;
+    & > div {
+      height: 20rem;
+      background-color: gold;
+      padding-top: 5rem;
+    }
   }
   .react-tabs {
     margin-top: 1rem;
@@ -196,5 +206,25 @@ select.image-type-select {
         }
       }
     }
+  }
+}
+
+.delete-btn-right {
+  position: absolute;
+  right: 2rem;
+  top: 6%;
+  color: red;
+  cursor: pointer;
+}
+.delete-btn-lower {
+  span {
+    color: red;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+}
+.right-pane {
+  hr {
+    margin-bottom: 0 !important;
   }
 }
