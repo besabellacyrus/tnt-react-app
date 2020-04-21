@@ -124,8 +124,6 @@ const MediaModalContent = (props) => {
     // console.log({ submit: tobeUploaded })
   }
 
-
-
   return (
     <div className="row">
       <div className="media-modal-content">
@@ -160,7 +158,7 @@ const MediaModalContent = (props) => {
                     <p>File size: {imageDetails.file_size}</p>
                     <p>Image size: {imageDetails.image_size}</p>
                     <hr></hr>
-                    {/* <button onClick={handleSubmit}>Submit</button> */}
+                    {/* <span>Delete permanently</span> */}
                   </div>
                 </div>
               </div>

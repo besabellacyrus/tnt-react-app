@@ -43,6 +43,7 @@ const ProductMedia = (props) => {
   const [banners, setBanners] = useState([]);
   const [displays, setDisplays] = useState([]);
   const [uiThumb, setUiThumb] = useState("");
+  const [media, setMedia] = useState([]);
 
   const getMedia = () => {
     AppGet('/api/media/' + props.productId)
@@ -55,18 +56,18 @@ const ProductMedia = (props) => {
             const product_banners = res.data.product.media.filter(e => e.collection_name === 'product-banners');
             const product_displays = res.data.product.media.filter(e => e.collection_name === 'product-displays');
             const product_thumbnails = res.data.product.media.filter(e => e.collection_name === 'product-thumbnails');
+            setMedia(res.data.product.media);
+            // setProductImages(product_images);
 
-            setProductImages(product_images);
+            // setBanners(product_banners);
+            // setDisplays(product_displays);
+            // setThumbnails(product_thumbnails);
 
-            setBanners(product_banners);
-            setDisplays(product_displays);
-            setThumbnails(product_thumbnails);
+            // if (thumbnails.length > 0) {
+            //   setUiThumb(Helper.appImage(thumbnails[0]));
+            // }
 
-            if (thumbnails.length > 0) {
-              setUiThumb(Helper.appImage(thumbnails[0]));
-            }
-
-            console.log({ product_images })
+            console.log({ fromProd: product_images })
           }
         }
       }).catch(err => {
@@ -203,6 +204,11 @@ const ProductMedia = (props) => {
       </React.Fragment>
     )
   }
+
+  useEffect(() => {
+    const productImages = media.filter(e => e.collection_name === 'product-images');
+    setProductImages(productImages);
+  }, [media])
 
   return (
     <React.Fragment>
