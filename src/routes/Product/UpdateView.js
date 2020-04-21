@@ -19,21 +19,18 @@ const UpdateView = (props) => {
   const [thumbnail, setThumbnail] = useState("");
 
   useEffect(() => {
-    if (params.productId !== 'undefined') {
-      AppGet(`/api/product/${params.productId}`)
-        .then((res) => {
-          if (res.data) {
-            setProductData(res.data.data)
-            setThumbnail(res.data.thumbnail)
-            console.log({ data: res.data })
-          }
-        })
-        .catch((err) => {
-          console.log({ err })
-        })
-    } else {
-      console.log(' no data params ')
-    }
+    AppGet(`/api/product/${params.productId}`)
+      .then((res) => {
+        if (res.data) {
+          console.log({ ppppp: res.data.data });
+          setProductData(res.data.data);
+          setThumbnail(res.data.thumbnail)
+          console.log({ data: res.data })
+        }
+      })
+      .catch((err) => {
+        console.log({ err })
+      })
   }, []);
 
   return (

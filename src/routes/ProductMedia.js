@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import Card from '../components/Card';
 import SlideShow from '../components/SlideShow';
 import Switch from 'react-switchery';
-import { useDropzone } from 'react-dropzone'
+// import { useDropzone } from 'react-dropzone'
 import { AppPostFile, apiUrl, AppGet } from '../api';
 import Helper from '../helper';
 import ImageUploadModal from '../components/product/ImageUploadModal';
@@ -36,21 +36,13 @@ const ProductMedia = (props) => {
   });
 
   useEffect(() => {
-    if (props.productData.thumbnail) {
-      setThumbnailImage(apiUrl + props.productData.thumbnail);
-    } else {
-      setThumbnailImage(false);
-    }
-    console.log({ thumbbb: props.productData })
-
-    window.jQuery('.dropify').dropify();
-
-    // getdata
     getMedia();
-
-
   }, []);
 
+  const [thumbnails, setThumbnails] = useState([]);
+  const [banners, setBanners] = useState([]);
+  const [displays, setDisplays] = useState([]);
+  const [uiThumb, setUiThumb] = useState("");
 
   const getMedia = () => {
     AppGet('/api/media/' + props.productId)
@@ -58,9 +50,23 @@ const ProductMedia = (props) => {
         console.log({ res });
         if (res.data.product) {
           if (res.data.product.media) {
+            console.info('getting media from ', props.productId)
             const product_images = res.data.product.media.filter(e => e.collection_name === 'product-images');
-            console.log({ product_images })
+            const product_banners = res.data.product.media.filter(e => e.collection_name === 'product-banners');
+            const product_displays = res.data.product.media.filter(e => e.collection_name === 'product-displays');
+            const product_thumbnails = res.data.product.media.filter(e => e.collection_name === 'product-thumbnails');
+
             setProductImages(product_images);
+
+            setBanners(product_banners);
+            setDisplays(product_displays);
+            setThumbnails(product_thumbnails);
+
+            if (thumbnails.length > 0) {
+              setUiThumb(Helper.appImage(thumbnails[0]));
+            }
+
+            console.log({ product_images })
           }
         }
       }).catch(err => {
@@ -68,16 +74,6 @@ const ProductMedia = (props) => {
       })
 
   }
-
-  // AppPostFile('/api/thumbnail', formData)
-  //     .then(res => {
-  //       console.log({ res });
-  //       setThumbnailImage(theimage);
-
-  //     }).catch(err => {
-  //       console.log({ err })
-  //     })
-
 
   const handleThumbnailChange = () => {
     const thumbnailbtn = document.querySelector("#thumbnail-input");
@@ -242,7 +238,8 @@ const ProductMedia = (props) => {
                 <label className="col-sm-3 text-right">Profile</label>
                 <div className="col-sm-9">
                   <div className="thumbnail-wrapper">
-                    <input type="file" id="input-file-now" class="dropify" />
+                    <img src={uiThumb} />
+                    {/* <input type="file" id="input-file-now" class="dropify" /> */}
                   </div>
                 </div>
               </div>

@@ -627,6 +627,14 @@ table {
     }
   }
 
+
+  .owl-carousel.owl-drag .owl-item {
+    height: 5rem;
+    img {
+      height: 100%;
+    }
+  }
+
   // Owl
   .owl-nav {
     span {

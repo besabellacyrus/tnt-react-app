@@ -9,9 +9,7 @@ const ProductEditForm = (props) => {
   const history = useHistory();
   const [saving, setSaving] = useState(false);
 
-  const [title, setTitle] = useState({})
-
-  const { register, handleSubmit, reset } = useForm(
+  const { register, handleSubmit, reset, setValue } = useForm(
     {
       defaultValues: {
         product_code: "",
@@ -33,7 +31,8 @@ const ProductEditForm = (props) => {
   );
 
   useEffect(() => {
-    console.log({ prd: props.productData })
+    console.log({ asdasdasd: props.productData })
+    // setValue('product_code', props.productData.product_code);
     reset({
       product_code: props.productData.product_code,
       product_title: props.productData.product_title,
