@@ -1,0 +1,29 @@
+.app-accordion-container {
+  position: relative;
+  margin-bottom: 2rem;
+  .accordion-card {
+    background: #fff;
+  }
+  .accordion-header {
+    padding: 1rem;
+    .accordion-chevron {
+      float: right;
+    }
+  }
+  .app-accordion-content {
+    padding: 1rem;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.pp-label {
+  text-align: right;
+  line-height: 3;
+  &.plus-sign {
+    text-align: left;
+    cursor: pointer;
+  }
+}

@@ -8,6 +8,9 @@ import ProductPrice from '../ProductPrice';
 import ProductSupplier from '../ProductSupplier';
 import { AppGet } from '../../api';
 import Card from '../../components/Card';
+import ProductDateInfo from "../../components/product/ProductDateInfo";
+import ProductDateOfferSpecial from "../../components/product/ProductDateOfferSpecial";
+
 
 const UpdateView = (props) => {
   const { match: { params } } = props;
@@ -50,6 +53,10 @@ const UpdateView = (props) => {
           <TabPanel>
             <Card>
               <ProductEditForm productData={productData} brands={brands} categories={categories} types={types} />
+              <hr></hr>
+              <ProductDateOfferSpecial />
+              <hr></hr>
+              <ProductDateInfo />
             </Card>
           </TabPanel>
           <TabPanel>
