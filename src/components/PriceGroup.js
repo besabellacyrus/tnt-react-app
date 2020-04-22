@@ -2,19 +2,35 @@ import React from 'react'
 
 const PriceGroup = (props) => {
 
+  const toLetters = (num) => {
+    switch (num) {
+      case 1:
+        return 'B';
+        break;
+      case 2:
+        return 'C';
+        break;
+      default:
+        return 'A';
+        break;
+    }
+  }
+
   return (
     <React.Fragment>
       <div className="row mb-10">
         <div className="col-sm-12">
           <div className="form-group">
             <div className="col-sm-2 pp-label">
-              <label>Price A</label>
+              <label>Price {toLetters(props.index)} </label>
             </div>
             <div className="col-sm-9">
               <input type="text" className="form-control" />
             </div>
-            <div className="col-sm-1 pp-label plus-sign" onClick={props.addPriceGroup}>
-              <i className="fa fa-plus"></i>
+            <div className="col-sm-1 pp-label plus-sign">
+              <i className="fa fa-plus" onClick={props.addPriceGroup}></i>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              {props.index >= 1 ? <i className="fa fa-close" onClick={props.removePriceGroup}></i> : ""}
             </div>
           </div>
         </div>
@@ -29,7 +45,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="0" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="0" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">SGD</button>
                     </div>
@@ -46,7 +62,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">SGD</button>
                     </div>
@@ -65,7 +81,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="0" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="0" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">SGD</button>
                     </div>
@@ -82,7 +98,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">RMB</button>
                     </div>
@@ -101,7 +117,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="0" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="0" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">SGD</button>
                     </div>
@@ -119,7 +135,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">USD</button>
                     </div>
@@ -138,7 +154,7 @@ const PriceGroup = (props) => {
                 </div>
                 <div className="col-sm-8">
                   <div class="input-group mb-15">
-                    <input type="text" id="example-input1-group3" name="example-input1-group3" class="form-control" placeholder="0" />
+                    <input type="text" name="example-input1-group3" class="form-control" placeholder="0" />
                     <div class="input-group-btn">
                       <button type="button" class="btn app-btn btn-primary dropdown-toggle" data-toggle="dropdown">SGD</button>
                     </div>

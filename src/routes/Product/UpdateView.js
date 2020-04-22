@@ -21,6 +21,18 @@ const UpdateView = (props) => {
   const [categories, setCategories] = useState([]);
   const [thumbnail, setThumbnail] = useState("");
 
+  const getTypes = () => {
+    AppGet('/api/type')
+      .then((res) => {
+        console.log({ res })
+
+        setTypes(res.data)
+
+      }).catch(err => {
+        console.log({ err })
+      })
+  }
+
   useEffect(() => {
     AppGet(`/api/product/${params.productId}`)
       .then((res) => {
@@ -34,6 +46,9 @@ const UpdateView = (props) => {
       .catch((err) => {
         console.log({ err })
       })
+
+    getTypes();
+
   }, []);
 
   return (

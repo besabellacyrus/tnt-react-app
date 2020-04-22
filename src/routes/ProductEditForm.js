@@ -36,9 +36,10 @@ const ProductEditForm = (props) => {
     reset({
       product_code: props.productData.product_code,
       product_title: props.productData.product_title,
+      brand_cat_id: props.productData.category_id,
       product_name: props.productData.product_name,
-      type_id: props.productData.product_type,
-      brand_id: props.productData.product_brand,
+      type_id: props.productData.type_id,
+      brand_id: props.productData.brand_id,
       category_id: props.productData.product_category,
       weight: props.productData.weight,
       qty: props.productData.qty,
@@ -121,7 +122,7 @@ const ProductEditForm = (props) => {
               <div className="form-group">
                 <label className="control-label col-md-3"><i className="fa fa-plus"></i>&nbsp;Brand</label>
                 <div className="col-md-9">
-                  <select className="form-control" name="brand" {...isDisabled}>
+                  <select className="form-control" name="brand_id" {...isDisabled}>
                     <option selected>Choose Brand</option>
                     <option>Marvel</option>
                     <option>DC Comics</option>
