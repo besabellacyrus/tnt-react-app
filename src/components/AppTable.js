@@ -7,19 +7,16 @@ import { apiUrl } from '../api';
 
 require('datatables.net-responsive');
 
-
-
 const AppTable = (props) => {
   const history = useHistory();
   const [headers, setHeaders] = useState([]);
-  const [width, height] = useWindowSize()
+  const [width, height] = useWindowSize();
 
   const uiHeaders = [];
   const uiRows = [];
   let deleteItems = [];
 
   useEffect(() => {
-    console.log({ props })
     setHeaders([
       'Profile',
       'Product Code',
@@ -64,12 +61,15 @@ const AppTable = (props) => {
   }
 
   const bigSizeRows = (e) => {
+    // const medias = e.media;
+    // const thumbnail = medias.find(e => e.collection_name === 'product-thumbnail');
+    console.log({ e })
     return (
       <tr data-id={e.id} key={e.id}>
         <td></td>
         <td>
           <div className="table-image-profile">
-            <img src={apiUrl + e.profile} />
+            <img src={Helper.appImage(e.thumbnail)} />
           </div>
         </td>
         <td className="pCode" onClick={handleClickRow}>{e.product_code}</td>
@@ -84,11 +84,19 @@ const AppTable = (props) => {
   }
 
   try {
-    if (props.data.data) {
-      props.data.data.forEach(e => {
-        uiRows.push(bigSizeRows(e))
-      })
-    }
+    // props.data.forEach(e => {
+    //   uiRows.push(bigSizeRows(e))
+    // })
+    const mappedData = props.data.map(e => {
+      let i = JSON.parse(JSON.stringify(e))
+      i.thumbnail = i.media.filter(e => e.collection_name === 'product-thumbnail')[0] || "";
+      return i;
+    })
+
+    mappedData.forEach(e => {
+      uiRows.push(bigSizeRows(e))
+    })
+
   } catch (error) {
     console.log({ error })
   }
