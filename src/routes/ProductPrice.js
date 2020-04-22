@@ -4,11 +4,11 @@ import Card from '../components/Card';
 const ProductPrice = () => {
   return (
     <React.Fragment>
-      <div className="panel-group accordion-struct accordion-wrapper" id="accordion_1" role="tablist" aria-multiselectable="true">
+      <div className="panel-group accordion-struct accordion-wrapper" id="2" role="tablist" aria-multiselectable="true">
         <Card>
           <div className="panel panel-default">
-            <div className="panel-heading activestate" role="tab" id="heading_1">
-              <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapse_1" aria-expanded="true">Product Price Member 1</a>
+            <div className="panel-heading activestate" role="tab" id="2">
+              <a role="button" data-toggle="collapse" data-parent="#2" href="#collapse_1" aria-expanded="true">Product Price Member 1</a>
             </div>
             <div id="collapse_1" className="panel-collapse collapse in" role="tabpanel">
               <div className="row">
@@ -173,10 +173,10 @@ const ProductPrice = () => {
         </Card>
         <Card>
           <div className="panel panel-default">
-            <div className="panel-heading activestate" role="tab" id="heading_1">
-              <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapse_1" aria-expanded="true">Product Price Member 1</a>
+            <div className="panel-heading activestate" role="tab" id="heading_2">
+              <a role="button" data-toggle="collapse" data-parent="#accordion_2" href="#collapse_2" aria-expanded="true">Product Price Member 1</a>
             </div>
-            <div id="collapse_1" className="panel-collapse collapse in" role="tabpanel">
+            <div id="collapse_2" className="panel-collapse collapse in" role="tabpanel">
               <div className="row">
                 <div className="col-sm-12">
                   <form action="#" className="form-horizontal">
