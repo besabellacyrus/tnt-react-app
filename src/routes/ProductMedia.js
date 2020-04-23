@@ -224,11 +224,27 @@ const ProductMedia = (props) => {
     setShowModal(true);
   }
 
+  const handleUploadResponse = (response) => {
+
+    setMedia(prev => [...prev, ...response]);
+    let displayArray = JSON.parse(JSON.stringify(response));
+    let bannerArray = JSON.parse(JSON.stringify(response));
+    let thumbnailArray = JSON.parse(JSON.stringify(response));
+
+    const thumb = thumbnailArray.filter(e => e.collection_name === 'product-thumbnail');
+    const banner = bannerArray.filter(e => e.collection_name === 'product-banner');
+    const display = displayArray.filter(e => e.collection_name === 'product-display');
+
+    setThumbnail(Helper.appImage(thumb[0]));
+    setBanner(Helper.appImage(banner[0]));
+    setDisplay(Helper.appImage(display[0]));
+  }
+
   return (
     <React.Fragment>
       <Suspense fallback={<div>Loading...</div>}>
         <ImageUploadModal show={showModal} close={handleModalClose}>
-          <MediaModalContent openFrom={openFrom} productId={props.productId} />
+          <MediaModalContent uploadResponse={handleUploadResponse} openFrom={openFrom} productId={props.productId} />
         </ImageUploadModal>
         <Card subTitle="Product Media">
           <div className="row">

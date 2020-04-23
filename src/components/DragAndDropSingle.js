@@ -50,8 +50,8 @@ const DragAndDrop = (props) => {
       <input className="single-drop" {...getInputProps()} />
       {
         isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
+          <p>Drop the file here ...</p> :
+          <p>Drag 'n' drop some file here, or click to select file</p>
       }
     </div>
   )

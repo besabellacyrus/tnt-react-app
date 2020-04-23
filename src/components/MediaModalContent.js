@@ -5,6 +5,7 @@ import { useDropzone } from 'react-dropzone';
 import { AppPostFile, apiUrl, AppGet } from '../api';
 import Helper from '../helper';
 import moment from 'moment';
+import DragAndDropMultiple from './DragAndDropMultiple';
 
 const MediaModalContent = (props) => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -36,7 +37,7 @@ const MediaModalContent = (props) => {
       uiImages.push(
         <div className="file-item" key={index} onClick={handleImageSelect}>
           <img src={imageUrl} data-file-size={e.size} data-created-at={e.created_at} />
-          <SelectType handleSelect={handleTypeChange} />
+          <SelectType selected={Helper.imageNameParse(e.name)} handleSelect={handleTypeChange} />
         </div>
       )
     });
@@ -68,7 +69,7 @@ const MediaModalContent = (props) => {
     let formData = new FormData();
     acceptedFiles.forEach((file, index) => {
       // req.attach('files', file);
-      formData.append(`image_types[${index}]`, imageNameParse(file.name));
+      formData.append(`image_types[${index}]`, Helper.imageNameParse(file.name));
       formData.append('images' + index, file);
     });
     formData.append('product_id', props.productId);
@@ -91,7 +92,7 @@ const MediaModalContent = (props) => {
 
   useEffect(() => {
     getProductMedia();
-  }, [])
+  }, []);
 
   const getProductMedia = () => {
     AppGet('/api/media/' + props.productId)
@@ -113,26 +114,11 @@ const MediaModalContent = (props) => {
     });
   }
 
-  const imageNameParse = (img) => {
-    const removedExt = img.replace(/\.[^/.]+$/, "");
-    const splitt = removedExt.split('_');
-    if (splitt.includes('d')) {
-      return 'display';
-    }
-    if (splitt.includes('thumbnail')) {
-      return 'thumbnail';
-    }
-    if (splitt.includes('1920')) {
-      return 'banner';
-    }
-    if (splitt.includes('display')) {
-      return 'display';
-    }
-    return 'none';
-  }
-
-  const handleSubmit = () => {
-    // console.log({ submit: tobeUploaded })
+  const handleUploadResponse = (response) => {
+    console.log({ response })
+    setImageFiles(prev => [...prev, ...response]);
+    setSelectedTab(1);
+    props.uploadResponse(response)
   }
 
   return (
@@ -145,16 +131,8 @@ const MediaModalContent = (props) => {
               <Tab>Media Library</Tab>
             </TabList>
             <TabPanel>
-
               <div className="media-dropzone">
-                <div {...getRootProps()}>
-                  <input {...getInputProps()} />
-                  {
-                    isDragActive ?
-                      <p>Drop the files here ...</p> :
-                      <p>Drag 'n' drop some files here, or click to select files</p>
-                  }
-                </div>
+                <DragAndDropMultiple productId={props.productId} uploadResponse={handleUploadResponse} />
               </div>
             </TabPanel>
             <TabPanel>
