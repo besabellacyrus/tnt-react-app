@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SelectType from '../components/SelectType';
-import { useDropzone } from 'react-dropzone'
+import { useDropzone } from 'react-dropzone';
 import { AppPostFile, apiUrl, AppGet } from '../api';
 import Helper from '../helper';
 import moment from 'moment';
@@ -18,8 +18,19 @@ const MediaModalContent = (props) => {
   }
 
   useEffect(() => {
+
+    if (props.openFrom === 'media') {
+      setSelectedTab(1);
+    } else {
+      setSelectedTab(0);
+    }
+
+  }, [props]);
+
+  useEffect(() => {
     let uiImages = [];
     console.log({ imageFiles });
+
     imageFiles.forEach((e, index) => {
       const imageUrl = apiUrl + `/storage/${e.id}/${e.file_name}`;
       uiImages.push(

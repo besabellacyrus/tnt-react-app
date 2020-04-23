@@ -15,7 +15,7 @@
 @import 'vendors/bower_components/FooTable/compiled/footable.bootstrap.min.css';
 @import 'vendors/bower_components/switchery/dist/switchery.min.css';
 @import 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css';
-/* @import 'vendors/dropify-multiple/dist/css/dropify-multiple.min.css'; */
+@import 'vendors/dropify-multiple/dist/css/dropify-multiple.min.css';
 @import 'vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css';
 @import 'styles/fixed-width-light/css/style.css';
 

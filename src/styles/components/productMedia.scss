@@ -3,7 +3,7 @@
 }
 
 .main-display-image {
-  border: 1px solid #e3e3e3;
+  // border: 1px solid #e3e3e3;
 }
 
 ul.labels {
@@ -13,4 +13,57 @@ ul.labels {
   line-height: 1;
   width: 27rem;
   padding-left: 1rem;
+}
+
+.thumbnail-wrapper {
+  & > div {
+    display: grid;
+    height: 18rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:focus {
+      // outline:none;
+    }
+    .drag-n-drop-img {
+      height: 17rem;
+      width: 100%;
+    }
+  }
+}
+
+.main-display-image {
+  & > div {
+    display: grid;
+    height: 18rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .drag-n-drop-img {
+      height: 17rem;
+      width: 100%;
+    }
+  }
+}
+
+.single-drop {
+  padding: 1rem;
+}
+
+.banner-image {
+  & > div {
+    display: grid;
+    grid-template-rows: 1fr;
+    height: 8rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &:focus {
+      // outline:none;
+    }
+    .drag-n-drop-img {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }

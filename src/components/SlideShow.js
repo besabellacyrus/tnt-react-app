@@ -26,7 +26,7 @@ const SlideShow = (props) => {
       >
         {
           props.productImages.map((e, index) => (
-            <div className="item"><img src={Helper.appImage(e)} key={e.id} alt="" /></div>
+            <div className="item" key={e.id}><img src={Helper.appImage(e)} alt="" /></div>
           ))
         }
       </OwlCarousel>
