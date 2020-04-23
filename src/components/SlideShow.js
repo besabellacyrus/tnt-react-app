@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Helper from '../helper';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../styles/components/slideShow.scss";
 
 const SlideShow = (props) => {
   const [images, setImages] = useState([]);
@@ -18,31 +19,22 @@ const SlideShow = (props) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 5,
     slidesToScroll: 1
   };
 
   return (
-    <Slider {...settings}>
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-      <div>
-        <h3>4</h3>
-      </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
-      </div>
-    </Slider>
+    <div className="slick-wrapper">
+      <Slider {...settings}>
+        {
+          images.map((e, indx) => (
+            <div key={indx}>
+              <img src={Helper.appImage(e)} />
+            </div>
+          ))
+        }
+      </Slider>
+    </div>
   )
 }
 

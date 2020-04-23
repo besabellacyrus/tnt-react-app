@@ -1,0 +1,13 @@
+.slick-wrapper {
+  margin-bottom: 2rem;
+  .slick-list {
+    height: 7rem;
+    .slick-slide {
+      padding: 0.1rem;
+    }
+    .slick-slide img {
+      height: 8rem;
+      width: 100%;
+    }
+  }
+}
