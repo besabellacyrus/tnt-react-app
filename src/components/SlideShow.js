@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import OwlCarousel from 'react-owl-carousel';
+import React, { useEffect, useState } from 'react';
+import Slider from "react-slick";
 import Helper from '../helper';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const SlideShow = (props) => {
   const [images, setImages] = useState([]);
@@ -14,23 +14,35 @@ const SlideShow = (props) => {
     }
   });
 
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
-    <div className="slide-show">
-      <OwlCarousel
-        className="owl-theme"
-        loop
-        margin={10}
-        nav
-        dots={false}
-        items={5}
-      >
-        {
-          props.productImages.map((e, index) => (
-            <div className="item" key={e.id}><img src={Helper.appImage(e)} alt="" /></div>
-          ))
-        }
-      </OwlCarousel>
-    </div>
+    <Slider {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider>
   )
 }
 
