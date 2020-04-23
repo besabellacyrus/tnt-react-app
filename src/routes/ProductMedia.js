@@ -11,6 +11,7 @@ import SelectType from '../components/SelectType';
 import '../styles/components/productMedia.scss'
 import MediaModalContent from '../components/MediaModalContent';
 import DragAndDropSingle from '../components/DragAndDropSingle';
+import FancyBox from '../components/FancyBox';
 
 window.jQuery = $;
 window.$ = $;
@@ -29,6 +30,11 @@ const ProductMedia = (props) => {
   const [processedImages, setProccessedImages] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [openFrom, setOpenFrom] = useState("");
+  const [thumbnail, setThumbnail] = useState(null);
+  const [banner, setBanner] = useState(null);
+  const [display, setDisplay] = useState(null);
+  const [uiThumb, setUiThumb] = useState("");
+  const [media, setMedia] = useState([]);
 
   const clickEvent = new MouseEvent("click", {
     "view": window,
@@ -41,11 +47,7 @@ const ProductMedia = (props) => {
     getMedia();
   }, []);
 
-  const [thumbnail, setThumbnail] = useState(null);
-  const [banner, setBanner] = useState(null);
-  const [display, setDisplay] = useState(null);
-  const [uiThumb, setUiThumb] = useState("");
-  const [media, setMedia] = useState([]);
+
 
   const getMedia = () => {
     AppGet('/api/media/' + props.productId)
@@ -225,12 +227,12 @@ const ProductMedia = (props) => {
   }
 
   const handleUploadResponse = (response) => {
-
     setMedia(prev => [...prev, ...response]);
     let displayArray = JSON.parse(JSON.stringify(response));
     let bannerArray = JSON.parse(JSON.stringify(response));
     let thumbnailArray = JSON.parse(JSON.stringify(response));
 
+    console.log({ responseFromPM: response, media });
     const thumb = thumbnailArray.filter(e => e.collection_name === 'product-thumbnail');
     const banner = bannerArray.filter(e => e.collection_name === 'product-banner');
     const display = displayArray.filter(e => e.collection_name === 'product-display');
@@ -262,6 +264,7 @@ const ProductMedia = (props) => {
                   <label className="col-sm-3 text-right">Product Images</label>
                   <div className="col-sm-9">
                     <SlideShow productImages={productImages} />
+                    {/* <FancyBox images={productImages} /> */}
                     {/* <input type="file" onChange={handleFileChange} ref={multiImages} class="dropify" data-max-file-size="3M" multiple /> */}
                     <button onClick={handleMultipleUpload} className="btn app-btn btn-primary btn-icon left-icon mt-10 free-width">
                       <i className="fa fa-paperclip"></i> <span>Multiple Upload</span>

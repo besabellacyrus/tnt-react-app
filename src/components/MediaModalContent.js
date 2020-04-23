@@ -26,7 +26,7 @@ const MediaModalContent = (props) => {
       setSelectedTab(0);
     }
 
-  }, [props]);
+  }, [props.openFrom]);
 
   useEffect(() => {
     let uiImages = [];

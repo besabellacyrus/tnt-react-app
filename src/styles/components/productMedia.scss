@@ -16,32 +16,34 @@ ul.labels {
 }
 
 .thumbnail-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 20rem;
   & > div {
-    display: grid;
-    height: 18rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    &:focus {
-      // outline:none;
-    }
+    // display: grid;
     .drag-n-drop-img {
-      height: 17rem;
-      width: 100%;
+      height: 250px;
+      width: 250px;
     }
   }
 }
 
 .main-display-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 361px;
   & > div {
     display: grid;
-    height: 18rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     .drag-n-drop-img {
-      height: 17rem;
-      width: 100%;
+      display: block;
+      max-width: 445px;
+      max-height: 600px;
+      width: auto;
+      height: auto;
     }
   }
 }
@@ -51,19 +53,20 @@ ul.labels {
 }
 
 .banner-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 156px;
   & > div {
     display: grid;
     grid-template-rows: 1fr;
-    height: 8rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    &:focus {
-      // outline:none;
-    }
     .drag-n-drop-img {
-      height: 100%;
-      width: 100%;
+      display: block;
+      max-width: 445px;
+      max-height: 156px;
+      width: auto;
+      height: auto;
     }
   }
 }
