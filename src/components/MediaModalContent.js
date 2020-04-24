@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import SelectType from '../components/SelectType';
 import { useDropzone } from 'react-dropzone';
-import { AppPostFile, apiUrl, AppGet } from '../api';
+import { AppPostFile, apiUrl, AppGet, AppPost } from '../api';
 import Helper from '../helper';
 import moment from 'moment';
 import DragAndDropMultiple from './DragAndDropMultiple';
@@ -35,7 +35,8 @@ const MediaModalContent = (props) => {
     imageFiles.forEach((e, index) => {
       const imageUrl = apiUrl + `/storage/${e.id}/${e.file_name}`;
       uiImages.push(
-        <div className="file-item" key={index} onClick={handleImageSelect}>
+        <div className="file-item" key={index} data-prod-id={e.id} data-collection-name={e.collection_name} onClick={handleImageSelect}>
+          <input className="delete-checkbox" type="checkbox" />
           <img src={imageUrl} data-file-size={e.size} data-created-at={e.created_at} />
           <SelectType selected={Helper.imageNameParse(e.name)} handleSelect={handleTypeChange} />
         </div>
@@ -45,7 +46,9 @@ const MediaModalContent = (props) => {
   }, [imageFiles]);
 
   const handleImageSelect = (e) => {
+
     const fileItems = document.querySelectorAll('.file-item');
+
     fileItems.forEach(e => {
       if (e.classList.contains('active')) {
         e.classList.remove('active');
@@ -57,11 +60,13 @@ const MediaModalContent = (props) => {
     selected.classList.add('active');
 
     setImageDetails({
-      width: selected.children[0].naturalWidth,
-      height: selected.children[0].naturalHeight,
-      image_size: `${selected.children[0].naturalWidth} x ${selected.children[0].naturalHeight}`,
-      file_size: Helper.formatBytes(selected.children[0].getAttribute('data-file-size')),
-      created_at: moment(selected.children[0].getAttribute('data-created-at')).format('LLL')
+      id: selected.getAttribute('data-prod-id'),
+      collection_name: selected.getAttribute('data-collection-name'),
+      width: selected.children[1].naturalWidth,
+      height: selected.children[1].naturalHeight,
+      image_size: `${selected.children[1].naturalWidth} x ${selected.children[1].naturalHeight}`,
+      file_size: Helper.formatBytes(selected.children[1].getAttribute('data-file-size')),
+      created_at: moment(selected.children[1].getAttribute('data-created-at')).format('LLL')
     })
   }
 
@@ -121,6 +126,25 @@ const MediaModalContent = (props) => {
     props.uploadResponse(response)
   }
 
+  const handleSingleDelete = ({ id, collection_name }) => {
+    console.log({ id })
+    const product = {
+      product_id: props.productId,
+      image_id: id,
+      collection_name: collection_name
+    }
+
+    AppPost('/api/media_delete', { ...product })
+      .then(res => {
+        console.log({ res })
+        if (res.data.delete) {
+          setImageFiles(imageFiles.filter(e => e.id !== id));
+        }
+      }).catch(err => {
+        console.log({ err })
+      })
+  }
+
   return (
     <div className="row">
       <div className="media-modal-content">
@@ -151,9 +175,8 @@ const MediaModalContent = (props) => {
                     <p>File size: {imageDetails.file_size}</p>
                     <p>Image size: {imageDetails.image_size}</p>
                     <hr></hr>
-                    {/* <span>Delete permanently</span> */}
                     <div className="delete-btn-lower">
-                      <span>delete permanently</span>
+                      <span onClick={handleSingleDelete.bind(null, { id: imageDetails.id, collection_name: imageDetails.collection_name })}>delete permanently</span>
                     </div>
                   </div>
                 </div>
