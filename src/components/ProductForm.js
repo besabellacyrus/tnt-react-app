@@ -27,6 +27,20 @@ const ProductForm = (props) => {
   let types = []
   let categories = []
 
+  useEffect(() => {
+    console.log('pppppp');
+    // let txt;
+    // var r = confirm("Do you want to save to proceed?");
+    // if (r == true) {
+    //   txt = "You pressed OK!";
+    //   handleSubmit();
+    // } else {
+    //   txt = "You pressed Cancel!";
+    // }
+    handleSubmit();
+
+  }, [props.pushSave])
+
 
   let isDisabled = saving ? { disabled: 'disabled' } : {};
 

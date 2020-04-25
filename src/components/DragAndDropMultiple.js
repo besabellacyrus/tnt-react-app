@@ -14,9 +14,9 @@ const DragAndDropMultiple = (props) => {
     });
     formData.append('product_id', props.productId);
     formData.append('TotalImages', acceptedFiles.length);
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1]);
+    // }
     AppPostFile('/api/multiple_image', formData)
       .then(res => {
         console.log({ res });

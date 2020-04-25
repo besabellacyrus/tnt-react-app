@@ -26,7 +26,7 @@ const ProductMedia = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [itemActive, setItemActive] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const [imageDetails, setImageDetails] = useState({});
+  let [imageDetails, setImageDetails] = useState({});
   const [processedImages, setProccessedImages] = useState([]);
   const [productImages, setProductImages] = useState([]);
   const [openFrom, setOpenFrom] = useState("");

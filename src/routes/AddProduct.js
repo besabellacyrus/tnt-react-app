@@ -6,6 +6,7 @@ import ProductDateInfo from "../components/product/ProductDateInfo";
 import ProductDateOfferSpecial from "../components/product/ProductDateOfferSpecial";
 import ProductEditForm from "../routes/ProductEditForm";
 import NavigationWithBack from "../components/NavigationWithBack";
+import AppDialog from "../components/AppDialog";
 
 import { AppGet } from '../api'
 
@@ -15,6 +16,7 @@ const Product = (props) => {
   const [brands, setBrands] = useState([]);
   const [types, setTypes] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [pushSave, setPushSave] = useState(false);
 
   console.log({ params: params.productId })
 
@@ -77,13 +79,23 @@ const Product = (props) => {
   if (urlPath === 'product') {
     FormUi = <ProductEditForm productData={productData} brands={brands} categories={categories} types={types} />
   } else {
-    FormUi = <ProductForm productData={productData} brands={brands} categories={categories} types={types} />
+    FormUi = <ProductForm pushSave={pushSave} productData={productData} brands={brands} categories={categories} types={types} />
   }
-
+  const handlePushSave = () => {
+    // var r = confirm("Do you want to save to proceed?");
+    // if (r == true) {
+    //   setPushSave(true);
+    // } else {
+    //   console.log('dont push save');
+    // }
+  }
 
   return (
     <React.Fragment>
-      <ProductNav />
+      <AppDialog>
+        <h3>Hello</h3>
+      </AppDialog>
+      <ProductNav pushSave={handlePushSave} />
       <div className="mt-20">
         <div id="product_info" className="tab-pane fade active in" role="tabpanel">
           <div className="row">

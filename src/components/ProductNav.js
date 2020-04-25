@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import NavigationWithBack from './NavigationWithBack';
 
-const ProductNav = () => {
+const ProductNav = (props) => {
   const history = useHistory();
 
   const handleBackBtn = () => {
@@ -14,15 +14,17 @@ const ProductNav = () => {
     console.log({ href: window.location.href.split('/')[3] })
     if (window.location.href.split('/')[3] !== 'add-product') {
       history.push('add-product-media');
+    } else {
+      props.pushSave();
     }
   }
 
   const handleNavProdInfo = () => {
-     console.log({ url: window.location.href.split('/')[3]})
+    console.log({ url: window.location.href.split('/')[3] })
   }
 
   const isTabActive = (path) => {
-    console.log({ ssss: Array.isArray(path)})
+    console.log({ ssss: Array.isArray(path) })
     if (Array.isArray(path)) {
       const paths = path.filter(e => e === window.location.href.split('/')[3])
       console.log({ paths })

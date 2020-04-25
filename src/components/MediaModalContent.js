@@ -9,9 +9,8 @@ import DragAndDropMultiple from './DragAndDropMultiple';
 
 const MediaModalContent = (props) => {
   const [selectedTab, setSelectedTab] = useState(0);
-  const [imageFiles, setImageFiles] = useState([]);
+  let [imageFiles, setImageFiles] = useState([]);
   const [tobeUploaded, setTobeUploaded] = useState(null);
-  const [uiImages, setUiImages] = useState([])
   const [imageDetails, setImageDetails] = useState({});
 
   const handleTypeChange = (type) => {
@@ -29,20 +28,7 @@ const MediaModalContent = (props) => {
   }, [props.openFrom]);
 
   useEffect(() => {
-    let uiImages = [];
-    console.log({ imageFiles });
-
-    imageFiles.forEach((e, index) => {
-      const imageUrl = apiUrl + `/storage/${e.id}/${e.file_name}`;
-      uiImages.push(
-        <div className="file-item" key={index} data-prod-id={e.id} data-collection-name={e.collection_name} onClick={handleImageSelect}>
-          <input className="delete-checkbox" type="checkbox" />
-          <img src={imageUrl} data-file-size={e.size} data-created-at={e.created_at} />
-          <SelectType selected={Helper.imageNameParse(e.name)} handleSelect={handleTypeChange} />
-        </div>
-      )
-    });
-    setUiImages(uiImages);
+    console.log({ isupdated: imageFiles });
   }, [imageFiles]);
 
   const handleImageSelect = (e) => {
@@ -136,9 +122,10 @@ const MediaModalContent = (props) => {
 
     AppPost('/api/media_delete', { ...product })
       .then(res => {
-        console.log({ res })
         if (res.data.delete) {
-          setImageFiles(imageFiles.filter(e => e.id !== id));
+          let filtered = imageFiles.filter(e => e.id !== id)
+          setImageFiles(res.data.product.media);
+          console.log({ id, filtered, imageFiles });
         }
       }).catch(err => {
         console.log({ err })
@@ -167,7 +154,15 @@ const MediaModalContent = (props) => {
                 <div className="row">
                   <div className="col-sm-9">
                     <div className="files-wrapper">
-                      {uiImages}
+                      {
+                        imageFiles.map((e, index) => (
+                          <div className="file-item" key={index} data-prod-id={e.id} data-collection-name={e.collection_name} onClick={handleImageSelect}>
+                            <input className="delete-checkbox" type="checkbox" />
+                            <img src={apiUrl + `/storage/${e.id}/${e.file_name}`} data-file-size={e.size} data-created-at={e.created_at} />
+                            <SelectType selected={Helper.imageNameParse(e.name)} handleSelect={handleTypeChange} />
+                          </div>
+                        ))
+                      }
                     </div>
                   </div>
                   <div className="col-sm-3 right-pane">

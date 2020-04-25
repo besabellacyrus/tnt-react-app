@@ -20,16 +20,22 @@ export default function LeftSidebar (props) {
           <a className="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div className="pull-left"><i className="fa fa-sitemap mr-20"></i><span className="right-nav-text">Items and Inventory</span></div><div className="pull-right"><i className="zmdi zmdi-caret-down"></i></div><div className="clearfix"></div></a>
           <ul id="dashboard_dr" className="left-sidebar-wrapper collapse collapse-level-1">
             <li>
-              <a onClick={goTo.bind(null, '/products')}>Products</a>
+              {/* <a onClick={goTo.bind(null, '/products')}>Products</a> */}
+              <Link to="/products">Products</Link>
             </li>
             <li>
-              <a onClick={goTo.bind(null, '/featured-products')}>Featured Products</a>
+              {/* <a onClick={goTo.bind(null, '/featured-products')}>Featured Products</a> */}
+              <Link to="/featured-products">Featured Products</Link>
+
             </li>
             <li>
-              <a onClick={goTo.bind(null, '/special-deals')}>Special Deals</a>
+              {/* <a onClick={goTo.bind(null, '/special-deals')}>Special Deals</a> */}
+              <Link to="/special-deals">Special Deals</Link>
+
             </li>
             <li>
-              <a onClick={goTo.bind(null, '/product-inventory')}>Product Inventory</a>
+              {/* <a onClick={goTo.bind(null, '/product-inventory')}>Product Inventory</a> */}
+              <Link to="/product-inventory">Product Inventory</Link>
             </li>
           </ul>
         </li>
